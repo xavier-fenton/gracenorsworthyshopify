@@ -24,22 +24,28 @@
     {{ 'style.css' | asset_url | stylesheet_tag }}
     {{ '//http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js' | script_tag }}
   </head>
+
   <body id="{{ page_title | handle }}" class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">
+
     <div>
       <a href="/cart">{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})</a>
       <a href="/cart">Check out</a>
     </div>
-    <h1>
-      <a href="/">{{ shop.name }}</a>
-    </h1><div>
-    {{ images['orswologo.jpg'] | image_url: width: 300 | image_tag }}</div>
+
     <ul>
       {% for link in linklists.main-menu.links %}
-        <li>
+        <div>
           <a href="{{ link.url }}">{{ link.title }}</a>
-        </li>
+        </div>
       {% endfor %}
     </ul>
+
+    {% comment %} <h1>
+    <a href="/">{{ shop.name }}</a>
+    </h1> {% endcomment %}
+
+    <a href="/">
+      {{ images['orswologo.jpg'] | image_url: width: 300 | image_tag }}</a>
     {{ content_for_layout }}
     {{ 'shop.js' | asset_url | script_tag }}
   </body>
