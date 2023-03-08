@@ -28,17 +28,17 @@
   <body id="{{ page_title | handle }}" class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">
 
     <div style="
-                    padding-left: 10px;
-                    padding-top: 10px;
-                ">
+                                    padding-left: 10px;
+                                    padding-top: 10px;
+                                ">
       <a href="/cart">{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})</a>
       <a href="/cart">Check out</a>
     </div>
 
     <ul style="
-            padding-left: 10px;
-            
-        ">
+                            padding-left: 10px;
+                            
+                        ">
       {% for link in linklists.main-menu.links %}
         <div>
           <a href="{{ link.url }}">{{ link.title }}</a>
@@ -49,9 +49,10 @@
     {% comment %} <h1>
     <a href="/">{{ shop.name }}</a>
     </h1> {% endcomment %}
-
-    <a href="/">
-      {{ images['orswologo.jpg'] | image_url: width: 300 | image_tag }}</a>
+    <div class="orswo-logo-image">
+      <a href="/">
+        {{ images['orswologo.jpg'] | image_url: width: 300 | image_tag }}</a>
+    </div>
     {{ content_for_layout }}
     {{ 'shop.js' | asset_url | script_tag }}
   </body>
