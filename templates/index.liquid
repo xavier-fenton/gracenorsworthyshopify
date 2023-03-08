@@ -6,17 +6,18 @@
   <div class="column">
     {% for product in collection.products %}
       <div class="items">
-        <h3>
-          <a href="{{ product.url }}">{{ product.title }}</a>
-        </h3>
-        
+        {% comment %} <h3>
+        <a href="{{ product.url }}">{{ product.title }}</a>
+        </h3> {% endcomment %}
+
         <a href="{{ product.url }}">
-        <img
-          alt="{{ product.alt }}"
-          src="{{ product.media[0] | image_url }}"
-          width="300"
-          height="300"
-          loading="lazy" /></a></div>
+          <img
+            alt="{{ product.alt }}"
+            src="{{ product.media[0] | image_url }}"
+            width="300"
+            height="300"
+            loading="lazy" /></a>
+      </div>
     {% else %}
       <p>You have no products in your Frontpage collection</p>
       <a href="/">
