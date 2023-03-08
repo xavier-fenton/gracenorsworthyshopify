@@ -1,21 +1,30 @@
 {% assign page = pages.frontpage %}
 {{ page.content }}
 {% assign collection = collections.frontpage %}
-{% for product in collection.products %}
-  <h2>
-    <a href="{{ product.url }}">{{ product.title }}</a>
-  </h2>
-  {{ product.description }}
 
-  <img
-    alt="{{ product.alt }}"
-    src="{{ product.media[0] | image_url }}"
-    width="300"
-    height="300"
-    loading="lazy" />
+<div class="product-wrapper">
+  <div class="column">
+    {% for product in collection.products %}
+      <div class="items">
+        <h3>
+          <a href="{{ product.url }}">{{ product.title }}</a>
+        </h3>
+        
+        <a href="{{ product.url }}">
+        <img
+          alt="{{ product.alt }}"
+          src="{{ product.media[0] | image_url }}"
+          width="300"
+          height="300"
+          loading="lazy" /></a></div>
+    {% else %}
+      <p>You have no products in your Frontpage collection</p>
+      <a href="/">
+        Click me to go back :
 
-{% else %}
-  <p>You have no products in your Frontpage collection</p>
-  {{ images['IMG_1419.jpg'] | image_url: width: 300 | image_tag }}
+        {{ images['IMG_1419.jpg'] | image_url: width: 300 | image_tag }}
+      </a>
+    </div>
+  </div>
 
 {% endfor %}
