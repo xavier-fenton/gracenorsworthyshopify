@@ -1,5 +1,11 @@
+:root {
+  --pdn: 10px
+}
+
 body {
-  padding: 0 !important;
+
+  ;
+  /* padding: var(--pdn) !important; */
 
 }
 
@@ -45,6 +51,15 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
   display: flex;
   align-items: center;
   gap: 2px;
-  padding-left: 10px;
-  padding-top: 10px;
+  padding-left: var(--pdn);
+  padding-top: var(--pdn);
+}
+
+
+/* NAV LINKS */
+
+.nav-links {
+  display: flex;
+  padding-left: var(--pdn);
+  justify-content: space-around;
 }
