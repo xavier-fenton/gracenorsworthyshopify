@@ -1,6 +1,6 @@
 body {
   padding: 0 !important;
- 
+
 }
 
 a:link {
@@ -11,7 +11,7 @@ a:link {
 /* PRODUCTS HOME PAGE */
 .product-wrapper {
   display: flex;
-  
+
 
 }
 .column {
@@ -20,4 +20,31 @@ a:link {
 }
 .items {
   padding: 20px;
+}
+
+/* CART SECTION */
+
+.my-cart__items {
+  opacity: 1;
+  transition: opacity 0.2s;
+}
+body.js-ajax-cart-request-in-progress .my-cart__items {
+  opacity: .7;
+}
+
+.my-floating-cart {
+  display: none;
+}
+
+/* Show the floating cart if the 'js-my-cart-open' CSS class exists */
+.js-my-cart-open .my-floating-cart {
+  display: block;
+}
+
+.my-cart-icon {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding-left: 10px;
+  padding-top: 10px;
 }
