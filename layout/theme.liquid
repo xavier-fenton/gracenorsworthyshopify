@@ -31,14 +31,14 @@
     <script type="module">
       import { subscribeToCartSectionsUpdate } from '{{ "liquid-ajax-cart-v1.10.3.js" | asset_url }}'
       subscribeToCartSectionsUpdate( sections => {
-                                                                                                                                        console.log('Sections are updated: ', sections);
-                                                                                                                                        // Place your code here
-                                                                                                                                      });
+                                                                                                                                              console.log('Sections are updated: ', sections);
+                                                                                                                                              // Place your code here
+                                                                                                                                            });
     </script>
     <script type="application/json" data-ajax-cart-configuration>
       {
       "addToCartCssClass": "js-my-cart-open"
-                                                                                      }
+                                                                                            }
     </script>
 
     <script type="module">
@@ -81,10 +81,7 @@
     <a href="/cart">Check out</a>
     </div> {% endcomment %}
 
-    <ul style="
-                                                                                                                                                                                                                                    padding-left: 10px;
-                                                                                                                                                                                                                                    
-                                                                                                                                                                                                                                ">
+    <ul class="nav-links">
       {% for link in linklists.main-menu.links %}
         <div>
           <a href="{{ link.url }}">{{ link.title }}</a>
