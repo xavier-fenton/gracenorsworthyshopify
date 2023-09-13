@@ -1,8 +1,75 @@
+:root {
+  --pdn: 10px
+}
+
 body {
-  padding: 0 !important;
+
+  ;
+  /* padding: var(--pdn) !important; */
+
 }
 
 a:link {
   text-decoration: none;
   text-color: black;
+}
+
+/* PRODUCTS HOME PAGE */
+.product-wrapper {
+  display: flex;
+  justify-content: center;
+
+
+}
+.column {
+  display: flex !important;
+  -webkit-flex-wrap: wrap-reverse;
+}
+.items {
+  padding: 20px;
+}
+
+/* CART SECTION */
+
+.my-cart__items {
+  opacity: 1;
+  transition: opacity 0.2s;
+}
+body.js-ajax-cart-request-in-progress .my-cart__items {
+  opacity: .7;
+}
+
+.my-floating-cart {
+  display: none;
+}
+
+/* Show the floating cart if the 'js-my-cart-open' CSS class exists */
+.js-my-cart-open .my-floating-cart {
+  display: block;
+}
+
+.my-cart-icon {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding-left: var(--pdn);
+  padding-top: var(--pdn);
+}
+
+
+/* NAV LINKS */
+
+.nav-links {
+  display: flex;
+  padding-left: var(--pdn);
+  justify-content: space-around;
+}
+
+
+/* Main LOGO */
+
+.orswo-logo-image {
+  display: flex;
+  padding: 20px;
+  justify-content: center;
 }
