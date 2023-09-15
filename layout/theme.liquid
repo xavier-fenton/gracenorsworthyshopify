@@ -24,7 +24,7 @@
     {{ 'style.css' | asset_url | stylesheet_tag }}
     {{ '//http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js' | script_tag }}
 
-    <script type="application/json" data-ajax-cart-initial-state>
+    {% comment %} <script type="application/json" data-ajax-cart-initial-state>
       {{ cart | json }}
     </script>
 
@@ -43,15 +43,18 @@
 
     <script type="module">
       import '{{ "liquid-ajax-cart-v1.10.3.js" | asset_url }}';
-    </script>
+    </script> {% endcomment %}
   </head>
 
   <body id="{{ page_title | handle }}" class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">
-    <div class="my-floating-cart">
+    {% comment %} <div class="my-floating-cart">
       {% section 'my-cart' %}
-    </div>
+    </div> {% endcomment %}
   
-
+    <div>
+      <a href="/cart">{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})</a>
+      <a href="/cart">Check out</a>
+  </div>
     
 
     <ul class="nav-links">
