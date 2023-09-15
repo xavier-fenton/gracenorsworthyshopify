@@ -2,6 +2,7 @@
   --pdn: 10px
 }
 
+
 body {
 
   ;
@@ -18,6 +19,10 @@ a:link {
 .product-wrapper {
   display: flex;
   justify-content: center;
+  border: solid 1px black;
+  height: 100vh;
+  width: 100%;
+  background-color: blue;
 
 
 }
@@ -57,7 +62,15 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 }
 
 
-/* NAV LINKS */
+/* NAV Bar*/
+.header-cont-nav-cart {
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 1px;
+  border: solid 1px black;
+  background-color: #f9f8f6;
+}
 
 .nav-links {
   display: flex;
@@ -66,10 +79,20 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 }
 
 
+
 /* Main LOGO */
 
 .orswo-logo-image {
   display: flex;
   padding: 20px;
   justify-content: center;
+}
+
+/* Sperator */
+
+.home-seperator {
+  border: solid 1px black;
+  height: 100vh;
+  width: 100%;
+  background-color: blue;
 }

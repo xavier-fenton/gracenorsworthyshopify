@@ -50,23 +50,29 @@
     {% comment %} <div class="my-floating-cart">
       {% section 'my-cart' %}
     </div> {% endcomment %}
-  
-    <div>
-      <a href="/cart">{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})</a>
-      <a href="/cart">Check out</a>
-  </div>
     
-
-    <ul class="nav-links">
-      {% for link in linklists.main-menu.links %}
-        <div>
-          <a href="{{ link.url }}">{{ link.title }}</a>
+      
+      
+      <div class="header-cont-nav-cart">
+       
+        <ul class="nav-links">
+          {% for link in linklists.main-menu.links %}
+            <div>
+              <a href="{{ link.url }}">{{ link.title }}</a>
+              </div>
+            {% endfor %}
+            </ul> 
+            
+        <div class="cart-link">
+          <a href="/cart">{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})</a>
+          <a href="/cart">Check out</a>
         </div>
-      {% endfor %}
-    </ul>
-
+      </div>
     
-    {{ content_for_layout }}
+      <div class="home-seperator"></div>
+
+    {% comment %} This is where my products are coming from {% endcomment %}
+    {{ content_for_layout }} 
     {{ 'shop.js' | asset_url | script_tag }}
   </body>
 </html>
