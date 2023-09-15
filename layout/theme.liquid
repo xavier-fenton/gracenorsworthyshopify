@@ -47,39 +47,12 @@
   </head>
 
   <body id="{{ page_title | handle }}" class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">
-
     <div class="my-floating-cart">
       {% section 'my-cart' %}
     </div>
+  
 
-    <div class="my-cart-icon">
-      <a href="{{ routes.cart_url }}" data-ajax-cart-toggle-class-button="js-my-cart-open">
-        🛒
-      </a>
-      <div data-ajax-cart-bind-state="cart.item_count"><!-- Cart item count appears here -->
-      </div>
-
-      <!-- The best practice is to use [data-ajax-cart-bind-state] on top of Liquid expressions.
-      The liquid expression {{ cart.item_count }} displays the amount 
-      even if Liquid Ajax Cart is not loaded: -->
-      <div data-ajax-cart-bind-state="cart.item_count">
-        {{ cart.item_count }}
-      </div>
-
-      <!-- Use the "money_with_currency" formatter
-      to show money related values -->
-      <div data-ajax-cart-bind-state="cart.total_price | money_with_currency">
-        {{ cart.total_price | money_with_currency }}
-      </div>
-    </div>
-
-    {% comment %} <div style="
-    padding-left: 10px;
-    padding-top: 10px;
-    ">
-    <a href="/cart">{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})</a>
-    <a href="/cart">Check out</a>
-    </div> {% endcomment %}
+    
 
     <ul class="nav-links">
       {% for link in linklists.main-menu.links %}
@@ -89,13 +62,7 @@
       {% endfor %}
     </ul>
 
-    {% comment %} <h1>
-    <a href="/">{{ shop.name }}</a>
-    </h1> {% endcomment %}
-    <div class="orswo-logo-image">
-      <a href="/">
-        {{ images['orswologo.jpg'] | image_url: width: 300 | image_tag }}</a>
-    </div>
+    
     {{ content_for_layout }}
     {{ 'shop.js' | asset_url | script_tag }}
   </body>
