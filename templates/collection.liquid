@@ -1,9 +1,32 @@
 {% if collection.all_products_count > 0 %}
-{% for product in collection.products %}
-<h2><a href="{{ product.url }}">{{ product.title }}</a></h2>
-{{ product.description }}
-<img src="{{ product.featured_image | product_img_url: 'grande' }}" alt="{{ product.title | escape }}" />
-{% endfor %}
+
+
+  <div class="all-products">
+
+    {% for product in collection.products %}
+
+      <div class="product-card">
+
+
+        {{ product.description }}
+        <img
+          src="{{ product.featured_image | product_img_url: 'grande' }}"
+          alt="{{ product.title | escape }}"
+          width="300"
+          height="300"
+          loading="lazy" />
+        <p>
+          <a href="{{ product.url }}">{{ product.title }}</a>
+        </p>
+
+      </div>
+    {% endfor %}
+
+
+  </div>
+
+
+
 {% else %}
-<p>Sorry, there are no products in this collection</p>
+  <p>Sorry, there are no products in this collection</p>
 {% endif %}

@@ -25,68 +25,67 @@
     {{ '//http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js' | script_tag }}
 
     {% comment %} <script type="application/json" data-ajax-cart-initial-state>
-      {{ cart | json }}
+    {{ cart | json }}
     </script>
 
     <script type="module">
-      import { subscribeToCartSectionsUpdate } from '{{ "liquid-ajax-cart-v1.10.3.js" | asset_url }}'
-      subscribeToCartSectionsUpdate( sections => {
-                                                                                                                                              console.log('Sections are updated: ', sections);
-                                                                                                                                              // Place your code here
-                                                                                                                                            });
+    import { subscribeToCartSectionsUpdate } from '{{ "liquid-ajax-cart-v1.10.3.js" | asset_url }}'
+    subscribeToCartSectionsUpdate( sections => {
+    console.log('Sections are updated: ', sections);
+    // Place your code here
+    });
     </script>
     <script type="application/json" data-ajax-cart-configuration>
-      {
-      "addToCartCssClass": "js-my-cart-open"
-                                                                                            }
+    {
+    "addToCartCssClass": "js-my-cart-open"
+    }
     </script>
 
     <script type="module">
-      import '{{ "liquid-ajax-cart-v1.10.3.js" | asset_url }}';
-    </script> {% endcomment %}
-  </head>
+    import '{{ "liquid-ajax-cart-v1.10.3.js" | asset_url }}';
+    </script> {% endcomment %}</head>
 
   <body id="{{ page_title | handle }}" class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">
     {% comment %} <div class="my-floating-cart">
-      {% section 'my-cart' %}
+    {% section 'my-cart' %}
     </div> {% endcomment %}
-    
-      
-      
-      <div class="header-cont-nav-cart">
-       
-        <ul class="nav-links">
-          {% for link in linklists.main-menu.links %}
-            <div>
-              <a href="{{ link.url }}">{{ link.title }}</a>
-              </div>
-            {% endfor %}
-            </ul> 
-            
-        <div class="cart-link">
-          <a href="/cart">{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})</a>
-          <a href="/cart">Check out</a>
-        </div>
+
+
+
+    <div class="header-cont-nav-cart">
+
+      <ul class="nav-links">
+        {% for link in linklists.main-menu.links %}
+          <div>
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          </div>
+        {% endfor %}
+      </ul>
+
+      <div class="cart-link">
+        <a href="/cart">{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})</a>
+        <a href="/cart">Check out</a>
       </div>
-    
-      <div class="home-seperator"></div>
+    </div>
+
+    <div class="home-seperator"></div>
 
     {% comment %} This is where my products are coming from {% endcomment %}
     <div class="product-section">
       <div class="catergory-menu">
         <ul>
-          {% comment %} <a href="/collections/all"><p>All</p></a>
-          <p>Bracelets</p>
-          <p>Necklaces</p>
-          <p>Earings</p>
-          <p>Charms</p> {% endcomment %}
+
           {% for collection in collections %}
-            <p> {{- collection.title | link_to: collection.url }} </p>
+            <p>
+              {{- collection.title | link_to: collection.url }}
+            </p>
           {% endfor %}
 
         </ul>
       </div>
-      {{ content_for_layout }} 
+      {{ content_for_layout }}
+
+
 
     </div>
 
