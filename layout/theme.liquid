@@ -75,11 +75,14 @@
     <div class="product-section">
       <div class="catergory-menu">
         <ul>
-          <a href="/collections/all"><p>All</p></a>
+          {% comment %} <a href="/collections/all"><p>All</p></a>
           <p>Bracelets</p>
           <p>Necklaces</p>
           <p>Earings</p>
-          <p>Charms</p>
+          <p>Charms</p> {% endcomment %}
+          {% for collection in collections %}
+            <p> {{- collection.title | link_to: collection.url }} </p>
+          {% endfor %}
 
         </ul>
       </div>
