@@ -72,7 +72,21 @@
       <div class="home-seperator"></div>
 
     {% comment %} This is where my products are coming from {% endcomment %}
-    {{ content_for_layout }} 
+    <div class="product-section">
+      <div class="catergory-menu">
+        <ul>
+          <a href="/collections/all"><p>All</p></a>
+          <p>Bracelets</p>
+          <p>Necklaces</p>
+          <p>Earings</p>
+          <p>Charms</p>
+
+        </ul>
+      </div>
+      {{ content_for_layout }} 
+
+    </div>
+
     {{ 'shop.js' | asset_url | script_tag }}
   </body>
 </html>
