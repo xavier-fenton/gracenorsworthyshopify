@@ -1,0 +1,16 @@
+<ul class="nav-links">
+  {% for link in linklists.main-menu.links %}
+    <div>
+      <a href="{{ link.url }}">{{ link.title }}</a>
+    </div>
+  {% endfor %}
+</ul>
+{% if cart.item_count > 0 %}
+  <div class="cart-link">
+    <a href="/cart">{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})</a>
+    <a href="/cart">Check out</a>
+{% elsif cart.item_count < 0 %}
+
+  {% endif %}
+
+</div>
