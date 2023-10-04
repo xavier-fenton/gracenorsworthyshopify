@@ -1,13 +1,7 @@
-{% style %}
-  .shopify-section {
-    height: 100%; !important;
-    align-items: normal !important;
-    position: absolute;
-  }
-{% endstyle %}
+<div class="main-image">
+  {{ section.settings.image_1 | img_url: '2086x' | img_tag }}
 
-{{ section.settings.image_1 | img_url: '2086x' | img_tag }}
-
+</div>
 {% schema %}
   {
     "name": "Main Image",
@@ -16,6 +10,10 @@
         "type": "image_picker",
         "id": "image_1",
         "label": "Background Image"
+      }, {
+        "type": "image_picker",
+        "id": "image_2",
+        "label": "Image"
       }
     ],
     "presets": [

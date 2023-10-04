@@ -3,25 +3,16 @@
 }
 
 body {
-  padding-left: 20px;
-  padding-right: 20px;
-
-}
-/* 
-body {
-  animation: fadeInAnimation ease 3s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
+  
+overflow: hidden;
+margin: 0 !important;
 }
 
-@keyframes fadeInAnimation {
-  0% {
-      opacity: 0;
-  }
-  100% {
-      opacity: 1;
-   }
-} */
+::-webkit-scrollbar {
+  display: none;
+  
+}
+
 
 
 a {
@@ -106,51 +97,25 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 
 
 /* NAV Bar*/
-.header-cont-nav-cart {
-  /* display: flex;
-  align-items: center;
-  position: sticky;
-  top: 1px;
-  border: solid 1px black;
-  background-color: #f9f8f6;
-  width: 30%; */
-}
-
 .nav-links {
+  padding-top: 18px;
   font-family: 'Helvetica';
   display: flex;
-  gap: 10%;
+  gap: 13%;
   width: 100%;
 }
 
-.nav-links a{
-  text-transform: uppercase;
-}
 
-.nav-links a:hover{
-  text-transform: lowercase;
-}
-
-#Orswo {
-  cursor: pointer;
-}
-.shopify-section{
-  font-family: 'Helvetica';
-  gap: 3em;
-  display: flex;
-  width: 100%;
-  height: 3em;
-  align-items: center;
-
-}
 
 
 
 /* Main page */
-.main-home-image img{
- width: 100% !important; 
- height: 100% impot !important;
- display: block !important;
+.main-image{
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  z-index: -1;
+    
 }
 
 
