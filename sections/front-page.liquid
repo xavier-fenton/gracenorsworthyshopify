@@ -1,32 +1,31 @@
 <div>
   this is the front page
 </div>
+{{ section.settings.image_1 | img_url: '2048x' | img_tag }}
 
 {% schema %}
-{
-  "name": "Main Image",
-  "settings": [
-    {
-      "type": "image_picker",
-      "id": "image_1",
-      "label": "Image"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_2",
-      "label": "Image"
-    },
-    {
-      "type": "text",
-      "id": "title_text",
-      "label": "home-text"
-    }
-  ],
-  "presets": [
-    {
-      "name": " MainImage",
-      "category": "Content"
-    }
-  ]
-}
+  {
+    "name": "Main Image",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image_1",
+        "label": "Image"
+      }, {
+        "type": "image_picker",
+        "id": "image_2",
+        "label": "Image"
+      }, {
+        "type": "text",
+        "id": "title_text",
+        "label": "home-text"
+      }
+    ],
+    "presets": [
+      {
+        "name": " MainImage",
+        "category": "Content"
+      }
+    ]
+  }
 {% endschema %}
