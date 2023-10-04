@@ -2,3 +2,31 @@
   this is the front page
 </div>
 
+{% schema %}
+{
+  "name": "Main Image",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "title_text",
+      "label": "home-text"
+    }
+  ],
+  "presets": [
+    {
+      "name": " MainImage",
+      "category": "Content"
+    }
+  ]
+}
+{% endschema %}
