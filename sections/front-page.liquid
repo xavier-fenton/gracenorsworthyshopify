@@ -1,7 +1,12 @@
-<div>
-  this is the front page
-</div>
-{{ section.settings.image_1 | img_url: '2048x' | img_tag }}
+{% style %}
+  .shopify-section {
+    height: 100%; !important;
+    align-items: normal !important;
+    position: absolute;
+  }
+{% endstyle %}
+
+{{ section.settings.image_1 | img_url: '2086x' | img_tag }}
 
 {% schema %}
   {
@@ -10,15 +15,7 @@
       {
         "type": "image_picker",
         "id": "image_1",
-        "label": "Image"
-      }, {
-        "type": "image_picker",
-        "id": "image_2",
-        "label": "Image"
-      }, {
-        "type": "text",
-        "id": "title_text",
-        "label": "home-text"
+        "label": "Background Image"
       }
     ],
     "presets": [

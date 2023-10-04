@@ -146,13 +146,13 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 
 
 
-/* Main LOGO */
-
-.orswo-logo-image {
-  display: flex;
-  padding: 20px;
-  justify-content: center;
+/* Main page */
+.main-home-image img{
+ width: 100% !important; 
+ height: 100% impot !important;
+ display: block !important;
 }
+
 
 /* Sperator */
 /* 
