@@ -1,10 +1,20 @@
-<ul class="nav-links">
-  {% for link in linklists.main-menu.links %}
-    <div>
-      <a href="{{ link.url }}">{{ link.title }}</a>
-    </div>
-  {% endfor %}
-</ul>
+{% comment %} <script defer src="headerlink.js"></script> {% endcomment %}
+
+<div id="Orswo">Orswo</div>
+
+
+{% for link in linklists.main-menu.links %}
+  {% if link.title contains 'Orswo'%}
+  {% assign firstLink = link.title %}
+
+
+  <div>{{ firstLink }}</div>
+  {% comment %} <div>
+  <a href="{{ link.url }}" id="{{ link.title }}">{{ link.title }}</a>
+  </div> {% endcomment %}
+{% endfor %}
+
+
 {% if cart.item_count > 0 %}
   <div class="cart-link">
     <a href="/cart">{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})</a>

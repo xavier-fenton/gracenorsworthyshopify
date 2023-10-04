@@ -98,12 +98,18 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 
 /* NAV Bar*/
 .nav-links {
+<<<<<<< HEAD
   font-family: 'Open Sans';
   padding-top: 18px;
+=======
+  padding-top: 18px;
+  font-family: 'Helvetica';
+>>>>>>> 03b06df9818ac868dcf9597d8dd43dc2366b3210
   display: flex;
   gap: 13%;
   width: 100%;
 }
+<<<<<<< HEAD
 
 
 
@@ -124,3 +130,28 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
  }
 
 
+=======
+
+
+
+
+
+/* Main page */
+.main-image{
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  z-index: -1;
+    
+}
+
+
+/* Sperator */
+/* 
+.home-seperator {
+  border: solid 1px black;
+  height: 100vh;
+  width: 100%;
+  background-color: blue;
+} */
+>>>>>>> 03b06df9818ac868dcf9597d8dd43dc2366b3210
