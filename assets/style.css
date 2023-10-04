@@ -1,27 +1,21 @@
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
+
+
 :root {
   --pdn: 10px
 }
 
 body {
-  padding-left: 20px;
-  padding-right: 20px;
-
+  
+overflow: hidden;
+margin: 0 !important;
 }
 
-body {
-  animation: fadeInAnimation ease 3s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
+::-webkit-scrollbar {
+  display: none;
+  
 }
 
-@keyframes fadeInAnimation {
-  0% {
-      opacity: 0;
-  }
-  100% {
-      opacity: 1;
-   }
-}
 
 
 a {
@@ -36,7 +30,6 @@ a {
   position: relative;
   border: solid 1px black;
   width: 100%;
-  /* height: 100vh; */
   background-color: blue;
 
 }
@@ -59,8 +52,6 @@ a {
 }
 /* Shop Section that holds/displays all products */
 .all-products{
-  /* display: flex;
-  flex-direction: column; */
   display: grid;
     grid-template-columns: repeat(3,minmax(0,1fr));
     grid-column-gap: 2vw;
@@ -106,59 +97,30 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 
 
 /* NAV Bar*/
-.header-cont-nav-cart {
-  /* display: flex;
-  align-items: center;
-  position: sticky;
-  top: 1px;
-  border: solid 1px black;
-  background-color: #f9f8f6;
-  width: 30%; */
-}
-
 .nav-links {
-  font-family: 'Helvetica';
+  font-family: 'Open Sans';
+  padding-top: 18px;
   display: flex;
-  gap: 50%;
+  gap: 13%;
   width: 100%;
 }
 
-.nav-links a{
-  text-transform: uppercase;
-}
 
-.nav-links a:hover{
-  text-transform: lowercase;
-}
 
-#Orswo {
-  cursor: pointer;
-}
-.shopify-section{
-  font-family: 'Helvetica';
-  gap: 3em;
-  display: flex;
+
+
+/* Main page */
+.main-image{
+  position: absolute;
   width: 100%;
-  height: 3em;
-  align-items: center;
-
+  top: 0px;
+  z-index: -1;
+    
 }
 
+.title-image{
+  -webkit-filter: sepia(100%) hue-rotate(90deg) saturate(400%);
+  filter: sepia(100%) hue-rotate(90deg) saturate(400%);
+ }
 
 
-/* Main LOGO */
-
-.orswo-logo-image {
-  display: flex;
-  padding: 20px;
-  justify-content: center;
-}
-
-/* Sperator */
-
-.home-seperator {
-  border: solid 1px black;
-  height: 100vh;
-  width: 100%;
-  background-color: blue;
-}
