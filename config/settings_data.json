@@ -1,4 +1,21 @@
 {
   "current": {
+    "sections": {
+      "main-header": {
+        "type": "main-header",
+        "settings": {
+        }
+      },
+      "front-page": {
+        "type": "front-page",
+        "settings": {
+          "image_1": "shopify:\/\/shop_images\/HomePageImage.jpg",
+          "title_text": ""
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
   }
 }
