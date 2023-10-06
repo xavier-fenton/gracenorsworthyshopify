@@ -24,9 +24,9 @@ html {
   background: transparent;  /* Optional: just make scrollbar invisible */
 }
 /* Optional: show position indicator in red */
-::-webkit-scrollbar-thumb {
+/* ::-webkit-scrollbar-thumb {
   background: #FF0000;
-}
+} */
 
 
 a {
@@ -80,7 +80,7 @@ a {
 }
 
  body{
-  background-color: #0E1D16;
+  background-color: #13271e;
 }
 /* .product-descrp{
   display: flex;
@@ -125,11 +125,13 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 /* NAV Bar*/
 .nav-links  {
   font-family: 'Open Sans';
-  padding-top: 18px;
+  /* padding-top: 18px; */
   display: flex;
-  gap: 13%;
-  width: 100%;
+  gap: 13.3%;
+  /* width: 100%; */
   color: white;
+  padding-left: 20px;
+  margin-top: 20px;
 }
 
 
@@ -164,4 +166,21 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 .sdbar-lnks-wrapper{
   display: flex;
   flex-direction: column;
+  padding-left: 20px;
+  
+}
+.sdbar-lnks-wrapper a {
+  font-family: 'Open Sans';
+  text-transform: uppercase;
+}
+.shop-styl-seperator{
+  position: relative;
+  height: 440px;
+}
+
+.title-image-shop{
+  -webkit-filter: sepia(100%) hue-rotate(90deg) saturate(400%);
+  filter: sepia(100%) hue-rotate(90deg) saturate(400%);
+  left: 55.3%;
+  position: relative;
 }
