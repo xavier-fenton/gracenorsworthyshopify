@@ -7,20 +7,31 @@
 
 body {
   
-overflow: hidden;
+/* overflow: hidden; */
 margin: 0 !important;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   display: none;
   
+} */
+html {
+  overflow: scroll;
+  overflow-x: hidden;
 }
-
+::-webkit-scrollbar {
+  width: 0;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #FF0000;
+}
 
 
 a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 /* PRODUCTS HOME PAGE */
@@ -53,18 +64,33 @@ a {
 /* Shop Section that holds/displays all products */
 .all-products{
   display: grid;
-    grid-template-columns: repeat(3,minmax(0,1fr));
-    grid-column-gap: 2vw;
-    grid-row-gap: 3vw;
-    padding: 0;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  /* column-gap: 5%; */
+  grid-row-gap: 3vw;
+  padding: 0;
+  width: 84%;
+  left: 15.5%;
+  position: relative;
 }
 
 .product-card{
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
 }
 
+ body{
+  background-color: #0E1D16;
+}
+/* .product-descrp{
+  display: flex;
+} */
+
+.product-img{
+  border-radius: 1%;
+  width: auto;
+  height: auto;
+}
 
 
 
@@ -97,12 +123,13 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 
 
 /* NAV Bar*/
-.nav-links {
+.nav-links  {
   font-family: 'Open Sans';
   padding-top: 18px;
   display: flex;
   gap: 13%;
   width: 100%;
+  color: white;
 }
 
 
