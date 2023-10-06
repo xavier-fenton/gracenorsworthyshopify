@@ -151,3 +151,17 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
  }
 
 
+.sidebar-menu {
+ color:white;
+}
+
+/* SHOPFRONTPAGE */
+
+.shop-frontpg-wrapper{
+  display: flex;
+}
+
+.sdbar-lnks-wrapper{
+  display: flex;
+  flex-direction: column;
+}

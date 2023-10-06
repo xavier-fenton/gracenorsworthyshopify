@@ -1,0 +1,7 @@
+<div class="sdbar-lnks-wrapper">
+
+  {% for link in linklists.sidebar-menu.links %}
+
+    <a href="{{ link.url }}">{{ link.title }}</a>
+  {% endfor %}
+</div>
