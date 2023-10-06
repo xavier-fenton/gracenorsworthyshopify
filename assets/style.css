@@ -165,3 +165,7 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
   display: flex;
   flex-direction: column;
 }
+.shop-styl-seperator{
+  position: relative;
+  height: 440px;
+}
