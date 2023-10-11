@@ -1,8 +1,35 @@
+
+
+
 <ul class="nav-links">
-  {% for link in linklists.main-menu.links %}
-    <div>
+
+{% assign full_url = request.path %}
+{% assign type = request.page_type %}
+
+
+{% for link in linklists.main-menu.links %}
+
+    {% if link.url == full_url %}
+
+      <div>
+        <a class="highlighted" href="{{ link.url }}">{{ link.title }}</a>
+
+      </div>
+      {% elsif  type == 'collection' and link.title == 'Shop'%}
+        <div>
+        <a class="highlighted" href="{{ link.url }}">{{ link.title }}</a>
+
+      </div>
+        
+    {% else %}
+      <div>
       <a href="{{ link.url }}">{{ link.title }}</a>
+      {% comment %} {{ type }} {% endcomment %}
+     
     </div>
+    {% endif %}
+    
+
   {% endfor %}
 </ul>
 {% if cart.item_count > 0 %}

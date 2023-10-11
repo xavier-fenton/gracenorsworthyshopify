@@ -1,4 +1,33 @@
+{% comment %} <script>
 
+  let currentUrl = window.location.href
+  let matchedUrl = currentUrl.includes('/collections/all')
+  let shopifyEl = "{{ product.url }}"
+  console.log(shopifyEl);
+
+  if(matchedUrl === true){
+    let highlightUrl = document.getElementById("{{ product.url }}")
+    console.log(highlightUrl);
+    // highlightUrl.style.fontWeight= 'bold'
+    console.log(true);
+  } else{
+    console.log('failed');
+  }
+  // console.log(url)
+
+</script> {% endcomment %}
+
+{% case product.url %}
+ {% when product.url == '/collections/all'  %}
+
+  <style>
+    a { 
+      font-weight: 900;
+    }
+  </style>
+
+
+{% endcase %}
   {% if collection.all_products_count > 0 %}
     <div class="shop-bg-color">
 
@@ -17,7 +46,7 @@
               loading="lazy" />
             <div class="product-descrp">
               <p>
-                <a href="{{ product.url }}">{{ product.title }}</a>
+                <a class="{{ product.url }}" href="{{ product.url }}" id="{{ product.url }}" >{{ product.title }}</a>
               </p>
             </div>
 
