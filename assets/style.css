@@ -65,12 +65,7 @@ a {
 .all-products{
   display: grid;
   grid-template-columns: repeat(3,minmax(0,1fr));
-  /* column-gap: 5%; */
-  grid-row-gap: 3vw;
-  padding: 0;
-  width: 84%;
-  left: 15.5%;
-  position: relative;
+  
 }
 
 .product-card{
@@ -88,8 +83,8 @@ a {
 
 .product-img{
   border-radius: 1%;
-  width: auto;
-  height: auto;
+  width: 507px;
+  height: 637px;
 }
 
 
@@ -160,7 +155,7 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 /* SHOPFRONTPAGE */
 
 .shop-frontpg-wrapper{
-  display: flex;
+  /* display: flex; */
 }
 
 .sdbar-lnks-wrapper{
