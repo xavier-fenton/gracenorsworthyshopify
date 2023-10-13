@@ -1,6 +1,17 @@
+
+<div class="sngl-prdct-main-wrap">
+
 <h2>{{ product.title }}</h2>
 {{ product.description }}
-<form
+
+<img class="sngl-prdct-img"
+  alt="{{ product.alt }}"
+  src="{{ product.media[0] | image_url }}"
+  width="300"
+  height="300"
+  loading="lazy" />
+
+  <form
   action="/cart/add"
   method="post"
   enctype="multipart/form-data">
@@ -22,10 +33,4 @@
     value="Add to Cart"
     class="button">
 </form>
-<br>
-<img
-  alt="{{ product.alt }}"
-  src="{{ product.media[0] | image_url }}"
-  width="300"
-  height="300"
-  loading="lazy" />
+</div>
