@@ -20,8 +20,14 @@
 
   <div class="prodct-info">
 <h2>{{ product.title }}</h2>
+<div class="product-descript">
 {{ product.description }}
-  <form
+
+</div>
+
+<div >
+  <form 
+  class="form-wrapper"
   action="/cart/add"
   method="post"
   enctype="multipart/form-data">
@@ -42,7 +48,7 @@
     id="add"
     value="Add to Cart"
     class="button">
-</form>
+</form></div>
 </div>
 
 
