@@ -199,6 +199,7 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
   display: flex;
   padding-left: var(--pdn) ;
   align-items: center;
+  gap: 50px;
 }
 
 .sngl-prdct-img{
@@ -221,6 +222,8 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 }
 
 .title-image-product{
+
+  padding-top: 200px;
   -webkit-filter: sepia(100%) hue-rotate(90deg) saturate(400%);
   filter: sepia(100%) hue-rotate(90deg) saturate(400%);
   padding-left: 40%;
