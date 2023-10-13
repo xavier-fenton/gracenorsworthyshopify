@@ -28,8 +28,8 @@
         "settings": {
         }
       },
-      "product-seperator": {
-        "type": "product-seperator",
+      "title-seperator": {
+        "type": "title-seperator",
         "settings": {
           "image_1": "shopify:\/\/shop_images\/FinalTitle.png"
         }
