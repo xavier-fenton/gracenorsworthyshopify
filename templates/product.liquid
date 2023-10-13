@@ -1,16 +1,26 @@
+{% comment %} 
+<div class="shop-styl-seperator">
+  <div class="title-image-shop">  
+    ORSWO
+</div>
+</div>
+
+</div> {% endcomment %}
+{% section 'product-seperator' %}
 
 <div class="sngl-prdct-main-wrap">
-
-<h2>{{ product.title }}</h2>
-{{ product.description }}
+ 
 
 <img class="sngl-prdct-img"
   alt="{{ product.alt }}"
-  src="{{ product.media[0] | image_url }}"
+  src="../assets/DSC04911.jpg"
   width="300"
   height="300"
   loading="lazy" />
 
+  <div class="prodct-info">
+<h2>{{ product.title }}</h2>
+{{ product.description }}
   <form
   action="/cart/add"
   method="post"
@@ -34,3 +44,7 @@
     class="button">
 </form>
 </div>
+
+
+</div>
+
