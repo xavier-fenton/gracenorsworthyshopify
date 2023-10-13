@@ -14,10 +14,8 @@ body {
 margin: 0 !important;
 }
 
-/* ::-webkit-scrollbar {
-  display: none;
-  
-} */
+
+
 html {
   overflow: scroll;
   overflow-x: hidden;
@@ -26,10 +24,7 @@ html {
   width: 0;  /* Remove scrollbar space */
   background: transparent;  /* Optional: just make scrollbar invisible */
 }
-/* Optional: show position indicator in red */
-/* ::-webkit-scrollbar-thumb {
-  background: #FF0000;
-} */
+
 
 
 a {
@@ -81,7 +76,7 @@ a {
 }
 
  body{
-  background-color: #e1fffd;
+  background-color: #d3f0ee;
 }
 /* .product-descrp{
   display: flex;
@@ -245,4 +240,36 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 .form-wrapper{
   display: flex;
   gap: 35px;;
+}
+
+/* FADEIN ANIMATION */
+.all-products{
+  animation: fadeInAnimation ease 7s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+   }
+}
+
+
+.main-image{
+  animation: fadeInAnimation ease 7s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+      opacity: .25;
+  }
+  100% {
+      opacity: 1;
+   }
 }
