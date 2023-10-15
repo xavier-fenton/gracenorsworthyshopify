@@ -1,4 +1,5 @@
 
+
   {% if collection.all_products_count > 0 %}
     <div class="shop-bg-color">
 
@@ -8,16 +9,15 @@
 
           <div class="product-card">
 
-
-            {{ product.description }}
+            
             <img
               class="product-img"
-              src="{{ product.featured_image | product_img_url: 'grande' }}"
+              src="../assets/DSC04911.jpg"
               alt="{{ product.title | escape }}"
               loading="lazy" />
             <div class="product-descrp">
               <p>
-                <a href="{{ product.url }}">{{ product.title }}</a>
+                <a class="{{ product.url }}" href="{{ product.url }}" id="{{ product.url }}" >{{ product.title }}</a>
               </p>
             </div>
 
@@ -32,3 +32,10 @@
   {% else %}
     <p>Sorry, there are no products in this collection</p>
   {% endif %}
+
+{% comment %} FOR IMAGE {% endcomment %}
+  {% comment %} <img
+  class="product-img"
+  src="{{ product.featured_image | product_img_url: 'grande' }}"
+  alt="{{ product.title | escape }}"
+  loading="lazy" /> {% endcomment %}

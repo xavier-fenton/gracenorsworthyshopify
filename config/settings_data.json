@@ -13,12 +13,6 @@
           "image_2": "shopify:\/\/shop_images\/FinalTitle.png"
         }
       },
-      "shop-seprtr": {
-        "type": "shop-seprtr",
-        "settings": {
-          "image_1": "shopify:\/\/shop_images\/FinalTitle.png"
-        }
-      },
       "sidebar-menu": {
         "type": "sidebar-menu",
         "settings": {
@@ -27,6 +21,17 @@
       "all-products": {
         "type": "all-products",
         "settings": {
+        }
+      },
+      "shop-seperator": {
+        "type": "shop-seperator",
+        "settings": {
+        }
+      },
+      "title-seperator": {
+        "type": "title-seperator",
+        "settings": {
+          "image_1": "shopify:\/\/shop_images\/FinalTitle.png"
         }
       }
     },
