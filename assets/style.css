@@ -108,6 +108,14 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
   display: none;
 }
 
+.cart-link-active{
+  padding-left: 800px;
+  padding-right: var(--pdn);
+}
+
+
+
+
 /* Show the floating cart if the 'js-my-cart-open' CSS class exists */
 .js-my-cart-open .my-floating-cart {
   display: block;
@@ -273,6 +281,24 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 
 
 /* FADEIN ANIMATION */
+
+
+
+.cart-link-active{
+  animation: fadeInAnimation ease 7s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+   }
+}
+
 .all-products{
   animation: fadeInAnimation ease 7s;
   animation-iteration-count: 1;
