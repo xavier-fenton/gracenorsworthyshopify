@@ -32,13 +32,19 @@
 
   {% endfor %}
 
-{% if cart.item_count > 0 %}
-  <div class="cart-link-active">
-    <a href="/cart"> Cart [{{ cart.item_count }}] </a>
-    {% comment %} <a href="/cart">Check out</a> {% endcomment %}
-{% elsif cart.item_count < 0 %}
 
-  {% endif %}
+
+
+ <div class="cart-link">
+  <a data-ajax-cart-toggle-class-button="js-my-cart-open" href="{{ routes.cart_url }}">
+  Cart [
+                  <span data-ajax-cart-bind-state="cart.item_count">
+
+                    {{ cart.item_count }}
+                  </span>
+  ]
+  </a>  
+</div>
+ 
 </ul>
 
-{% comment %} <a href="/cart">{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})</a> {% endcomment %}
