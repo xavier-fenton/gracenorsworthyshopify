@@ -35,6 +35,7 @@
     {% for variant in product.variants %}
       {% if variant.available == true %}
         <option value="{{variant.id}}">
+         
           {{ variant.title }} for {{ variant.price | money_with_currency }}</option>
       {% else %}
         <option disabled="disabled">

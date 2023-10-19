@@ -23,59 +23,51 @@
     {{ content_for_header }}
     {{ 'style.css' | asset_url | stylesheet_tag }}
     {{ '//http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js' | script_tag }}
+
+
     <script defer src="../assets/headerlink.js"></script>
 
-    {% comment %} <script type="application/json" data-ajax-cart-initial-state>
+     <script type="application/json" data-ajax-cart-initial-state>
     {{ cart | json }}
     </script>
-
     <script type="module">
-    import { subscribeToCartSectionsUpdate } from '{{ "liquid-ajax-cart-v1.10.3.js" | asset_url }}'
-    subscribeToCartSectionsUpdate( sections => {
-    console.log('Sections are updated: ', sections);
-    // Place your code here
-    });
-    </script>
-    <script type="application/json" data-ajax-cart-configuration>
-    {
-    "addToCartCssClass": "js-my-cart-open"
-    }
-    </script>
+  import '{{ "liquid-ajax-cart-v1.11.1.js" | asset_url }}';
+  </script>
 
-    <script type="module">
-    import '{{ "liquid-ajax-cart-v1.10.3.js" | asset_url }}';
-    </script> {% endcomment %}</head>
+  
+</head>
 
   <body id="{{ page_title | handle }}" class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">
-    {% comment %} <div class="my-floating-cart">
-    {% section 'my-cart' %}
-    </div> {% endcomment %}
+
+    
 
 
 
-    {% comment %} <div class="header-cont-nav-cart">
+    
 
-    <ul class="nav-links">
-    {% for link in linklists.main-menu.links %}
-    <div>
-    <a href="{{ link.url }}">{{ link.title }}</a>
-    </div>
-    {% endfor %}
-    </ul>
+      <div class="header-cont-nav-cart"> 
+        {% section 'main-header' %}
+         
+        
 
-    <div class="cart-link">
-    <a href="/cart">{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})</a>
-    <a href="/cart">Check out</a>
-    </div>
-    </div> {% endcomment %}
+      </div>
+        <div class="my-floating-cart">
+      
+          {% section 'my-cart' %}
+
+        </div> 
+        <style>
+            .my-floating-cart { display: none; }
+
+            /* Show the floating cart if the 'js-my-cart-open' CSS class exists */
+            .js-my-cart-open .my-floating-cart { display: block; }
+          </style>
 
 
-      <div class="header-cont-nav-cart"> {% section 'main-header' %}
-    </div>
+
+         
 
 
-
-{% comment %} hello {% endcomment %}
     {{ content_for_layout }}
 
 
