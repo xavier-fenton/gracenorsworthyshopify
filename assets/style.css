@@ -4,7 +4,7 @@
 :root {
   --pdn: 20px;
   --pdnhalf: calc(var(--pdn) / 2);
-  --lightgreen: rgb(172, 211, 195);
+  --lightgreen: rgb(196, 238, 221);
   --gap: var(--pdn);
 }
 
@@ -77,7 +77,7 @@ a {
 }
 
  body{
-  background-color: #d3f0ee;
+  background-color: #a7bdbb;
 }
 /* .product-descrp{
   display: flex;
@@ -96,7 +96,7 @@ a {
 
 /* CART SECTION */
 .my-cart__items {
-  display: flex;
+  /* display: flex; */
   opacity: 1;
   transition: opacity 0.2s;
 }
@@ -106,15 +106,17 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 
 
 .product-image-in-cart{
-  width: 261px;
+  width: 180px;;
   height: 259px;
-  
+  border-radius: 25px;
   object-fit: cover;
   object-position: center;
   padding: var(--pdn);
 
 }
 .my-floating-cart {
+  overflow-x: hidden;
+  overflow-y: auto;
   right: 0px;
   margin: var(--pdn);
   position: absolute;
@@ -124,7 +126,6 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
   background-color: #dcd1d1fb;
   border-radius: 5px;
   border: 1px solid ;
-  /* box-shadow: 10px 5px 5px rgb(146, 145, 145);; */
   box-shadow: 12px 9px 25px 4px rgba(0,0,0,0.24);
 -webkit-box-shadow: 12px 9px 25px 4px rgba(0,0,0,0.24);
 -moz-box-shadow: 12px 9px 25px 4px rgba(0,0,0,0.24);
@@ -134,18 +135,15 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
   color: black;
 }
 
-.cart-link a {
-  color: black !important;
-  padding-left: 800px;
-  padding-right: var(--pdn);
+.cart-link-btn a {
+  color: rgb(164, 255, 219) !important;
+  /* padding-left: 800px; */
+  /* padding-right: var(--pdn); */
 }
 
-.ajax-cart-styling{
+.inner-cart-block{
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  /* height: 347px; */
-}
+} 
 
 .inner-wrapper-cart__items{
   display: flex;
@@ -153,6 +151,10 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
   justify-content: space-around;
 }
 
+
+.cart-quantity-wrapper{
+
+}
 
 /* CSS */
 .button-4 {
@@ -165,54 +167,34 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
     border-radius: 6px;
 }
 
-/* .button-4:hover {
-  background-color: #F3F4F6;
-  text-decoration: none;
-  transition-duration: 0.1s;
-}
 
-.button-4:disabled {
-  background-color: #FAFBFC;
-  border-color: rgba(27, 31, 35, 0.15);
-  color: #959DA5;
-  cursor: default;
-}
-
-.button-4:active {
-  background-color: #EDEFF2;
-  box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
-  transition: none 0s;
-}
-
-.button-4:focus {
-  outline: 1px transparent;
-}
-
-.button-4:before {
-  display: none;
-}
-
-.button-4:-webkit-details-marker {
-  display: none;
-} */
 
 
 .checkout-btn{
+  width: 100%;
   position: relative;
   top: 115px;
   padding: var(--pdn);
+  color: #dcd1d1fb;
+
 }
 
 
 
 
 /* Show the floating cart if the 'js-my-cart-open' CSS class exists */
-.js-my-cart-open .my-floating-cart {
+.js-my-cart-open  {
   display: block;
+  
+}
+.cart-link-btn{
+  position: relative;
+  left :800px;
 }
 
+
 .my-cart-icon {
-  display: flex;
+  /* display: flex; */
   align-items: center;
   gap: 2px;
   padding-left: var(--pdn);
@@ -231,7 +213,7 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 }
 
 .highlighted{
-  color: red !important;
+  color: #FA937C !important;
 }
 
 
@@ -346,6 +328,8 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 /* FOOTER STYLING */
 
 .footer-wrapper{
+  position: absolute;
+  width: calc(100vw - var(--pdn));
   font-weight: 600;
   display: flex;
   height: 75px;
