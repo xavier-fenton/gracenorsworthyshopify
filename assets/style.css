@@ -4,7 +4,9 @@
 :root {
   --pdn: 20px;
   --pdnhalf: calc(var(--pdn) / 2);
+
   --lightgreen: rgb(196, 238, 221);
+
   --gap: var(--pdn);
 }
 
@@ -78,6 +80,7 @@ a {
 
  body{
   background-color: #a7bdbb;
+
 }
 /* .product-descrp{
   display: flex;
@@ -97,6 +100,7 @@ a {
 /* CART SECTION */
 .my-cart__items {
   /* display: flex; */
+
   opacity: 1;
   transition: opacity 0.2s;
 }
@@ -109,6 +113,7 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
   width: 180px;;
   height: 259px;
   border-radius: 25px;
+
   object-fit: cover;
   object-position: center;
   padding: var(--pdn);
@@ -117,6 +122,7 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 .my-floating-cart {
   overflow-x: hidden;
   overflow-y: auto;
+
   right: 0px;
   margin: var(--pdn);
   position: absolute;
@@ -126,6 +132,7 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
   background-color: #dcd1d1fb;
   border-radius: 5px;
   border: 1px solid ;
+
   box-shadow: 12px 9px 25px 4px rgba(0,0,0,0.24);
 -webkit-box-shadow: 12px 9px 25px 4px rgba(0,0,0,0.24);
 -moz-box-shadow: 12px 9px 25px 4px rgba(0,0,0,0.24);
@@ -177,6 +184,7 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
   padding: var(--pdn);
   color: #dcd1d1fb;
 
+
 }
 
 
@@ -214,6 +222,7 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 
 .highlighted{
   color: #FA937C !important;
+
 }
 
 
@@ -330,6 +339,7 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 .footer-wrapper{
   position: absolute;
   width: calc(100vw - var(--pdn));
+
   font-weight: 600;
   display: flex;
   height: 75px;

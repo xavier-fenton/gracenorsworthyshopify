@@ -20,6 +20,7 @@
       {% for item in cart.items %}
         {% assign item_index = forloop.index %}
         <div class="inner-cart-block">
+
         <img 
         class="product-image-in-cart"
         src="../assets/DSC04911.jpg"
@@ -28,8 +29,7 @@
         <div class="inner-wrapper-cart__items">
               <div>
                 <span>Title: </span>
-                <br/>
-                <a href="{{ item.url }}">{{ item.title }}</a>
+   <a href="{{ item.url }}">{{ item.title }}</a>
               </div>
 
               {% for property in item.properties %}
@@ -81,6 +81,7 @@
               </div>
               </div> 
 
+
               <!-- Container for errors -->
               <div data-ajax-cart-messages="{{ item.key }}"></div>
 
@@ -108,7 +109,7 @@
     when the cart and the surrounding HTML get updated -->
     <div data-ajax-cart-static-element class="my-cart__app-container"></div>
 
-    
+
     
   </div>
    <div class="checkout-btn ">
