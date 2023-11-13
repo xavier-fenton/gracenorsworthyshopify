@@ -56,23 +56,23 @@
               <div class="cart-quantity-wrapper">
                 <!-- data-ajax-cart-request-button ajaxifies the "Minus one" button -->
                 <div> 
-                  <a data-ajax-cart-request-button href="{{ routes.cart_change_url }}?line={{ item_index }}&quantity={{ item.quantity | plus: 1 }}">
-                 -
+                  <a data-ajax-cart-request-button href="{{ routes.cart_change_url }}?line={{ item_index }}&quantity={{ item.quantity | minus: 1 }}">
+                  -
                 </a>
                 
 
                 <!-- data-ajax-cart-quantity-input ajaxifies the line item quantity input -->
-                <input
+                <input class="quantity-input-bar"
                 data-ajax-cart-quantity-input="{{ item_index }}"
                   name="updates[]"
                   value="{{ item.quantity }}"
                   type="number" />
 
                 <!-- data-ajax-cart-request-button ajaxifies the "Plus one" button -->
-                <a data-ajax-cart-request-button href="{{ routes.cart_change_url }}?line={{ item_index }}&quantity={{ item.quantity | minus: 1 }}">
-                  +
+                
+<a data-ajax-cart-request-button href="{{ routes.cart_change_url }}?line={{ item_index }}&quantity={{ item.quantity | plus: 1 }}">
+                 +
                 </a>
-
                 </div>
                
                 {% comment %} <a data-ajax-cart-request-button href="{{ item.url_to_remove }}">
