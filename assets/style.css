@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&display=swap');
+
 
 :root {
   --pdn: 20px;
@@ -14,7 +16,8 @@ body {
   
 /* overflow: hidden; */
 margin: 0 !important;
-font-family: 'Open Sans';
+font-family: 'Montserrat';
+
 }
 
 
@@ -32,7 +35,8 @@ html {
 
 a {
   text-decoration: none;
-  color: var(--lightgreen);
+  /* color: var(--lightgreen); */
+  color: black;
   font-weight: 400 !important;
 }
 
@@ -79,7 +83,7 @@ a {
 }
 
  body{
-  background-color: #a7bdbb;
+  background-color: #aac2c0;
 
 }
 /* .product-descrp{
@@ -147,7 +151,7 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 }
 
 .cart-link-btn a {
-  color: rgb(164, 255, 219) !important;
+  color: rgb(0, 0, 0) !important;
   /* padding-left: 800px; */
   /* padding-right: var(--pdn); */
 }
@@ -217,7 +221,8 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 /* NAV Bar*/
 .nav-links  {
   text-transform: uppercase ;
-  font-family: 'Open Sans';
+  font-family:'Montserrat';
+ 
   display: flex;
   gap: 13.3%;
   padding-left: 20px;
@@ -264,8 +269,8 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
   
 }
 .sdbar-lnks-wrapper a {
-  font-family: 'Open Sans';
-  text-transform: uppercase;
+  font-family: 'Montserrat';
+  /* text-transform: uppercase; */
 }
 /* .shop-styl-seperator{
   display: flex;
@@ -331,7 +336,10 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 }
 .product-descript{
 
-  width: 300px;
+  
+    width: 300px;
+    display: flex;
+    flex-direction: column;
 }
 
 .form-wrapper{
@@ -343,9 +351,9 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 /* FOOTER STYLING */
 
 .footer-wrapper{
-  position: absolute;
+  position: relative !important;
   width: calc(100vw - var(--pdn));
-  bottom: 0px;
+  /* bottom: 0px; */
   font-weight: 600;
   display: flex;
   height: 75px;
