@@ -1,58 +1,49 @@
-{% comment %} 
-<div class="shop-styl-seperator">
-  <div class="title-image-shop">  
-    ORSWO
-</div>
-</div>
-
-</div> {% endcomment %}
 {% section 'title-seperator' %}
 
 <div class="sngl-prdct-main-wrap">
- 
-
-<img class="sngl-prdct-img"
-  alt="{{ product.alt }}"
-  src="../assets/DSC04911.jpg"
-  width="300"
-  height="300"
-  loading="lazy" />
+  <img
+    class="sngl-prdct-img"
+    alt="{{ product.alt }}"
+    src="../assets/DSC04911.jpg"
+    width="300"
+    height="300"
+    loading="lazy"
+  >
 
   <div class="prodct-info">
-<h2>{{ product.title }}</h2>
-<div class="product-descript">
-{{ product.description }}
+    <h2>{{ product.title }}</h2>
+    <div class="product-descript">
+      {{ product.description }}
+      <div>Price: {{ product.price || money_with_currency || }}</div>
+    </div>
 
-</div>
-
-<div >
-  <form 
-  class="form-wrapper"
-  action="/cart/add"
-  method="post"
-  enctype="multipart/form-data">
-  <select name="id">
-    {% for variant in product.variants %}
-      {% if variant.available == true %}
-        <option value="{{variant.id}}">
-         
-          {{ variant.title }} for {{ variant.price | money_with_currency }}</option>
-      {% else %}
-        <option disabled="disabled">
-          {{ variant.title }} - sold out!</option>
-      {% endif %}
-    {% endfor %}
-  </select>
-  <input
-    type="submit"
-    name="add"
-    id="add"
-    value="Add to Cart"
-    class="button">
-</form></div>
-</div>
-
-
+    <form
+      class="form-wrapper"
+      action="/cart/add"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      {% comment %} USING THIS CLASS TO HIDE WITH CSS SEEMS HACKY BUT ONLY WAY TO UPDATE CART WITH "VARIANTS" ATTACHED {% endcomment %}
+      <select class="hide-this-select" name="id">
+        {% for variant in product.variants %}
+          {% if variant.available == true %}
+            <option value="{{ variant.id }}">
+              {{ variant.price | money_with_currency }}
+            </option>
+          {% else %}
+            <option disabled="disabled">{{ variant.title }} - sold out!</option>
+          {% endif %}
+        {% endfor %}
+      </select>
+      <input
+        type="submit"
+        name="add"
+        id="add-to-cart-button"
+        value="Add to Cart"
+        class="button"
+      >
+    </form>
+  </div>
 </div>
 
 {% section 'footer' %}
