@@ -343,7 +343,7 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 /* FOOTER STYLING */
 
 .footer-wrapper{
-  position: relative;
+  position: absolute;
   width: calc(100vw - var(--pdn));
   bottom: 0px;
   font-weight: 600;
