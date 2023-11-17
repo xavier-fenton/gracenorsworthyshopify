@@ -248,7 +248,8 @@ padding-bottom: var(--pdnhalf);
 }
 
   .title-image-product img {
-    width: 558px !important;
+    position: absolute;
+    width: 500px !important;
     transform: rotate(29deg);
 
   }
