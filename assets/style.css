@@ -70,6 +70,10 @@ body {
 
 }
 
+.astrix{
+  font-weight: 900;
+}
+
 
 
 
@@ -224,10 +228,7 @@ padding-bottom: var(--pdnhalf);
 
 
 
-.sdbar-lnks-wrapper a {
-  font-family: 'Montserrat';
-  /* text-transform: uppercase; */
-}
+
 
 
 /* PRODUCTS PAGE MEDIA QUERIES */
@@ -236,23 +237,20 @@ padding-bottom: var(--pdnhalf);
   /* For mobile phones: */
 
   .title-styl-seperator {
-    display: flex;
-    align-items: center;
-    height: 0% !important;
+    padding-top: 40%;
 }
 
   .title-image-product {
     
-    width: 100% !important;
-    display: flex !important;
     padding-right: 0% !important;
-    align-items: center !important;
     justify-content: center !important;
     
 }
 
   .title-image-product img {
-    width: 90% !important;
+    width: 558px !important;
+    transform: rotate(29deg);
+
   }
 
   .shop-frontpg-wrapper{
@@ -264,14 +262,18 @@ padding-bottom: var(--pdnhalf);
 
     gap: 5px;
     padding-left: 0px !important;
+    font-size: larger;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    flex-direction: row !important;
   }
 
   .all-products {
    grid-template-columns: repeat(1,minmax(0,1fr));
-   justify-items: center; 
+   gap: var(--pdnhalf) !important;
   }
   .product-card{
-    width: 80%;
+    width: 100%;
   }
 
   
@@ -466,17 +468,12 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 /* NAV Bar*/
 
 .nav-links {
-  /* position: fixed; */
   text-transform: uppercase;
-  font-family: 'Montserrat';
+
   display: flex;
   justify-content: space-between;
   padding: var(--pdn);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 2;
+  
 }
 
 .main-links{
@@ -503,8 +500,7 @@ display: flex;
 }
 
 .title-image {
-  -webkit-filter: sepia(100%) hue-rotate(90deg) saturate(400%);
-  filter: sepia(100%) hue-rotate(90deg) saturate(400%);
+
   display: flex;
   position: absolute;
   padding-left: 20%;
@@ -524,7 +520,7 @@ display: flex;
   /* For mobile phones: */
   .nav-links{
     padding: var(--pdnhalf);
-    font-size: small;
+    font-size: large;
   }
   .main-links{
     flex-direction: column;
@@ -608,8 +604,7 @@ display: flex;
 }
 
 .title-image-product {
-  -webkit-filter: sepia(100%) hue-rotate(90deg) saturate(400%);
-  filter: sepia(100%) hue-rotate(90deg) saturate(400%);
+  
 
 
   width: 100%;
