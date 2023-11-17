@@ -402,10 +402,10 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 
 .title-image-product {
 
-  padding-top: 200px;
+  /* padding-top: 200px; */
   -webkit-filter: sepia(100%) hue-rotate(90deg) saturate(400%);
   filter: sepia(100%) hue-rotate(90deg) saturate(400%);
-  padding-left: 40%;
+  /* padding-left: 40%; */
 
 
 }
