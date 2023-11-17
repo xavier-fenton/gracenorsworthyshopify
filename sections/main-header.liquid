@@ -1,49 +1,51 @@
+<div class="nav-links">
 
-<ul class="nav-links">
+  {% assign full_url = request.path %}
+  {% assign type = request.page_type %}
 
-{% assign full_url = request.path %}
-{% assign type = request.page_type %}
+  <div class="main-links">
 
 
-{% for link in linklists.main-menu.links %}
 
-    {% if link.url == full_url %}
+    {% for link in linklists.main-menu.links %}
 
-      <div>
-        <a class="highlighted" href="{{ link.url }}">{{ link.title }}</a>
+      {% if link.url == full_url %}
 
-      </div>
-      {% elsif  type == 'collection' and link.title == 'Shop'%}
         <div>
-        <a class="highlighted" href="{{ link.url }}">{{ link.title }}</a>
+          <a class="highlighted" href="{{ link.url }}">{{ link.title }}</a>
 
-      </div>
-        
-    {% else %}
-      <div>
-      <a href="{{ link.url }}">{{ link.title }}</a>
-      {% comment %} {{ type }} {% endcomment %}
-     
-    </div>
-    {% endif %}
-    
+        </div>
+      {% elsif type == 'collection' and link.title == 'Shop' %}
+        <div>
+          <a class="highlighted" href="{{ link.url }}">{{ link.title }}</a>
 
-  {% endfor %}
+        </div>
+
+      {% else %}
+        <div>
+          <a href="{{ link.url }}">{{ link.title }}</a>
+          {% comment %} {{ type }} {% endcomment %}
+
+        </div>
+      {% endif %}
 
 
-
-<div class="cart-link-btn"> 
-
-  <a data-ajax-cart-toggle-class-button="js-my-cart-open" href="{{ routes.cart_url }}">
-  Cart [
-                  <span data-ajax-cart-bind-state="cart.item_count">
-
-                    {{ cart.item_count }}
-                  </span>
-  ]
-  </a>  
+    {% endfor %}
 
   </div>
 
- 
-</ul>
+  <div class="cart-link-btn">
+
+    <a data-ajax-cart-toggle-class-button="js-my-cart-open" href="{{ routes.cart_url }}">
+      Cart [
+      <span data-ajax-cart-bind-state="cart.item_count">
+
+        {{ cart.item_count }}
+      </span>
+      ]
+    </a>
+
+  </div>
+
+
+</div>

@@ -1,13 +1,16 @@
-<div class="main-image">
-  {{ section.settings.image_1 | img_url: '2086x' | img_tag }}
 
-</div>
-
-<div class="title-image">
-  {{ section.settings.image_2 | img_url: '700x' | img_tag }}
+  <div class="title-image">
+          {{ section.settings.image_2 | img_url: '700x' | img_tag }}
 
 
-</div>
+        </div>
+  <div class="main-image">
+    {{ section.settings.image_1 | img_url: '2086x' | img_tag }}
+      
+  </div>
+
+
+  
 {% schema %}
   {
     "name": "Main Image",

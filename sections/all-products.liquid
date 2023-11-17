@@ -1,12 +1,12 @@
 
 
   {% if collection.all_products_count > 0 %}
-    <div class="shop-bg-color">
 
       <div class="all-products">
 
         {% for product in collection.products %}
 
+          {% comment %} This product-card could possibly be turned to a section {% endcomment %}
           <div class="product-card">
 
             
@@ -15,10 +15,16 @@
               src="{{ product.featured_image.src | img_url: '500x500', format: 'pjpg' }}"
               alt="{{ product.title | escape }}"
               loading="lazy" />
-            <div class="product-descrp">
-              <p>
-                <a class="{{ product.url }}" href="{{ product.url }}" id="{{ product.url }}" >{{ product.title }}</a>
-              </p>
+
+
+
+
+
+            <div class="product-card-description">
+              <div class="product-card-description-values">
+                <a class="{{ product.url }} product-card-title-link" href="{{ product.url }}" id="{{ product.url }}" >{{ product.title }}</a>
+                <div>{{ product.price | money }}</div>
+              </div>
             </div>
 
           </div>
@@ -26,7 +32,6 @@
 
 
       </div>
-    </div>
 
 
   {% else %}
