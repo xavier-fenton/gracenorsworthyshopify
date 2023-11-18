@@ -248,10 +248,7 @@ padding-bottom: var(--pdnhalf);
 }
 
   .title-image-product img {
-    position: absolute;
-    width: 500px !important;
-    transform: rotate(29deg);
-
+    width: 100% !important;
   }
 
   .shop-frontpg-wrapper{
