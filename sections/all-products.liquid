@@ -9,13 +9,14 @@
           {% comment %} This product-card could possibly be turned to a section {% endcomment %}
           <div class="product-card">
 
+          <a href="{{ product.url }}">
             
             <img
               class="product-img"
               src="{{ product.featured_image.src | img_url: '500x500', format: 'pjpg' }}"
               alt="{{ product.title | escape }}"
               loading="lazy" />
-
+          </a>
 
 
 
