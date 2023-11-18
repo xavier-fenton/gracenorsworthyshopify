@@ -14,3 +14,7 @@
 9. NAV TO BE STATIC/FIXED/ STICKY
 10. width of product description to fill space. Using css property word-wrap
 11. Create schema for product page
+
+
+
+WRITE A BASH SCRIPT FOR THIS DIRECTORY WHEN I OPEN IT UP RUN NODE TODO.JS
