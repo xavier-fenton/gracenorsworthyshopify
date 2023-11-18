@@ -1,12 +1,29 @@
 {% if cart.item_count == 0 %}
-  Sorry no items!
+
+ 
+ <div class="floating-cart-wrapper">
+      <div class="exit-cart">
+            <a data-ajax-cart-toggle-class-button="js-my-cart-open" class="exit-the-cart" href="{{ routes.cart_url }}"><strong>EXIT</strong></a>
+            <div>CART</div>
+      </div>
+        <div class="ajax-cart-styling" data-ajax-cart-section >
+            Sorry no items!
+        </div>
+ 
+ </div> 
 
 {% elsif cart.item_count != 0 %}
- 
+
+
+ <div class="floating-cart-wrapper" >
+
   <div class="exit-cart">
     <a data-ajax-cart-toggle-class-button="js-my-cart-open" class="exit-the-cart" href="{{ routes.cart_url }}"><strong>EXIT</strong></a>
     <div>CART</div>
   </div>
+  <div class="ajax-cart-styling" data-ajax-cart-section >
+
+
   <form
     action="{{ routes.cart_url }}"
     method="post"
@@ -16,110 +33,113 @@
       data-ajax-cart-section makes the element's HTML update
       when the cart gets changed
     -->
-    <div class="ajax-cart-styling" data-ajax-cart-section>
-      {% comment %} <p>Cart</p> {% endcomment %}
+
       <!--
         data-ajax-cart-section-scroll keeps the scroll position unchanged
         when the element's HTML is changed
       -->
       <div class="my-cart__items" data-ajax-cart-section-scroll>
         {% for item in cart.items %}
+
+          
+          
           {% assign item_index = forloop.index %}
-          <div class="inner-cart-block">
-            <img
-              class="product-image-in-cart"
-              src="../assets/DSC04911.jpg"
-              loading="lazy"
-            >
-            <div class="inner-wrapper-cart__items">
-              <div class="in-cart-description">
-                <span class="title-in-cart-desc">Title: </span>
-                <a href="{{ item.url }}">{{ item.title }}</a>
-              </div>
+        
+        
+                        
+                          <div class="inner-cart-block">
+                            <img
+                              class="product-image-in-cart"
+                              src="{{ product.featured_image.src | img_url: '500x500', format: 'pjpg' }}"
+                              loading="lazy"
+                            />
 
-              {% for property in item.properties %}
-                <div>
-                  {{ property.first }}:
-                  {% if property.first == 'Engraving' %}
-                    <!-- data-ajax-cart-property-input ajaxifies the line item property input -->
-                    <input
-                      type="text"
-                      value="{{ property.last }}"
-                      data-ajax-cart-property-input="{{ item_index }}[{{ property.first }}]"
-                    >
-                  {% else %}
-                    {{ property.last }}
-                  {% endif %}
-                </div>
-              {% endfor %}
 
-              <div class="in-cart-description">
-                <span class="price-in-cart-desc">Price: </span>
-               
-               <div> <strong>{{ item.final_price | money }}</strong></div>
-              </div>
-              <div class="quatity-main">
-                <span class="quantity-in-cart-desc">Quantity:</span>
-                <div class="cart-quantity-wrapper">
-                  <!-- data-ajax-cart-request-button ajaxifies the "Minus one" button -->
-                  <div>
-                    <a
-                      data-ajax-cart-request-button
-                      href="{{ routes.cart_change_url }}?line={{ item_index }}&quantity={{ item.quantity | plus: 1 }}"
-                    >
-                      +
-                    </a>
+                            <div class="inner-wrapper-cart__items">
+                              <div class="in-cart-description">
+                                <span class="title-in-cart-desc">Title: </span>
+                                <a href="{{ item.url }}">{{ item.title }}</a>
+                              </div>
 
-                    <!-- data-ajax-cart-quantity-input ajaxifies the line item quantity input -->
-                    <input
-                      class="quantity-input-bar"
-                      data-ajax-cart-quantity-input="{{ item_index }}"
-                      name="updates[]"
-                      value="{{ item.quantity }}"
-                      type="number"
-                    >
+                              {% comment %} {% for property in item.properties %}
+                                <div>
+                                  {{ property.first }}:
+                                  {% if property.first == 'Engraving' %}
+                                    <!-- data-ajax-cart-property-input ajaxifies the line item property input -->
+                                    <input
+                                      type="text"
+                                      value="{{ property.last }}"
+                                      data-ajax-cart-property-input="{{ item_index }}[{{ property.first }}]"
+                                    >
+                                  {% else %}
+                                    {{ property.last }}
+                                  {% endif %}
+                                </div>
+                              {% endfor %} {% endcomment %}
 
-                    <!-- data-ajax-cart-request-button ajaxifies the "Plus one" button -->
-                    <a
-                      data-ajax-cart-request-button
-                      href="{{ routes.cart_change_url }}?line={{ item_index }}&quantity={{ item.quantity | minus: 1 }}"
-                    >
-                      -
-                    </a>
-                  </div>
+                              <div class="in-cart-description">
+                                <span class="price-in-cart-desc">Price: </span>
+                              
+                              <div> <strong>{{ item.final_price | money }}</strong></div>
+                              </div>
+                              <div class="quatity-main">
+                                <span class="quantity-in-cart-desc">Quantity:</span>
+                                <div class="cart-quantity-wrapper">
+                                  <!-- data-ajax-cart-request-button ajaxifies the "Minus one" button -->
+                                  <div data-ajax-cart-section="">
+                                    <a
+                                      data-ajax-cart-request-button
+                                      href="{{ routes.cart_change_url }}?line={{ item_index }}&quantity={{ item.quantity | plus: 1 }}"
+                                    >
+                                      +
+                                    </a>
 
-                  {% comment %}
-                    <a data-ajax-cart-request-button href="{{ item.url_to_remove }}">
-                      Remove
-                    </a>
-                  {% endcomment %}
-                </div>
-              </div>
+                                    <!-- data-ajax-cart-quantity-input ajaxifies the line item quantity input -->
+                                    <input
+                                      class="quantity-input-bar"
+                                      data-ajax-cart-quantity-input="{{ item_index }}"
+                                      name="updates[]"
+                                      value="{{ item.quantity }}"
+                                      type="number"
+                                    >
 
-              <!-- Container for errors -->
-              <div data-ajax-cart-messages="{{ item.key }}"></div>
+                                    <!-- data-ajax-cart-request-button ajaxifies the "Plus one" button -->
+                                    <a
+                                      data-ajax-cart-request-button
+                                      href="{{ routes.cart_change_url }}?line={{ item_index }}&quantity={{ item.quantity | minus: 1 }}"
+                                    >
+                                      -
+                                    </a>
+                                  </div>
 
-              <div class="in-cart-description" >
-                <span class="total-in-cart-desc" > Total: </span>
-                <strong>{{ item.final_line_price | money }}</strong>
-              </div>
-            </div>
-          </div>
-         
+                                  {% comment %}
+                                    <a data-ajax-cart-request-button href="{{ item.url_to_remove }}">
+                                      Remove
+                                    </a>
+                                  {% endcomment %}
+                                </div>
+                                
+                              
+                              </div>
+
+                              <!-- Container for errors -->
+                              <div data-ajax-cart-messages="{{ item.key }}"></div>
+
+                              <div class="in-cart-description" >
+                                <span class="total-in-cart-desc" > Total: </span>
+                                <strong>{{ item.final_line_price | money }}</strong>
+                              </div>
+                              <a data-ajax-cart-request-button href="{{ item.url_to_remove }}">
+                                  Remove
+                                </a>
+                            </div>
+                          </div>
         {% endfor %}
       </div>
 
-      {% comment %} <hr> {% endcomment %}
 
-      <!-- data-ajax-cart-property-input ajaxifies the cart note textarea -->
-      {% comment %}
-        <textarea
-          data-ajax-cart-property-input
-          name="note"
-          placeholder="Cart note">
-          {{ cart.note }}
-        </textarea>
-      {% endcomment %}
+    
+
 
       <!--
         data-ajax-cart-static-element keeps the container unchanged
@@ -138,7 +158,8 @@
       </button>
     </div>
     
-  </form>
+  </form> </div>
+
 {% endif %}
 
 {% schema %}
@@ -146,3 +167,7 @@
   "name": "My Cart"
 }
 {% endschema %}
+
+
+
+
