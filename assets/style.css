@@ -173,6 +173,7 @@ a {
 
 
 
+
 .all-products {
   animation: fadeInAnimation ease 7s;
   animation-iteration-count: 1;
@@ -244,6 +245,7 @@ padding-bottom: var(--pdnhalf);
   .title-styl-seperator {
     padding-top: 40%;
 }
+
 
   .title-image-product {
     
@@ -353,6 +355,7 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 }
 .exit-the-cart{
   position: relative;
+
   font-weight: 400;
 }
 .quantity-input-bar {
@@ -372,6 +375,7 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 .inner-cart-block {
   display: flex;
   
+
 }
 
 .inner-wrapper-cart__items {
@@ -431,6 +435,7 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 
 
 
+
 /* Show the floating cart if the 'js-my-cart-open' CSS class exists */
 .js-my-cart-open {
   display: block;
@@ -472,6 +477,11 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 .total-in-cart-desc{
   /* font-size: small; */
   font-size: small;
+
+}
+.total-in-cart-desc{
+  /* font-size: small; */
+  font-size: small;
 }
 
 
@@ -483,13 +493,9 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 
 .nav-links {
   text-transform: uppercase;
-
   display: flex;
   justify-content: space-between;
   padding: var(--pdn);
-  
-
-  
 }
 
 .main-links{
@@ -625,20 +631,13 @@ display: flex;
 }
 
 .title-image-product {
-  
-
-
-  width: 100%;
-  display: flex;
   align-items: flex-end;
   justify-content: flex-end;
   padding-right: 20%;
-
 }
 
 .title-image-product img{
   width: 50%;
-  
 }
 
 
@@ -752,6 +751,9 @@ display: flex;
 }
 
 
+
+
+/* FADEIN ANIMATION */
 
 
 /* FADEIN ANIMATION */
