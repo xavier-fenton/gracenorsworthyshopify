@@ -1,5 +1,4 @@
 {% if cart.item_count == 0 %}
-
  
  <div class="floating-cart-wrapper">
       <div class="exit-cart">
@@ -16,7 +15,6 @@
 
 
  <div class="floating-cart-wrapper" >
-
   <div class="exit-cart">
     <a data-ajax-cart-toggle-class-button="js-my-cart-open" class="exit-the-cart" href="{{ routes.cart_url }}"><strong>EXIT</strong></a>
     <div>CART</div>
@@ -33,14 +31,12 @@
       data-ajax-cart-section makes the element's HTML update
       when the cart gets changed
     -->
-
       <!--
         data-ajax-cart-section-scroll keeps the scroll position unchanged
         when the element's HTML is changed
       -->
       <div class="my-cart__items" data-ajax-cart-section-scroll>
         {% for item in cart.items %}
-
           
           
           {% assign item_index = forloop.index %}
@@ -140,7 +136,6 @@
 
     
 
-
       <!--
         data-ajax-cart-static-element keeps the container unchanged
         when the cart and the surrounding HTML get updated
@@ -159,7 +154,6 @@
     </div>
     
   </form> </div>
-
 {% endif %}
 
 {% schema %}
@@ -167,7 +161,5 @@
   "name": "My Cart"
 }
 {% endschema %}
-
-
 
 
