@@ -1,5 +1,6 @@
 {% section 'title-seperator' %}
 
+<script> console.log('{{ product.tags }}')</script>
 <div class="sngl-prdct-main-wrap">
   <div class="single-product-card-main">
           <img
@@ -11,10 +12,21 @@
 
           <div class="prodct-info">
             <div class="product-title-card">{{ product.title }}</div>
+            <div class="product-price">Price: {{ product.price || money_with_currency || }}</div>
             <div class="product-descript">
               {{ product.description }}
               </div>
-              <div class="product-price-price">Price: {{ product.price || money_with_currency || }}</div>
+
+              {% for tag in product.tags %}
+                {% if tag == 'readytoship' %}
+                  
+                  <div class="product-ready-to-ship"> <stong>Ready to ship</stong></div>
+                {% else %}
+                  <span></span>
+                {% endif %}
+                  
+               
+              {% endfor %}
 
             <form
               class="form-wrapper"

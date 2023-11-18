@@ -665,15 +665,24 @@ display: flex;
   width: 60%;
 
 }
-.product-price-price{
+.product-price{
   padding-top: 2%;
   padding-bottom: 2%;
 
 }
+
+.product-ready-to-ship{
+  font-weight: 900;
+  padding-top: 2%;
+  padding-bottom: 2%;
+
+}
+
 .form-wrapper {
   display: flex;
   gap: 35px;
   flex-direction: column;
+  padding-top: 5%;
 }
 
 .hide-this-select{
