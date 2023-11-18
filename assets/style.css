@@ -1,9 +1,7 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;title-image-product0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap'); */
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&display=swap');
 
-
-/* update me */
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -175,7 +173,6 @@ a {
 
 
 
-
 .all-products {
   animation: fadeInAnimation ease 7s;
   animation-iteration-count: 1;
@@ -247,7 +244,6 @@ padding-bottom: var(--pdnhalf);
   .title-styl-seperator {
     padding-top: 40%;
 }
-
 
   .title-image-product {
     
@@ -357,7 +353,6 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 }
 .exit-the-cart{
   position: relative;
-
   font-weight: 400;
 }
 .quantity-input-bar {
@@ -377,7 +372,6 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 .inner-cart-block {
   display: flex;
   
-
 }
 
 .inner-wrapper-cart__items {
@@ -437,7 +431,6 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 
 
 
-
 /* Show the floating cart if the 'js-my-cart-open' CSS class exists */
 .js-my-cart-open {
   display: block;
@@ -479,11 +472,6 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 .total-in-cart-desc{
   /* font-size: small; */
   font-size: small;
-
-}
-.total-in-cart-desc{
-  /* font-size: small; */
-  font-size: small;
 }
 
 
@@ -495,9 +483,13 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 
 .nav-links {
   text-transform: uppercase;
+
   display: flex;
   justify-content: space-between;
   padding: var(--pdn);
+  
+
+  
 }
 
 .main-links{
@@ -635,13 +627,20 @@ display: flex;
 
 /* Send this to dev-fixing-styling branch */
 .title-image-product {
+  
+
+
+  width: 100%;
+  display: flex;
   align-items: flex-end;
   justify-content: flex-end;
   padding-right: 20%;
+
 }
 
 .title-image-product img{
   width: 50%;
+  
 }
 
 
@@ -755,9 +754,6 @@ display: flex;
 }
 
 
-
-
-/* FADEIN ANIMATION */
 
 
 /* FADEIN ANIMATION */
