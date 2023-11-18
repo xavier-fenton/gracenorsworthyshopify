@@ -42,11 +42,9 @@
       "footer": {
         "type": "footer",
         "settings": {
-          "footer_title": "ORSWO",
           "footer_Number": "(+64) 27 367 7789",
           "footer_Email": "hello@orswo.co.nz",
-          "footer_Instagram": "https:\/\/www.instagram.com\/orswo\/",
-          "footer_PrivacyPol": ""
+          "footer_Instagram": "https:\/\/www.instagram.com\/orswo\/"
         }
       }
     },
