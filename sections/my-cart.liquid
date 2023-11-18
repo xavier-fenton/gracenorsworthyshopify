@@ -2,7 +2,7 @@
   Sorry no items!
 
 {% elsif cart.item_count != 0 %}
- 
+ <div class="floating-cart-wrapper">
   <div class="exit-cart">
     <a data-ajax-cart-toggle-class-button="js-my-cart-open" class="exit-the-cart" href="{{ routes.cart_url }}"><strong>EXIT</strong></a>
     <div>CART</div>
@@ -28,7 +28,7 @@
           <div class="inner-cart-block">
             <img
               class="product-image-in-cart"
-              src="../assets/DSC04911.jpg"
+              src="{{ product.featured_image.src | img_url: '500x500', format: 'pjpg' }}"
               loading="lazy"
             >
             <div class="inner-wrapper-cart__items">
@@ -105,6 +105,9 @@
               </div>
             </div>
           </div>
+          <a href="{{ line_item.url_to_remove }}">
+            Remove
+          </a>
          
         {% endfor %}
       </div>
@@ -138,7 +141,7 @@
       </button>
     </div>
     
-  </form>
+  </form> </div>
 {% endif %}
 
 {% schema %}
