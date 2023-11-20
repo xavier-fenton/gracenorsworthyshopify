@@ -1,29 +1,22 @@
-{% assign page = pages.about %}
-
-
-{{ page.content }}
 
 
 
 {% schema %}
   {
-    "name": "Main Image",
-    "settings": [
+    "name": "About Content",
+    "blocks": [
       {
-        "type": "image_picker",
-        "id": "image_1",
-        "label": "Background Image"
-      }, {
-        "type": "image_picker",
-        "id": "image_2",
-        "label": "Image"
+        "name": "Add Content in here",
+        "type": "text",
+        "settings": [
+          {
+            "type": "text",
+            "id": "about-description",
+            "default": "About Orswo",
+            "label": "About Description"
+          }
+        ]
       }
-    ],
-    "presets": [
-      {
-        "name": " MainImage",
-        "category": "Content"
-      }
-    ]
+]
   }
 {% endschema %}
