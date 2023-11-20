@@ -1,7 +1,8 @@
 <div class="nav-links">
 
   {% assign full_url = request.path %}
-  {% assign type = request.page_type %}
+  {% assign type = request.page_type %} 
+
 
   <div class="main-links">
 
@@ -12,16 +13,23 @@
       {% if link.url == full_url %}
 
         <div>
-          <a class="highlighted" href="{{ link.url }}">{{ link.title }}</a>
+          <a  href="{{ link.url }}">*{{ link.title }}</a>
 
         </div>
       {% elsif type == 'collection' and link.title == 'Shop' %}
         <div>
-          <a class="highlighted" href="{{ link.url }}">{{ link.title }}</a>
+          <a  href="{{ link.url }}">*{{ link.title }}</a>
 
         </div>
 
+        {% elsif type == 'product' and link.title == 'Shop' %}
+          <div>
+            <a  href="{{ link.url }}">*{{ link.title }}</a>
+  
+          </div>
+  
       {% else %}
+
         <div>
           <a href="{{ link.url }}">{{ link.title }}</a>
           {% comment %} {{ type }} {% endcomment %}
