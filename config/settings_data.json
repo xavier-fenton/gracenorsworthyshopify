@@ -49,8 +49,19 @@
       },
       "about-page": {
         "type": "about-page",
+        "blocks": {
+          "655ad847-73c2-4556-a4b2-59804fc0d90a": {
+            "type": "text",
+            "settings": {
+              "description_text": "Welcome to Orswo, a hidden gem in the vibrant city of Auckland, New Zealand, where the art of jewelry making comes to life. Nestled in the heart of this bustling metropolis, our atelier is a haven for those who appreciate the fusion of modern design and timeless craftsmanship."
+            }
+          }
+        },
+        "block_order": [
+          "655ad847-73c2-4556-a4b2-59804fc0d90a"
+        ],
         "settings": {
-          "about_description": "Hello"
+          "image_1": "shopify:\/\/shop_images\/HomePageImage.jpg"
         }
       }
     },
