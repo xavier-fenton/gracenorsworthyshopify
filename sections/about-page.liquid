@@ -2,7 +2,9 @@
       <div >
         {% if section.settings.image_1.image_url == null %} 
           <span></span>
+          
         {% else %}
+          
         {{ section.settings.image_1 | image_url:  width: 450 | image_tag }}
 
         {% endif %}
