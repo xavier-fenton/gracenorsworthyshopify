@@ -1,11 +1,11 @@
 
       <div >
-        {% if section.settings.image_1 %} 
+        {% if section.settings.image_1%} 
           {{ section.settings.image_1 | image_url:  width: 450 | image_tag }}
           
         {% else %}
           
-        <span></span>
+        <span>what</span>
 
         {% endif %}
         {%  for block in section.blocks %}
@@ -26,6 +26,7 @@
          "label": "Display Image"
       }
     ],
+    "max_blocks": 4,
     "blocks": [ {
       "name": "Description Paragraph",
        "type": "text",
@@ -34,6 +35,11 @@
           "type": "textarea",
           "id": "description_text",
           "label": "description"
+        }, 
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "display2"
         }
         
       ]
