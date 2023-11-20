@@ -1,11 +1,11 @@
 
       <div >
         {% if section.settings.image_1.image_url == true %} 
-          <span></span>
+          {{ section.settings.image_1 | image_url:  width: 450 | image_tag }}
           
         {% else %}
           
-        {{ section.settings.image_1 | image_url:  width: 450 | image_tag }}
+        <span></span>
 
         {% endif %}
         {%  for block in section.blocks %}
