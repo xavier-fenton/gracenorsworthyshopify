@@ -55,10 +55,31 @@
             "settings": {
               "description_text": "Welcome to Orswo, a hidden gem in the vibrant city of Auckland, New Zealand, where the art of jewelry making comes to life. Nestled in the heart of this bustling metropolis, our atelier is a haven for those who appreciate the fusion of modern design and timeless craftsmanship."
             }
+          },
+          "fe5aba92-c732-43a9-a91d-281446485075": {
+            "type": "text",
+            "settings": {
+              "description_text": "At Orswo, we take pride in creating bespoke jewelry that tells your unique story. Each piece is meticulously handcrafted by our skilled artisans, capturing the essence of both contemporary style and the rich traditions of jewelry making. From intricately designed rings to minimalist necklaces, our collection reflects the diverse tastes and personalities of our discerning clients."
+            }
+          },
+          "e327f06c-4912-4688-aad3-c4871cf7781c": {
+            "type": "text",
+            "settings": {
+              "description_text": "Inspired by the breathtaking landscapes of New Zealand, our creations embody the spirit of this enchanting country. We source ethically and use high-quality materials to ensure that your Orswo piece not only enhances your style but also stands as a testament to our commitment to excellence."
+            }
+          },
+          "b24b6b71-404d-4c62-ae88-e6a4aea116ac": {
+            "type": "text",
+            "settings": {
+              "description_text": ""
+            }
           }
         },
         "block_order": [
-          "655ad847-73c2-4556-a4b2-59804fc0d90a"
+          "655ad847-73c2-4556-a4b2-59804fc0d90a",
+          "fe5aba92-c732-43a9-a91d-281446485075",
+          "e327f06c-4912-4688-aad3-c4871cf7781c",
+          "b24b6b71-404d-4c62-ae88-e6a4aea116ac"
         ],
         "settings": {
           "image_1": "shopify:\/\/shop_images\/HomePageImage.jpg"
