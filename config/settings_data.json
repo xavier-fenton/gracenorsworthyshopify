@@ -46,6 +46,12 @@
           "footer_Email": "hello@orswo.co.nz",
           "footer_Instagram": "https:\/\/www.instagram.com\/orswo\/"
         }
+      },
+      "about-page": {
+        "type": "about-page",
+        "settings": {
+          "about_description": "Hello"
+        }
       }
     },
     "content_for_index": [
