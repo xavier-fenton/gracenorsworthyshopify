@@ -1,6 +1,7 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap'); */
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -66,6 +67,7 @@ body {
 
   font-family: 'Montserrat';
   background-color: #aac2c0;
+  font-weight: 500 !important;
   
 
 }
@@ -96,7 +98,7 @@ a {
   text-decoration: none;
   /* color: var(--lightgreen); */
   color: black;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
 }
 
 /* PRODUCTS PAGE */
@@ -227,10 +229,13 @@ padding-bottom: var(--pdnhalf);
   flex-direction: column;
   gap: var(--pdn);
   padding-left: var(--pdn);
-
+  letter-spacing: 3px;
 }
 
-
+/* .sdbar-lnks-wrapper a{
+ font-weight: 500 !important;
+letter-spacing: 10px;
+} */
 
 
 
@@ -480,17 +485,32 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 /* HOME PAGE */
 
 /* NAV Bar*/
-
+ 
 .nav-links {
   text-transform: uppercase;
 
   display: flex;
   justify-content: space-between;
   padding: var(--pdn);
+  font-family: 'Archivo' !important;
+  font-size: larger;
   
 
   
-}
+} 
+
+/* test */
+/* .nav-links a{
+  text-transform: uppercase;
+
+  display: flex;
+  padding: var(--pdn);
+  font-family: 'Archivo' !important;
+  font-size: xxx-large;
+  
+
+  
+} */
 
 .main-links{
   display: flex;
@@ -510,9 +530,12 @@ display: flex;
 
 }
 .main-image img{
- width: 100%;
- height: 100vh;
- object-fit: cover;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  position: absolute;
+  z-index: -1;
+  top: 0px;
 }
 
 .title-image {
@@ -625,7 +648,6 @@ display: flex;
 }
 
 
-/* Send this to dev-fixing-styling branch */
 .title-image-product {
   
 
@@ -651,25 +673,35 @@ display: flex;
  display: flex;
  flex-direction: column;
  padding-left: 5%;
- padding-top: 5%;
+ padding-top: 2%;
 
 }
 
 .product-title-card{
   padding-bottom: 2%;
+  font-size: x-large;
 }
 
 .product-descript {
   padding-top: 2%;
   padding-bottom: 2%;
   width: 60%;
+  font-weight: 300;
 
 }
 .product-price{
   padding-top: 2%;
   padding-bottom: 2%;
-
+  font-size: large;
 }
+
+.product-ready-to-ship{
+  font-weight: 600;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  letter-spacing: -1px;
+}
+
 
 .product-ready-to-ship{
   font-weight: 900;
