@@ -1,6 +1,6 @@
 {% for block in section.blocks %}
       <div >
-        {{ block.settings.type }}
+        {{ settings[0].type }}
       </div>
     ...
 {% endfor %}
@@ -13,7 +13,7 @@
           {
             "type": "textarea",
             "id": "about_description",
-            "label": "description"
+            "label": "Description"
           }
         ]
       }
