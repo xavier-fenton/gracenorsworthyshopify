@@ -1,6 +1,6 @@
 
       <div >
-        {% if section.settings.image_1 == true %} 
+        {% if section.settings.image_1 %} 
           {{ section.settings.image_1 | image_url:  width: 450 | image_tag }}
           
         {% else %}
