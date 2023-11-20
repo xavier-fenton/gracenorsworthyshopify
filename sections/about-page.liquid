@@ -11,6 +11,8 @@
         {%  for block in section.blocks %}
           
         <div>{{ block.settings.description_text }} </div>
+        <div>{{ block.settings.image_2 | image_url: width: 450 | image_tag }} </div>
+        
         {%  endfor %}
       </div>
 
