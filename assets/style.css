@@ -785,14 +785,10 @@ display: flex;
 
 /* PAGE STYLING FOR ABOUT & PRIVACY POLICY */
 .page-wrapper{
-  padding: var(--pdn);
+  display: flex;
+  padding: var(--pdnhalf);
 }
 
-.page-wrapper p{
-  padding: 10px;
-  padding-right: 645px;
-  position: relative;
-}
 
 
 

@@ -1,0 +1,29 @@
+{% assign page = pages.about %}
+
+
+{{ page.content }}
+
+
+
+{% schema %}
+  {
+    "name": "Main Image",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image_1",
+        "label": "Background Image"
+      }, {
+        "type": "image_picker",
+        "id": "image_2",
+        "label": "Image"
+      }
+    ],
+    "presets": [
+      {
+        "name": " MainImage",
+        "category": "Content"
+      }
+    ]
+  }
+{% endschema %}
