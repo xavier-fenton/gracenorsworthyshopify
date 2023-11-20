@@ -702,6 +702,14 @@ display: flex;
   letter-spacing: -1px;
 }
 
+
+.product-ready-to-ship{
+  font-weight: 900;
+  padding-top: 2%;
+  padding-bottom: 2%;
+
+}
+
 .form-wrapper {
   display: flex;
   gap: 35px;
