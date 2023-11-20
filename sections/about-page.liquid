@@ -10,25 +10,30 @@
 {% schema %}
   {
     "name": "About Content",
+    "blocks": [ {
+      "name": "Description Paragraph",
+      "type": "textarea"
+    }]
+      
+  }
+  
+{% endschema %}
+
+
+ {
+    "name": "About Content",
     "blocks": [
       {
         "name": "Description Paragraph",
-         "type": "textarea"
-      }
-    ],
+        "type": "textarea",
         "settings": [
           {
             "type": "textarea",
             "id": "about_description",
             "label": "Description Part 1"
           },
-          {
-            "type": "textarea",
-            "id": "about_description_2",
-            "label": "Description Part 2"
-          }
-        ]
-      }
-
-  
-{% endschema %}
+        ],
+      },
+    ],
+  }
+  } 
