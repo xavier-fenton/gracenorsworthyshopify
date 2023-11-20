@@ -786,10 +786,36 @@ display: flex;
 /* PAGE STYLING FOR ABOUT & PRIVACY POLICY */
 .page-wrapper{
   display: flex;
-  padding: var(--pdnhalf);
+  flex-direction: column;
 }
 
 
+
+.about-section-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.about-section-image img {
+  width: 100vw;
+  /* height: 100%; */
+  object-fit: cover;
+  object-position: center;
+}
+
+.custom-block-description-wrapper{
+  padding-left: 10%;
+  padding-right: 10%;
+}
+.custom-block-description-text{
+  
+    padding-top: 10px;
+}
+
+
+.about-page-title{
+  font-size: xxx-large;
+}
 
 
 
