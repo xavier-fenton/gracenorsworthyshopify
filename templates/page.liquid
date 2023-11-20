@@ -1,8 +1,8 @@
 <div class="page-wrapper">
-  <h2>{{ page.title }}</h2>
-{{ page.content }}
-</div>
-{% comment %} 
-<h2>FRONT PAGE</h2>
 
-<div>HELLO FROM FRONTPAGE</div> {% endcomment %}
+  {% comment %} <div>{{ page.title }}</div> {% endcomment %}
+    {% comment %} <div class="page-content-wrapper">{{ page.content }}</div> {% endcomment %}
+
+    {% section 'about-page' %}
+</div>
+
