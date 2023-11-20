@@ -1,6 +1,6 @@
 
       <div >
-        {{ section.settings.image_1 | image_url: '2086x' | image_url }}
+        {{ section.settings.image_1 | image_url: '2086x' | image_tag }}
         {%  for block in section.blocks %}
           
         <div>{{ block.settings.description_text }} </div>
