@@ -4,7 +4,7 @@
           {{ section.settings.image_1 | image_url:  width: 450 | image_tag }}
           
         {% else %}
-          
+          {{ section.settings.image_1.image_url }}
         <span>what</span>
 
         {% endif %}
