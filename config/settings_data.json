@@ -67,22 +67,15 @@
             "settings": {
               "description_text": "Inspired by the breathtaking landscapes of New Zealand, our creations embody the spirit of this enchanting country. We source ethically and use high-quality materials to ensure that your Orswo piece not only enhances your style but also stands as a testament to our commitment to excellence."
             }
-          },
-          "53061c29-8c06-4f34-96a8-71b560334884": {
-            "type": "text",
-            "settings": {
-              "description_text": "Inspired by the breathtaking landscapes of New Zealand, our creations embody the spirit of this enchanting country. We source ethically and use high-quality materials to ensure that your Orswo piece not only enhances your style but also stands as a testament to our commitment to excellence."
-            }
           }
         },
         "block_order": [
           "655ad847-73c2-4556-a4b2-59804fc0d90a",
           "fe5aba92-c732-43a9-a91d-281446485075",
-          "e327f06c-4912-4688-aad3-c4871cf7781c",
-          "53061c29-8c06-4f34-96a8-71b560334884"
+          "e327f06c-4912-4688-aad3-c4871cf7781c"
         ],
         "settings": {
-          "image_1": "shopify:\/\/shop_images\/HomePageImage.jpg"
+          "image_1": "shopify:\/\/shop_images\/DSC06302.jpg"
         }
       }
     },
