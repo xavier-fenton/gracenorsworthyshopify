@@ -1,7 +1,7 @@
 
 
   {% if collection.all_products_count > 0 %}
-
+    <div class="all-products-wrapper">
       <div class="all-products">
 
         {% for product in collection.products %}
@@ -33,7 +33,7 @@
 
 
       </div>
-
+    </div>
 
   {% else %}
     <p>Sorry, there are no products in this collection</p>
