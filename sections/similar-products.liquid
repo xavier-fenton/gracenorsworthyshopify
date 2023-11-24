@@ -1,0 +1,81 @@
+<div
+  class="product-recommendations"
+  data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=4&intent=related"
+>
+
+  
+  {%- if recommendations.performed? and recommendations.products_count > 0 -%}
+    {% if recommendations.intent == 'related' %}
+      <div class="you-may-like-title">You may also like</div>
+      
+    {% endif %}
+    
+    <div class="reccomended-wrapper">
+      {%- for product in recommendations.products -%}
+
+        <div class="product">
+        
+          <div class="reccomended-products-card-wrapper">
+              <a href="{{ product.url }}">
+              <img class="product__img" src="{{ product.featured_image | image_url: width: 300, height: 300 }}"
+                alt="{{ product.featured_image.alt }}" /></a>
+        
+              <div class="product__title"> {{ product.title }}</div>
+              <div class="product__price">{{ product.price | money}}</div>
+          </div>
+        </div>
+
+     
+
+        
+
+        
+
+
+           
+          {%- endfor -%}
+          </div>
+        {%- endif -%}
+        
+  </div>
+
+
+
+{% javascript %}
+
+  const handleIntersection = (entries, observer) => {
+    if (!entries[0].isIntersecting) return;
+
+    observer.unobserve(productRecommendationsSection);
+
+    const url = productRecommendationsSection.dataset.url;
+
+    fetch(url)
+      .then(response => response.text())
+      .then(text => {
+        const html = document.createElement('div');
+        html.innerHTML = text;
+        const recommendations = html.querySelector('.product-recommendations');
+
+        if (recommendations && recommendations.innerHTML.trim().length) {
+          productRecommendationsSection.innerHTML = recommendations.innerHTML;
+        }
+      })
+      .catch(e => {
+        console.error(e);
+      });
+  };
+
+  const productRecommendationsSection = document.querySelector('.product-recommendations');
+  const observer = new IntersectionObserver(handleIntersection, {rootMargin: '0px 0px 200px 0px'});
+
+  observer.observe(productRecommendationsSection);
+
+{% endjavascript %}
+
+{% schema %}
+  {
+    "name": "Product recommendations",
+    "settings": []
+  }
+{% endschema %}
