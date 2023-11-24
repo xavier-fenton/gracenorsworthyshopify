@@ -1,0 +1,47 @@
+
+
+  {% if collection.all_products_count > 0 %}
+    <div class="all-products-wrapper">
+      <div class="all-products">
+
+        {% for product in collection.products %}
+
+          {% comment %} This product-card could possibly be turned to a section {% endcomment %}
+          <div class="product-card">
+
+          <a href="{{ product.url }}">
+            
+            <img
+              class="product-img"
+              src="{{ product.featured_image.src | img_url: '500x500', format: 'pjpg' }}"
+              alt="{{ product.title | escape }}"
+              loading="lazy" />
+          </a>
+
+
+
+
+            <div class="product-card-description">
+              <div class="product-card-description-values">
+                <a class="{{ product.url }} product-card-title-link" href="{{ product.url }}" id="{{ product.url }}" >{{ product.title }}</a>
+                <div>{{ product.price | money }}</div>
+              </div>
+            </div>
+
+          </div>
+        {% endfor %}
+
+
+      </div>
+    </div>
+
+  {% else %}
+    <p>Sorry, there are no products in this collection</p>
+  {% endif %}
+
+{% comment %} FOR IMAGE {% endcomment %}
+  {% comment %} <img
+  class="product-img"
+  src="{{ product.featured_image | product_img_url: 'grande' }}"
+  alt="{{ product.title | escape }}"
+  loading="lazy" /> {% endcomment %}

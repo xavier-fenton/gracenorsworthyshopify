@@ -1,0 +1,35 @@
+
+  <div class="title-image">
+          {{ section.settings.image_2 | img_url: '700x' | img_tag }}
+
+
+        </div>
+  <div class="main-image">
+    {{ section.settings.image_1 | img_url: '2086x' | img_tag }}
+      
+  </div>
+
+
+  
+{% schema %}
+  {
+    "name": "Main Image",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image_1",
+        "label": "Background Image"
+      }, {
+        "type": "image_picker",
+        "id": "image_2",
+        "label": "Image"
+      }
+    ],
+    "presets": [
+      {
+        "name": " MainImage",
+        "category": "Content"
+      }
+    ]
+  }
+{% endschema %}

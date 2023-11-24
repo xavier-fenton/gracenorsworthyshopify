@@ -1,0 +1,22 @@
+<div class="sdbar-lnks-wrapper">
+  {% assign full_url = request.path %}
+
+{% for link in linklists.sidebar-menu.links %}
+
+    {% if link.url == full_url %}
+
+      <div>
+        <a href="{{ link.url }}"> <span class="astrix">*</span>{{ link.title }}</a>
+
+      </div>
+    {% else %}
+      <div>
+      <a href="{{ link.url }}">{{ link.title }}</a>
+      
+     
+    </div>
+    {% endif %}
+    
+
+  {% endfor %}
+</div>

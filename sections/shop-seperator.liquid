@@ -1,0 +1,25 @@
+{% comment %} <div class="shop-styl-seperator">
+  <div class="title-image-shop">  
+{{ section.settings.image_1 | img_url: 'original' | img_tag }}
+</div>
+</div>
+
+</div>
+{% schema %}
+  {
+    "name": "Title Image",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image_1",
+        "label": "Title"
+      }
+    ],
+    "presets": [
+      {
+        "name": " TitleIMG",
+        "category": "Content"
+      }
+    ]
+  }
+{% endschema %} {% endcomment %}

@@ -1,2 +1,21 @@
-<h2>{{ page.title }}</h2>
-{{ page.content }}
+{% assign full_url = request.path %}
+{% comment %} {% assign type = request.page_type %}  {% endcomment %}
+{% for  pages in page %}  
+ {{ pages }}
+{% endfor %}
+
+<div class="page-wrapper">
+
+  {% if full_url contains 'privacy-policy' %}
+    {% section 'privacy-page' %}
+   
+    
+    
+  {% elsif full_url contains 'about' %}
+    
+    {% section 'about-page' %}
+  {% endif %}
+</div>
+
+
+

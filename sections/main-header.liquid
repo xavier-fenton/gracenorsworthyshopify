@@ -1,0 +1,59 @@
+<div class="nav-links">
+
+  {% assign full_url = request.path %}
+  {% assign type = request.page_type %} 
+
+
+  <div class="main-links">
+
+
+
+    {% for link in linklists.main-menu.links %}
+
+      {% if link.url == full_url %}
+
+        <div>
+          <a  href="{{ link.url }}">*{{ link.title }}</a>
+
+        </div>
+      {% elsif type == 'collection' and link.title == 'Shop' %}
+        <div>
+          <a  href="{{ link.url }}">*{{ link.title }}</a>
+
+        </div>
+
+        {% elsif type == 'product' and link.title == 'Shop' %}
+          <div>
+            <a  href="{{ link.url }}">*{{ link.title }}</a>
+  
+          </div>
+  
+      {% else %}
+
+        <div>
+          <a href="{{ link.url }}">{{ link.title }}</a>
+          {% comment %} {{ type }} {% endcomment %}
+
+        </div>
+      {% endif %}
+
+
+    {% endfor %}
+
+  </div>
+
+  <div class="cart-link-btn">
+
+    <a data-ajax-cart-toggle-class-button="js-my-cart-open" href="{{ routes.cart_url }}">
+      Cart [
+      <span data-ajax-cart-bind-state="cart.item_count">
+
+        {{ cart.item_count }}
+      </span>
+      ]
+    </a>
+
+  </div>
+
+
+</div>
