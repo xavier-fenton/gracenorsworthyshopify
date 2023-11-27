@@ -1,62 +1,7 @@
 {% section 'title-seperator' %}
 
 <div class="sngl-prdct-main-wrap">
-  <div class="single-product-card-main">
-          <img
-            class="sngl-prdct-img"
-            alt="{{ product.alt }}"
-            src="{{ product.featured_image.src | img_url: '500x500', format: 'pjpg' }}"
-            loading="lazy"
-          >
-
-          <div class="prodct-info">
-            <div class="product-title-card">{{ product.title }}</div>
-            <div class="product-price">{{ product.price || money_with_currency || }}</div>
-
-            <div class="product-descript">
-              {{ product.description }}
-              </div>
-
-              {% for tag in product.tags %}
-                {% if tag == 'readytoship' %}
-                  
-                  <div class="product-ready-to-ship"> <stong>Ready to ship</stong></div>
-                {% else %}
-                  <span></span>
-                {% endif %}
-                  
-               
-              {% endfor %}
-
-            <form
-              class="form-wrapper"
-              action="/cart/add"
-              method="post"
-              enctype="multipart/form-data"
-            >
-              {% comment %} USING THIS CLASS TO HIDE WITH CSS SEEMS HACKY BUT ONLY WAY TO UPDATE CART WITH "VARIANTS" ATTACHED {% endcomment %}
-              <select class="hide-this-select" name="id">
-                {% for variant in product.variants %}
-                  {% if variant.available == true %}
-                    <option value="{{ variant.id }}">
-                      {{ variant.price | money_with_currency }}
-                    </option>
-                  {% else %}
-                    <option disabled="disabled">{{ variant.title }} - sold out!</option>
-                  {% endif %}
-                {% endfor %}
-              </select>
-              <input
-                class="add-to-cart-button"
-                type="submit"
-                name="add"
-                id="add-to-cart-button"
-                value="Add to Cart"
-                class="button"
-              >
-            </form>
-          </div>
-  </div>
+          {% section 'single-product' %}
   </div>
   
   <div class="similar-products-wrapper">
