@@ -374,6 +374,12 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
   border-bottom: 1px solid #a5a5a5;
 }
 
+.exit-cart-wrapper_1{
+  background: #b1cdc9fb;
+  position: sticky;
+  top: 0px;
+  border-bottom: 1px solid #a5a5a5;
+}
 .orswo-cart-title{
   font-weight: 800;
 }
