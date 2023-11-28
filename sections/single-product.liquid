@@ -1,13 +1,36 @@
 <div class="single-product-card-main">
 
-<img
-            class="sngl-prdct-img"
-            alt="{{ product.alt }}"
-            src="{{ product.featured_image.src | img_url: '500x500', format: 'pjpg' }}"
-            loading="lazy"
-          >
+<div class="product-images-layout">
+  {% if product.images.size == 0 %}
+    <img
+    class="sngl-prdct-img"
+    alt="{{ product.alt }}"
+    src="{{ product.featured_image.src | img_url: '500x500', format: 'pjpg' }}"
+    loading="lazy"
+    >
+    
+    {% elsif product.images.size >= 1 %}
 
-          <div class="prodct-info">
+    {% for imageSource in product.images %}
+      <img
+          class="sngl-prdct-img"
+          alt="{{ product.alt }}"
+          src="{{ imageSource.src | img_url: '500x500', format: 'pjpg' }}"
+          loading="lazy"
+            >
+      
+    {% endfor %}
+
+          
+          
+      {% endif %}
+
+          
+</div>
+
+
+
+          <div class="product-info">
             <div class="product-title-card">{{ product.title }}</div>
             <div class="product-price" >{{ product.price | money_with_currency }}</div>
 
