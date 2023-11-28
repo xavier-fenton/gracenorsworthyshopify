@@ -645,15 +645,12 @@ display: flex;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--pdnhalf);
-  height: 100dvh;
+  align-items: start;
 
 }
 
 .sngl-prdct-img {
-
   border-radius: 1%;
-  
-
   object-fit: cover;
   object-position: center;
   aspect-ratio: 1 / 1.4;
@@ -687,12 +684,21 @@ display: flex;
 
 
 
+.product-images-layout{
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--pdn);
+}
 
 
-.prodct-info {
+
+
+.product-info {
  display: flex;
  flex-direction: column;
- 
+ position: sticky;
+ top: 10%;
+ padding-bottom: 20%;
 }
 
 .product-title-card{
