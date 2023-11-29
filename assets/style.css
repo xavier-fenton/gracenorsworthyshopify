@@ -66,7 +66,7 @@ table {
 body {
 
 
-  font-family: 'Montserrat';
+  font-family: 'Archivo';
   background-color: #aac2c0;
   font-weight: 500 !important;
   /* make variable */
@@ -529,8 +529,11 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
   padding: var(--pdn);
   font-family: 'Archivo' !important;
   font-size: larger;
-  
-
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  z-index: 200;
   
 } 
 
@@ -715,40 +718,32 @@ display: flex;
  display: flex;
  flex-direction: column;
  position: sticky;
- top: 10%;
+ top: var(--pdn);
  padding-bottom: 20%;
+ gap: 20px;
 }
 
 .product-title-card{
-  padding-bottom: 2%;
   font-size: x-large;
 }
 
 .product-descript {
-  padding-top: 2%;
-  padding-bottom: 2%;
   width: 60%;
   font-weight: 300;
 
 }
 .product-price{
-  padding-top: 2%;
-  padding-bottom: 2%;
   font-size: large;
 }
 
 .product-ready-to-ship{
   font-weight: 600;
-  padding-top: 2%;
-  padding-bottom: 2%;
   letter-spacing: -1px;
 }
 
 
 .product-ready-to-ship{
   font-weight: 900;
-  padding-top: 2%;
-  padding-bottom: 2%;
 
 }
 
@@ -756,7 +751,6 @@ display: flex;
   display: flex;
   gap: 35px;
   flex-direction: column;
-  padding-top: 5%;
 }
 
 .hide-this-select{
