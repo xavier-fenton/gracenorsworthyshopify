@@ -1,7 +1,7 @@
 
 
 
-@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -66,7 +66,7 @@ table {
 body {
 
 
-  font-family: 'Montserrat';
+  font-family: 'Poppins';
   background-color: #aac2c0;
   font-weight: 500 !important;
   /* make variable */
@@ -529,8 +529,11 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
   padding: var(--pdn);
   font-family: 'Archivo' !important;
   font-size: larger;
-  
-
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  z-index: 200;
   
 } 
 
@@ -715,48 +718,54 @@ display: flex;
  display: flex;
  flex-direction: column;
  position: sticky;
- top: 10%;
+ top: var(--pdn);
  padding-bottom: 20%;
+ gap: 20px;
 }
 
 .product-title-card{
-  padding-bottom: 2%;
   font-size: x-large;
 }
 
 .product-descript {
-  padding-top: 2%;
-  padding-bottom: 2%;
   width: 60%;
   font-weight: 300;
 
 }
 .product-price{
-  padding-top: 2%;
-  padding-bottom: 2%;
   font-size: large;
 }
+/* products tag styles */
 
 .product-ready-to-ship{
-  font-weight: 600;
-  padding-top: 2%;
-  padding-bottom: 2%;
-  letter-spacing: -1px;
+  font-weight: 500;
+  font-size: medium;
+  
+}
+.product-tag-description{
+  font-weight: 400;
+  font-size: smaller;
+  width: 95%;
+}
+
+.product-tag-wrapper{
+  display: flex;
+  padding: var(--pdnhalf);
+  width: 60%;
+  background-color: #c6c8c7;
+  border: 1px solid #a5a5a5;
+  border-radius: 5px;
+  flex-direction: column;
+  font-weight: 500;
+
 }
 
 
-.product-ready-to-ship{
-  font-weight: 900;
-  padding-top: 2%;
-  padding-bottom: 2%;
-
-}
 
 .form-wrapper {
   display: flex;
   gap: 35px;
   flex-direction: column;
-  padding-top: 5%;
 }
 
 .hide-this-select{
@@ -842,9 +851,14 @@ display: flex;
     grid-template-columns: repeat(2, 1fr);
   }
 
-  
-  
+   .product-tag-wrapper{
+    width: auto;
+  }
 }
+
+  
+  
+
 
 @media only screen and (max-width: 768px)  {
   /* For mobile phones: */
@@ -858,7 +872,10 @@ display: flex;
 @media only screen and (max-width: 425px) {
   .reccomended-wrapper {
     font-size: small !important;
-}
+  }
+  .product-tag-wrapper{
+    width: auto;
+  }
 }
 
 
