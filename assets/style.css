@@ -786,17 +786,14 @@ display: flex;
     padding: var(--pdn);
   }
   .single-product-card-main {
-    grid-template-columns: repeat(1, 1fr);
+    /* grid-template-columns: repeat(1, 1fr); */
     height: fit-content;
   }
   .sngl-prdct-img{
     width: 100%;
   }
 
-  .prodct-info{
-    padding-left: 0;
-    
-  }
+  
   .product-descript{
     width: 100%;
   }
@@ -808,10 +805,29 @@ display: flex;
   .sngl-prdct-main-wrap{
     padding: var(--pdnhalf);
   }
+  .product-info{
+    top: 50px;
+    gap: var(--pdnhalf);
+  }
   
   
 }
-
+@media only screen and (max-width: 500px)  {
+  /* For mobile phones: */
+  .sngl-prdct-main-wrap{
+    padding: var(--pdnhalf);
+  }
+  .single-product-card-main {
+    grid-template-columns: repeat(1, 1fr);
+    height: fit-content;
+  }
+  .product-info{
+    top: 50px;
+    gap: var(--pdnhalf);
+  }
+  
+  
+}
 /* similar products section */
 .you-may-like-title{
   padding-bottom: var(--pdn);
