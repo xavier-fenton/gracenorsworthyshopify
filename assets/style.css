@@ -436,7 +436,7 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 
 /* CSS */
 .button-4 {
-  background-color: #FAFBFC;
+  background-color: #ffffff !important;
   cursor: pointer;
   border: 1px solid black;
   border-radius: 2px;
@@ -447,7 +447,7 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 
 .checkout-btn {
   display: flex;
-  color: #dcd1d1fb;
+  color: #dcd1d1fb !important;
   justify-content: center;
   padding: var(--pdn);
 }
@@ -667,7 +667,7 @@ display: flex;
 .single-product-card-main{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--pdnhalf);
+  gap: var(--pdn);
   align-items: start;
 
 }
