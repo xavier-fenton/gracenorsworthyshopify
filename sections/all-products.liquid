@@ -38,3 +38,10 @@
   {% else %}
     <p>Sorry, there are no products in this collection</p>
   {% endif %}
+
+{% comment %} FOR IMAGE {% endcomment %}
+  {% comment %} <img
+  class="product-img"
+  src="{{ product.featured_image | product_img_url: 'grande' }}"
+  alt="{{ product.title | escape }}"
+  loading="lazy" /> {% endcomment %}
