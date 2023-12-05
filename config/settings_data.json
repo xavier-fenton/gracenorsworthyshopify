@@ -77,6 +77,18 @@
         "settings": {
           "image_1": "shopify:\/\/shop_images\/DSC06302.jpg"
         }
+      },
+      "single-product": {
+        "type": "single-product",
+        "settings": {
+          "IsReadyTitle": "Ready",
+          "IsReadyDescription": "arcu sed mi tempus, sit amet pulvinar elit vehicula. Aenean ut volutpat mi. Curabitur id neque nulla. Sed venenatis justo vitae augue commodo egestas. Aliquam ultrices felis et dolor luctus lobortis. Suspendisse potenti."
+        }
+      },
+      "similar-products": {
+        "type": "similar-products",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
