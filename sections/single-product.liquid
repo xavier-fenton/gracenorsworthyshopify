@@ -56,6 +56,15 @@
               {{ product.description }}
               </div>
 
+                {% for item in section.settings %}
+                  {% if item.IsReadyTitle %}
+                    {{ item.IsReadyTitle }}
+                  {% else %}
+                    
+                  {% endif %}
+                {% endfor %}
+
+
                 <div class="product-tag-wrapper">
                   <div class="product-ready-to-ship"> {{ section.settings.IsReadyTitle }} </div>
                   <div class="product-tag-description">
@@ -144,14 +153,12 @@
       {
       "type": "text",
       "id": "IsReadyTitle",
-      "label": "What's the status?",
-      "placeholder": "Status"
+      "label": "What's the status?"
      },
      {
       "type": "textarea",
       "id": "IsReadyDescription",
-      "label": "Description of Status for the product",
-      "placeholder": "Pending..."
+      "label": "Description of Status for the product"
 
      }
 
