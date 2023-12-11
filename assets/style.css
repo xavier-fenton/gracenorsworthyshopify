@@ -376,6 +376,7 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
   box-shadow: 12px 9px 25px 4px rgba(0, 0, 0, 0.24);
   -webkit-box-shadow: 12px 9px 25px 4px rgba(0, 0, 0, 0.24);
   -moz-box-shadow: 12px 9px 25px 4px rgba(0, 0, 0, 0.24);
+  z-index: 3;
 }
 
 .exit-tab-wrapper{
@@ -736,6 +737,10 @@ display: flex;
 /* products tag styles */
 
 .product-ready-status{
+
+  padding-top: var(--pdnhalf);
+  padding-bottom: var(--pdnhalf);
+
   font-weight: 700;
   font-size: small;
 
