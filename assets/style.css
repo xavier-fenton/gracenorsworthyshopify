@@ -737,6 +737,7 @@ display: flex;
 /* products tag styles */
 
 .product-ready-status{
+
   padding-top: var(--pdnhalf);
   padding-bottom: var(--pdnhalf);
 
