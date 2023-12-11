@@ -60,14 +60,12 @@
                 {% comment %} This to be dynamic, if tag is true else have a placeholder {% endcomment %}
                 {% if tag == 'readytoship' %}
                   <div class="product-tag-wrapper">
-                    <div class="product-ready-to-ship"> Ready to ship </div>
+                    <div class="product-ready-status"> Ready to ship </div>
                     {% comment %} This to have a schema for what the description {% endcomment %}
-                    <div class="product-tag-description">
-                      ante. Nam lacinia arcu sed mi tempus, sit amet pulvinar elit vehicula. Aenean ut volutpat mi. Curabitur id neque nulla. Sed venenatis justo vitae augue commodo egestas. Aliquam 
-                      </div>
+                   
                   </div>
-                {% else %}
-                  <span></span>
+                {% elsif tag == 'tobemade' %}
+                  <div class="product-ready-status"> To Be Made </div>
                 {% endif %}
                   
                

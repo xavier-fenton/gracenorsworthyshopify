@@ -735,9 +735,10 @@ display: flex;
 }
 /* products tag styles */
 
-.product-ready-to-ship{
-  font-weight: 500;
-  font-size: medium;
+.product-ready-status{
+  font-weight: 700;
+  font-size: small;
+
   
 }
 .product-tag-description{
@@ -746,17 +747,7 @@ display: flex;
   width: 95%;
 }
 
-.product-tag-wrapper{
-  display: flex;
-  padding: var(--pdnhalf);
-  width: 60%;
-  background-color: #c6c8c7;
-  border: 1px solid #a5a5a5;
-  border-radius: 5px;
-  flex-direction: column;
-  font-weight: 500;
 
-}
 
 
 
