@@ -1,12 +1,28 @@
 // WHAT NEEDS TO BE DONE
 
-1  MAKE FONT SIZES THICKER, CHANGE MAIN LINKS DIFFERENT COLORS, AND HIGHLIGHTED ONES DIFFERENT TO AND 
-2 ADJUST CART STYLING
-3 ADD PRODUCT IMAGES
-4 WORK ON STYLING FOR ABOUT PAGE
-5 IMPROVE MEDIA QUERIES FOR SCREEN SIZES
-6 FIX HOME PAGE IMAGE
-7 MAKE IMAGE ON PRODUCT PAGE BIGGER 
-8 MAKE STOCKLISTS PAGE
-9 MAKE PROCESS PAGE
-10 MAKE ENQUIRY PAGE FOR CUSTOM PIECES
+1 ADD PRODUCT IMAGES
+2 WORK ON STYLING FOR ABOUT PAGE
+3 MAKE STOCKLISTS PAGE
+4 MAKE PROCESS PAGE
+5 MAKE ENQUIRY PAGE FOR CUSTOM PIECES
+
+
+// 29/11 
+
+remove all padding percentages from typographies
+
+make ready to ship a little feature, if it nots ready to ship, have another default value " order to be made "
+
+at mobile view make product images either scroll side ways or make 'add to cart button' sticky
+
+make cart link "cart[0]" be inline with home in mobile view
+
+mobile view images padding should be inline with menu padding
+
+mobile view add to cart button width 100%
+
+remove letter spacing
+
+make all products menu links
+
+adjust font weight with archivo
