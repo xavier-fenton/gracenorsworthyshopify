@@ -376,7 +376,7 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
   box-shadow: 12px 9px 25px 4px rgba(0, 0, 0, 0.24);
   -webkit-box-shadow: 12px 9px 25px 4px rgba(0, 0, 0, 0.24);
   -moz-box-shadow: 12px 9px 25px 4px rgba(0, 0, 0, 0.24);
-  z-index: 3;
+  z-index: 4;
 }
 
 .exit-tab-wrapper{
@@ -554,7 +554,7 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
   top: 0px;
   right: 0px;
   left: 0px;
-  z-index: 200;
+  z-index: 3;
   
 } 
 
