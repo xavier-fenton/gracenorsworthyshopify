@@ -554,7 +554,7 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
   top: 0px;
   right: 0px;
   left: 0px;
-  z-index: 200;
+  z-index: 3;
   
 } 
 
