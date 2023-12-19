@@ -930,10 +930,9 @@ display: flex;
 }
 
 /* PAGE STYLING FOR ABOUT & PRIVACY POLICY */
-/* .page-wrapper{
-  display: flex;
-  flex-direction: column;
-} */
+.page-wrapper{
+  height: 100dvh;
+}
 
 #shopify-section-about-page{
   height: 100dvh;
@@ -946,16 +945,18 @@ display: flex;
 }
 
 .about-section-image img {
-  width: 100vw;
-  height: 100dvh;
-  object-fit: cover;
-  object-position: center;
+    position: absolute;
+    width: 100%;
+    height: 100dvh;
+    object-fit: cover;
+    object-position: center;
+    top: 0px;
+    z-index: -1;
 }
 
 
 .about-main-info-wrapper{
-  position: absolute;
-  padding-top: 230px;
+  padding-top: 200px;
 }
 
 .custom-block-main-wrapper{
