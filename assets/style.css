@@ -67,7 +67,7 @@ body {
 
 
   font-family: 'Poppins';
-  background-color: #aac2c0;
+  background-color: #dce8e7;
   font-weight: 500 !important;
   /* make variable */
   color: var(--fontcolour)
@@ -920,9 +920,11 @@ display: flex;
 @media only screen and (max-width: 768px)  {
   /* For mobile phones: */
   .footer-childern{
-    gap: 1vw;
+    gap: 10px;
     flex-wrap: wrap;
     justify-content: center;
+    padding: 10px;
+    font-size: 15px;
   }
   
 }
@@ -933,7 +935,9 @@ display: flex;
   flex-direction: column;
 } */
 
-
+#shopify-section-about-page{
+  height: 100dvh;
+}
 
 .about-section-wrapper{
   display: flex;
@@ -943,10 +947,20 @@ display: flex;
 
 .about-section-image img {
   width: 100vw;
+  height: 100dvh;
   object-fit: cover;
   object-position: center;
 }
 
+
+.about-main-info-wrapper{
+  position: absolute;
+  padding-top: 230px;
+}
+
+.custom-block-main-wrapper{
+    padding: 10px;
+}
 .custom-block-description-wrapper{
   padding-left: var(--pdn);
   padding-right: var(--pdn);
@@ -954,15 +968,22 @@ display: flex;
 }
 .custom-block-description-text{
   
-padding-top: var(--pdn);
+padding-top: var(--pdnhalf);
 }
 
 
 .about-page-title{
   font-size: xxx-large;
+  padding-left: 10px;
 }
 
+.seperator-about{
+  height: calc(100dvh / 2);
+  background-color: red;
 
+}
+
+/* media queries about page */
 @media only screen and (max-width: 768px)  {
   /* For mobile phones: */
 
@@ -970,6 +991,20 @@ padding-top: var(--pdn);
     width: 80% !important;
     padding-left: var(--pdnhalf);
   }
+ 
+}
+
+@media only screen and (max-width: 500px)  {
+  /* For mobile phones: */
+  /* .about-page-title{
+    top: 0px;
+    position: relative;
+    padding-top: 40px;
+  }
+  .seperator-about{
+    height: 100px;
+  } */
+
 }
 
 /* FADEIN ANIMATION */
