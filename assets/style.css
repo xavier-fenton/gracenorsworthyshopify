@@ -459,6 +459,8 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
   background-color: #f1e8e8;
   border-color: #bed9df;
   border-radius: 0px;
+  color: var(--fontcolour);
+  font-weight: bold;
 }
 
 /* CSS */
