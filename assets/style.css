@@ -403,10 +403,9 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
   background: #eff2f5;
   position: sticky;
   top: 0px;
-  border-bottom: 1px solid #a5a5a5;
 }
 .orswo-cart-title{
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .exit-cart{
@@ -415,6 +414,8 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
   justify-content: space-between;
   padding: var(--pdn);
   text-transform: lowercase;
+  border-bottom: 1px solid #a5a5a5;
+
 }
 
 .exit-the-cart{
@@ -479,6 +480,16 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
   color: #dcd1d1fb !important;
   justify-content: center;
   padding: var(--pdn);
+  
+}
+
+.checkout-btn button{
+  background-color: #f1e8e8;
+  border-color: #bed9df;
+  border-radius: 5px;
+  color: var(--fontcolour);
+  font-weight: bold;
+  height: 25px;
 }
 
 .checkout-button-wrapper{
