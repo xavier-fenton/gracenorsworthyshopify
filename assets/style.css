@@ -458,6 +458,7 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
   height: 35px;
   background-color: #f1e8e8;
   border-color: #bed9df;
+  border-radius: 0px;
 }
 
 /* CSS */
