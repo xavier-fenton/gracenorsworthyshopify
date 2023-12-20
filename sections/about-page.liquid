@@ -16,7 +16,7 @@
             </div>
 
         {% if section.settings.image_1 %} 
-          <div class="about-section-image">{{ section.settings.image_1 | image_url: width: 450 | image_tag }}</div>
+          {% comment %} <div class="about-section-image">{{ section.settings.image_1 | image_url: width: 450 | image_tag }}</div> {% endcomment %}
           {% comment %} <div class="about-section-image" style="background-image: url('{{ section.settings.image_1 | image_url }}')"></div> {% endcomment %}
 
          
