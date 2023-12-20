@@ -456,6 +456,7 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 .add-to-cart-button {
   width: 50%;
   height: 35px;
+  background-color: red;
 }
 
 /* CSS */
