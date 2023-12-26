@@ -31,6 +31,17 @@
           "footer_Email": "orswo@hello.com",
           "footer_Instagram": "https:\/\/www.instagram.com\/orswo\/"
         }
+      },
+      "all-products": {
+        "type": "all-products",
+        "settings": {
+        }
+      },
+      "title-seperator": {
+        "type": "title-seperator",
+        "settings": {
+          "image_1": "shopify:\/\/shop_images\/FinalTitle.png"
+        }
       }
     },
     "content_for_index": [
