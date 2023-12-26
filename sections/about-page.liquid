@@ -3,28 +3,18 @@
 <div class="about-section-wrapper">
  <div class="about-main-info-wrapper">
               <div class="about-page-title">*{{ page.title }}</div>
-              <div class="custom-block-main-wrapper">
+              <div class="about-page-main-wrapper">
 
-                    <div class="custom-block-description-wrapper">
+                    <div class="about-description-wrapper">
                     
-                      <div class="custom-block-description-text">{{ section.settings.description_text }} </div>
+                      <div class="about-description-text">{{ page.content }} </div>
 
                   </div>
                 </div>
                 <div></div>
             </div>
 
-        {% if section.settings.image_1 %} 
-          {% comment %} <div class="about-section-image">{{ section.settings.image_1 | image_url: width: 450 | image_tag }}</div> {% endcomment %}
-          {% comment %} <div class="about-section-image" style="background-image: url('{{ section.settings.image_1 | image_url }}')"></div> {% endcomment %}
-
-         
-      {% else %} 
-          
-        <span></span>
-
-        {% endif %}
-        
+     
 </div>
 
 
@@ -34,17 +24,8 @@
   {
     "name": "About Content",
     "settings":[
-      {
-        "type": "image_picker",
-        "id": "image_1",
-         "label": "Display an Image: This will display at top of page have a play around"
-      },
-      {
-        "type": "textarea",
-        "id": "about_description",
-         "label": "About Description"
-      }
-      
+     
+     
       
     ],
    
