@@ -985,16 +985,16 @@ display: flex;
   padding-top: 200px;
 }
 
-.custom-block-main-wrapper{
+.about-page-main-wrapper{
     padding: 10px;
     height: 100dvh;
 }
-.custom-block-description-wrapper{
+.about-description-wrapper{
   padding-left: var(--pdn);
   padding-right: var(--pdn);
   width: 60%;
 }
-.custom-block-description-text{
+.about-description-text{
   
 padding-top: var(--pdnhalf);
 }
@@ -1015,7 +1015,7 @@ padding-top: var(--pdnhalf);
 @media only screen and (max-width: 768px)  {
   /* For mobile phones: */
 
-  .custom-block-description-wrapper{
+  .about-description-wrapper{
     width: 80% !important;
     padding-left: var(--pdnhalf);
   }
