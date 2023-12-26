@@ -4,9 +4,9 @@
   {% assign type = request.page_type %} 
 
 
+ 
   <div class="main-links">
-
-
+ 
 
     {% for link in linklists.main-menu.links %}
 
@@ -42,17 +42,48 @@
 
   </div>
 
-  <div class="cart-link-btn">
 
+ <div class="catergories-and-cart">
+
+  <div class="sdbar-lnks-wrapper">
+  {% assign full_url = request.path %}  
+
+  {% if type == 'collection' %}
+      {% for link in linklists.sidebar-menu.links %}
+
+
+          
+        
+        {% if link.url == full_url %}
+          
+          <div>
+            <a href="{{ link.url }}"> <span class="astrix">*</span>{{ link.title }}</a>
+            
+            </div>
+            {% else %}
+            <div>
+              <a href="{{ link.url }}">{{ link.title }}</a>
+              
+              
+              </div>
+            {% endif %}
+            
+            
+          {% endfor %}
+        {% endif %}  
+</div>
+
+  <div class="cart-link-btn">
     <a data-ajax-cart-toggle-class-button="js-my-cart-open" href="{{ routes.cart_url }}">
-      Cart [
-      <span data-ajax-cart-bind-state="cart.item_count">
+      
+        Cart 
+      {% comment %} <span data-ajax-cart-bind-state="cart.item_count">
 
         {{ cart.item_count }}
-      </span>
-      ]
-    </a>
-
+      </span> {% endcomment %}
+      </a>
+  </div>
+</div>
   </div>
 
 

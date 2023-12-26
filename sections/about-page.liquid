@@ -1,25 +1,31 @@
 {% assign page = pages.about %}
 
 <div class="about-section-wrapper">
- 
+ <div class="about-main-info-wrapper">
+              <div class="about-page-title">*{{ page.title }}</div>
+              <div class="custom-block-main-wrapper">
+            {% for block in section.blocks %}
+                    <div class="custom-block-description-wrapper">
+                    
+                      <div class="custom-block-description-text">{{ block.settings.description_text }} </div>
+
+                  </div>
+                {% endfor %}
+                </div>
+                <div></div>
+            </div>
+
         {% if section.settings.image_1 %} 
-          <div class="about-section-image">{{ section.settings.image_1 | image_url:  width: 450 | image_tag }}</div>
-          
-        {% else %}
+          {% comment %} <div class="about-section-image">{{ section.settings.image_1 | image_url: width: 450 | image_tag }}</div> {% endcomment %}
+          {% comment %} <div class="about-section-image" style="background-image: url('{{ section.settings.image_1 | image_url }}')"></div> {% endcomment %}
+
+         
+      {% else %} 
           
         <span></span>
 
         {% endif %}
-          <div class="about-page-title">*{{ page.title }}</div>
-        {% for block in section.blocks %}
-          
-          <div class="custom-block-description-wrapper">
-          
-             <div class="custom-block-description-text">{{ block.settings.description_text }} </div>
-
-        </div>
-        {% endfor %}
-
+        
 </div>
 
 
