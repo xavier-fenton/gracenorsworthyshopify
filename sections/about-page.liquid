@@ -7,24 +7,14 @@
 
                     <div class="custom-block-description-wrapper">
                     
-                      <div class="custom-block-description-text">{{ section.settings.about_description }} </div>
+                      <div class="custom-block-description-text">{{ page.content }} </div>
 
                   </div>
                 </div>
                 <div></div>
             </div>
 
-        {% if section.settings.image_1 %} 
-          {% comment %} <div class="about-section-image">{{ section.settings.image_1 | image_url: width: 450 | image_tag }}</div> {% endcomment %}
-          {% comment %} <div class="about-section-image" style="background-image: url('{{ section.settings.image_1 | image_url }}')"></div> {% endcomment %}
-
-         
-      {% else %} 
-          
-        <span></span>
-
-        {% endif %}
-        
+     
 </div>
 
 
@@ -34,17 +24,8 @@
   {
     "name": "About Content",
     "settings":[
-      {
-        "type": "image_picker",
-        "id": "image_1",
-         "label": "Display an Image: This will display at top of page have a play around"
-      },
-      {
-        "type": "richtext",
-        "id": "about_description",
-         "label": "About Description"
-      }
-      
+     
+     
       
     ],
    
