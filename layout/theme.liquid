@@ -4,8 +4,17 @@
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->
-  <html class="no-js"> <!--<![endif]-->
-  <head>
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+    
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     {% if template == 'index' %}
@@ -24,21 +33,19 @@
     {{ 'style.css' | asset_url | stylesheet_tag }}
     {{ '//http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js' | script_tag }}
 
-
-
-     <script type="application/json" data-ajax-cart-initial-state>
+    
+    <script type="application/json" data-ajax-cart-initial-state>
     {{ cart | json }}
     </script>
     <script type="module">
-  import '{{ "liquid-ajax-cart-v1.11.1.js" | asset_url }}';
-  </script>
+      import '{{ "liquid-ajax-cart-v1.11.1.js" | asset_url }}';
+      </script>
 
   
 </head>
 
   <body id="{{ page_title | handle }}" class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">
 
-    
 
 
 
