@@ -1036,6 +1036,14 @@ padding-top: var(--pdnhalf);
     height: 100px;
   } */
 
+  .about-description-wrapper{
+    flex-direction: column-reverse !important;
+  }
+  canvas{
+    width: 250px !important;
+    height: 250px !important;
+
+  }
 }
 
 /* FADEIN ANIMATION */
