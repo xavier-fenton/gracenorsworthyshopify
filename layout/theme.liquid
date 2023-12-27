@@ -37,11 +37,13 @@
     <script type="application/json" data-ajax-cart-initial-state>
     {{ cart | json }}
     </script>
+
+
     <script type="module">
       import '{{ "liquid-ajax-cart-v1.11.1.js" | asset_url }}';
       </script>
 
-<script type="module" src="../assets/nuckle.js" defer></script>
+<script type="module" src="{{ 'nuckle_script.js' | asset_url }} " defer></script>
 </head>
 
   <body id="{{ page_title | handle }}" class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">
