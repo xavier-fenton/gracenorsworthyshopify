@@ -6,14 +6,14 @@
 <!--[if (gt IE 9)|!(IE)]><!-->
 <html class="no-js"> <!--<![endif]-->
 <head>
-    {% comment %} <script type="importmap">
+    <script type="importmap">
       {
         "imports": {
           "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
           "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
         }
       }
-    </script> {% endcomment %}
+    </script>
     
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -43,7 +43,7 @@
       import '{{ "liquid-ajax-cart-v1.11.1.js" | asset_url }}';
       </script>
 
-{% comment %} <script type="module" src="{{ 'nuckle_script.js' | asset_url }} " defer></script> {% endcomment %}
+<script type="module" src="{{ 'nuckle_script.js' | asset_url }} " defer></script>
 </head>
 
   <body id="{{ page_title | handle }}" class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">
