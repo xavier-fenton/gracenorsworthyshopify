@@ -585,7 +585,7 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
   right: 0px;
   left: 0px;
   z-index: 3;
-  background-color: #fcfffd;
+  background-color: #e2edf7;
   
 } 
 
@@ -940,10 +940,13 @@ display: flex;
   padding: var(--pdnhalf);
 }
 
-
+.footer-privacy{
+  font-weight: 600;
+}
 .foot-contact-num {
   display: flex;
   gap: var(--pdn);
+  font-weight: 600;
 }
 /* FOOTER MEDIA QUERIES */
 
