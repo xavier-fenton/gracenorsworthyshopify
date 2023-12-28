@@ -26,7 +26,7 @@
   <div class="exit-tab-wrapper_1">
     <div class="exit-cart">
       <a data-ajax-cart-toggle-class-button="js-my-cart-open" class="exit-the-cart"
-        href="{{ routes.cart_url }}"><strong>EXIT</strong></a>
+        href="{{ routes.cart_url }}">EXIT</a>
         <div class="orswo-cart-title">ORSWO</div>
 
       <div>CART</div>
@@ -57,7 +57,7 @@
           <div class="inner-wrapper-cart__items">
             <div class="in-cart-description">
               <span class="title-in-cart-desc">Title: </span>
-              <a href="{{ item.url }}">{{ item.title }}</a>
+              <a class="cart-title-money" href="{{ item.url }}">{{ item.title }}</a>
             </div>
             {% comment %} If Grace wants customers to add notes the product they are buying {% endcomment %}
             {% comment %} {% for property in item.properties %}
@@ -76,7 +76,7 @@
             <div class="in-cart-description">
               <span class="price-in-cart-desc">Price: </span>
 
-              <div> <strong>{{ item.final_price | money }}</strong></div>
+              <div class="cart-title-money"> {{ item.final_price | money }}</div>
             </div>
             <div class="quatity-main">
               <span class="quantity-in-cart-desc">Quantity:</span>
@@ -110,9 +110,9 @@
 
             <div class="in-cart-description">
               <span class="total-in-cart-desc"> Total: </span>
-              <strong>{{ item.final_line_price | money }}</strong>
+              <div class="cart-title-money"> {{ item.final_line_price | money }}</div>
             </div>
-            <a data-ajax-cart-request-button href="{{ item.url_to_remove }}">
+            <a class="cart-remove" data-ajax-cart-request-button href="{{ item.url_to_remove }}">
               Remove
             </a>
           </div>

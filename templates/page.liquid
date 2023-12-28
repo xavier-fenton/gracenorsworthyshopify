@@ -6,16 +6,18 @@
 
 <div class="page-wrapper">
 
-  {% if full_url contains 'privacy-policy' %}
-    {% section 'privacy-page' %}
-   
-    
-    
-  {% elsif full_url contains 'about' %}
-    
-    {% section 'about-page' %}
+      {% if full_url contains 'privacy-policy' %}
+        {% section 'privacy-page' %}
+      
+        
+        
+      {% elsif full_url contains 'about' %}
+        
+        {% section 'about-page' %}
   {% endif %}
   </div>
+
+  
   {% section 'title-seperator' %}
   {% section 'footer' %}
 
