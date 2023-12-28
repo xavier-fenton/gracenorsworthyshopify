@@ -352,7 +352,7 @@ a {
   flex-direction: column;
   opacity: 1;
   transition: opacity 0.2s;
-  gap: var(--pdnhalf);
+  gap: var(--pdn);
   padding-top: var(--pdn);
 }
 
@@ -448,7 +448,7 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
   display: flex;
   flex-direction: column;
   padding-top: var(--pdnhalf);
-  gap: var(--pdn);
+  gap: var(--pdnhalf);
 }
 
 
@@ -462,6 +462,16 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
   border-radius: 0px;
   color: var(--fontcolour);
   font-weight: bold;
+}
+
+.cart-title-money{
+  padding-left: 5px;
+  font-size: medium;
+  
+}
+.cart-remove{
+  font-size: small;
+  font-weight: 600;
 }
 
 /* CSS */
@@ -1028,6 +1038,8 @@ canvas{
 
 .privacy-page-title{
  padding-left: 10px;
+ font-weight: 600;
+ font-size: larger;
 }
 
 .privacy-page-content{
