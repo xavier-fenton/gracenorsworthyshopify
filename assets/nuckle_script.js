@@ -31,8 +31,9 @@ async function init() {
   const loader = new GLTFLoader()
   loader.crossOrigin = ''
   loader.load(
-    '../assets/model.gltf',
-    function (gltf) {
+    'https://cdn.shopify.com/s/files/1/0734/8522/2208/files/model.gltf?v=1703723345',
+    async function (gltf) {
+      await gltf
       gltf.scene.rotation.x = 0.7
       scene.add(gltf.scene)
     },
@@ -42,12 +43,15 @@ async function init() {
     }
   )
 
-  new RGBELoader().load('../assets/sky_blue.hdr', async function (texture) {
-    await texture
-    texture.mapping = THREE.EquirectangularReflectionMapping
-    scene.background = texture
-    scene.environment = texture
-  })
+  new RGBELoader().load(
+    'https://cdn.shopify.com/s/files/1/0734/8522/2208/files/sky_blue.hdr?v=1703723358',
+    async function (texture) {
+      await texture
+      texture.mapping = THREE.EquirectangularReflectionMapping
+      scene.background = texture
+      scene.environment = texture
+    }
+  )
 
   const screenWidth = 500
   const screenHeight = 500
