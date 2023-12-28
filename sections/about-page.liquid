@@ -1,25 +1,22 @@
 {% assign page = pages.about %}
 
+
+
 <div class="about-section-wrapper">
- 
-        {% if section.settings.image_1 %} 
-          <div class="about-section-image">{{ section.settings.image_1 | image_url:  width: 450 | image_tag }}</div>
-          
-        {% else %}
-          
-        <span></span>
+ <div class="about-main-info-wrapper">
+              <div class="about-page-title">*{{ page.title }}</div>
+              <div class="about-page-main-wrapper">
 
-        {% endif %}
-          <div class="about-page-title">*{{ page.title }}</div>
-        {% for block in section.blocks %}
-          
-          <div class="custom-block-description-wrapper">
-          
-             <div class="custom-block-description-text">{{ block.settings.description_text }} </div>
+                    <div id="about_description" class="about-description-wrapper">
+                    
+                      <div class="about-description-text">{{ page.content }} </div>
 
-        </div>
-        {% endfor %}
+                  </div>
+                </div>
+                <div></div>
+            </div>
 
+     
 </div>
 
 
@@ -29,26 +26,11 @@
   {
     "name": "About Content",
     "settings":[
-      {
-        "type": "image_picker",
-        "id": "image_1",
-         "label": "Display an Image: This will display at top of page have a play around"
-      }
+     
+     
+      
     ],
-    "max_blocks": 5,
-    "blocks": [ {
-      "name": "Description Paragraph",
-       "type": "text",
-      "settings": [
-        { 
-          "type": "textarea",
-          "id": "description_text",
-          "label": "Description: This is like paragraph by paragraph."
-        }
-        
-      ]
-    }
-    ],
+   
     "presets": [
       {
         "name": " About Page Content",

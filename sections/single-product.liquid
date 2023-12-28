@@ -61,12 +61,16 @@
                 {% if tag == 'readytoship' %}
                   <div class="product-tag-wrapper">
                     <div class="product-ready-status"> Ready to ship </div>
-                    {% comment %} This to have a schema for what the description {% endcomment %}
-                   
+                    <div class="product-tag-description">{{ section.settings.ready_to_ship_status_description }}</div>
+
                   </div>
                 {% elsif tag == 'tobemade' %}
-                  <div class="product-ready-status"> To be made </div>
+                  <div class="product-tag-wrapper">
 
+                    <div class="product-ready-status"> To be made </div>
+                    <div class="product-tag-description">{{ section.settings.to_be_made_status_description }}</div>
+
+                  </div>
                 {% endif %}
                   
                
@@ -143,3 +147,22 @@
   }
     
   </style>
+
+
+{% schema %}
+{
+  "name": "tag_descriptions",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "ready_to_ship_status_description",
+      "label": "Ready to ship status description"
+    },
+    {
+      "type": "textarea",
+      "id": "to_be_made_status_description",
+      "label": "To be made status description"
+    }
+    ]
+}
+{% endschema %}
