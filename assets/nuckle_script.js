@@ -36,9 +36,7 @@ async function init() {
       await gltf
       gltf.scene.rotation.x = 0.7
       let model = gltf.scene.children[0]
-      // rgb(211,211,211)
       model.material.color = silver
-      console.log(model)
       model.material.roughness = 0.025
       scene.add(model)
     },
