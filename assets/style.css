@@ -964,6 +964,9 @@ display: flex;
   height: 100dvh;
 } */
 
+canvas{
+  padding-right: 20px;
+}
 .about-section-wrapper{
   display: flex;
   flex-wrap: wrap;
@@ -982,21 +985,23 @@ display: flex;
 
 
 .about-main-info-wrapper{
-  padding-top: 200px;
+  padding-top: 100px;
 }
 
 .about-page-main-wrapper{
     padding: 10px;
-    height: 100dvh;
+    /* height: 100dvh; */
+    padding-bottom: 20px;
 }
 .about-description-wrapper{
+  display: flex;
   padding-left: var(--pdn);
-  padding-right: var(--pdn);
-  width: 60%;
+  gap: 10%;
+  padding-right: 20px;
 }
 .about-description-text{
-  
-padding-top: var(--pdnhalf);
+  width: 50%;
+  padding-top: var(--pdnhalf);
 }
 
 
@@ -1016,10 +1021,14 @@ padding-top: var(--pdnhalf);
   /* For mobile phones: */
 
   .about-description-wrapper{
-    width: 80% !important;
     padding-left: var(--pdnhalf);
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
   }
- 
+  .about-description-text{
+    width: 100%;
+  }
 }
 
 @media only screen and (max-width: 500px)  {
@@ -1033,6 +1042,14 @@ padding-top: var(--pdnhalf);
     height: 100px;
   } */
 
+  .about-description-wrapper{
+    flex-direction: column-reverse !important;
+  }
+  canvas{
+    width: 250px !important;
+    height: 250px !important;
+
+  }
 }
 
 /* FADEIN ANIMATION */
