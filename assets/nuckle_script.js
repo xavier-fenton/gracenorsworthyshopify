@@ -28,6 +28,8 @@ async function init() {
 
   const controls = new OrbitControls(camera, renderer.domElement)
 
+  const silver = new THREE.Color('rgb(211,211,211)')
+
   const loader = new GLTFLoader()
   loader.crossOrigin = ''
   loader.load(
@@ -35,7 +37,11 @@ async function init() {
     async function (gltf) {
       await gltf
       gltf.scene.rotation.x = 0.7
-      scene.add(gltf.scene)
+      let model = gltf.scene.children[0]
+      model.material.color = silver
+      model.material.roughness = 0.025
+      scene.add(model)
+
     },
     undefined,
     function (error) {

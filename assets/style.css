@@ -990,7 +990,8 @@ canvas{
 
 .about-page-main-wrapper{
     padding: 10px;
-    height: 100dvh;
+    /* height: 100dvh; */
+    padding-bottom: 20px;
 }
 .about-description-wrapper{
   display: flex;
