@@ -1015,13 +1015,11 @@ canvas{
 
 
 .privacy-page-wrapper{
-  display: flex;
-  gap: 20px;
-  flex-direction: column;
-  position: relative;
-  top: 100px;
+ 
+  padding-top: 100px;
   padding-right: 20px;
   padding-left: 20px;
+  padding-bottom: 50dvh;
 
 }
 
