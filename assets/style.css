@@ -1012,7 +1012,27 @@ canvas{
   background-color: red;
 
 }
+.page-wrapper{
+  height: 100dvh;
+}
 
+.privacy-page-wrapper{
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  position: relative;
+  top: 100px;
+  padding: 20px;
+}
+
+.privacy-page-title{
+ padding-left: 10px;
+}
+
+.privacy-page-content{
+  padding: 10px;
+  width: 80%;
+}
 /* media queries about page */
 @media only screen and (max-width: 768px)  {
   /* For mobile phones: */
