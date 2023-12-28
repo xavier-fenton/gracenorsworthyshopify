@@ -21,7 +21,6 @@
       "about-page": {
         "type": "about-page",
         "settings": {
-          "about_description": ""
         }
       },
       "footer": {
@@ -41,6 +40,18 @@
         "type": "title-seperator",
         "settings": {
           "image_1": "shopify:\/\/shop_images\/FinalTitle.png"
+        }
+      },
+      "single-product": {
+        "type": "single-product",
+        "settings": {
+          "ready_to_ship_status_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut orci eget leo finibus aliquet sed sed nunc. Aliquam tristique arcu risus, eu accumsan orci laoreet sed. In varius justo accumsan, pharetra elit at, vehicula ante. Nam lacinia arcu sed mi tempus, sit amet pulvinar elit vehicula. Aenean ut volutpat mi.",
+          "to_be_made_status_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut orci eget leo finibus aliquet sed sed nunc. Aliquam tristique arcu risus, eu accumsan orci laoreet sed. In varius justo accumsan, pharetra elit at, vehicula ante. Nam lacinia arcu sed mi tempus, sit amet pulvinar elit vehicula. Aenean ut volutpat mi."
+        }
+      },
+      "similar-products": {
+        "type": "similar-products",
+        "settings": {
         }
       }
     },
