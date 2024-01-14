@@ -3,12 +3,25 @@
   {% assign full_url = request.path %}
   {% assign type = request.page_type %} 
 
+  {% if full_url == '/' %}
+    {% style %}
+      .nav-links{
+        background-color: transparent !important;
+      }
+      .nav-links a{
+        color: #e1f5ed !important;
+      }
+    {% endstyle %}
+
+    
+  {% endif %}
+  
 
  
   <div class="main-links">
+    {% for link in linklists.main-menu.links %}
  
 
-    {% for link in linklists.main-menu.links %}
 
       {% if link.url == full_url %}
 
@@ -32,7 +45,7 @@
 
         <div>
           <a href="{{ link.url }}">{{ link.title }}</a>
-          {% comment %} {{ type }} {% endcomment %}
+          
 
         </div>
       {% endif %}

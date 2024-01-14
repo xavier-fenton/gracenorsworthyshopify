@@ -98,7 +98,6 @@ html {
 
 a {
   text-decoration: none;
-  /* font-weight: 500 !important; */
   color: var(--fontcolour);
 }
 
@@ -246,9 +245,6 @@ a {
 
 .sdbar-lnks-wrapper {
   display: flex;
-  /* flex-direction: column;
-  position: sticky;
-  /* top: 60px; */
   gap: var(--pdnhalf);
   font-size: medium;
   text-transform:lowercase;
@@ -293,10 +289,10 @@ a {
     justify-content: center !important;
     flex-direction: row !important;
     padding-bottom: var(--pdn);
+    
   }
 
   .all-products {
-   grid-template-columns: repeat(1,minmax(0,1fr)) !important; 
    padding: 0px;
    gap: 20px;
   }
@@ -325,9 +321,11 @@ a {
 
 @media only screen and (max-width: 568px){
   .sdbar-lnks-wrapper{
-    display: block;
     font-size: medium;
     padding-bottom: 0px;
+    justify-content: flex-start !important;
+    gap: 5px !important;
+    width: 150px;
   }
   .product-card-description-values{
     font-size: small;
@@ -335,6 +333,11 @@ a {
   .shop-frontpg-wrapper{
     padding-top: 100px;
   }
+
+  .all-products {
+    grid-template-columns: repeat(1,minmax(0,1fr)) !important;
+    
+}
 }
 
 
@@ -383,7 +386,7 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
   width: 500px;
   height: 70vh;
   z-index: 1;
-  background-color:  #eff2f5; 
+  background-color:  #e2edf7; 
   border-radius: 5px;
   border: 1px solid;
   box-shadow: 12px 9px 25px 4px rgba(0, 0, 0, 0.24);
@@ -392,15 +395,9 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
   z-index: 4;
 }
 
-/* .exit-tab-wrapper{
-  background: #eff2f5;
-  position: sticky;
-  top: 0px;
-  border-bottom: 1px solid #a5a5a5;
-} */
 
 .exit-cart-wrapper_1{
-  background: #eff2f5;
+  background: #e2edf7;
   position: sticky;
   top: 0px;
 }
@@ -595,22 +592,11 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
   right: 0px;
   left: 0px;
   z-index: 3;
-  background-color: #e2edf7;
-  
+  background-color: #e2edf7; /* shop page */
+  /*background-color: transparent; landing page */
 } 
 
-/* test */
-/* .nav-links a{
-  text-transform: uppercase;
 
-  display: flex;
-  padding: var(--pdn);
-  font-family: 'Archivo' !important;
-  font-size: xxx-large;
-  
-
-  
-} */
 
 .main-links{
   display: flex;
