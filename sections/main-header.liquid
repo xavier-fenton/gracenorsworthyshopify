@@ -7,9 +7,14 @@
     {% style %}
       .nav-links{
         background-color: transparent !important;
+        border-bottom: none !important;
       }
       .nav-links a{
         color: #e1f5ed !important;
+      }
+
+      .title_header{
+        display: none !important;
       }
     {% endstyle %}
 
@@ -47,6 +52,11 @@
 
   </div>
 
+{% comment %} 
+  Remember if I am going to keep this, to adjust styling I like the look of this, if want to keep, create breakpoints via mediaqueries
+{% endcomment %}
+
+  <div id="title_header_image" class="title_header_div"><img class="title_header" src="{{ 'title.png' | asset_url }}" alt="title"/></div>
 
  <div class="catergories-and-cart">
 

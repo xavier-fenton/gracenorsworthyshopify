@@ -66,17 +66,15 @@ table {
 body {
 
 
-  font-family: Arial;
-  background-color: #dce8e7;
+  font-family: sans-serif;
+  background-color: #efefef;
   font-weight: 500 !important;
   /* make variable */
   color: var(--fontcolour)
 
 }
 
-.astrix{
-  font-weight: 900;
-}
+
 
 
 
@@ -98,7 +96,7 @@ html {
 
 a {
   text-decoration: none;
-  color: var(--fontcolour);
+  color: #323232;
 }
 
 /* PRODUCTS PAGE */
@@ -129,7 +127,7 @@ a {
   width: 100%;
   padding-left: 20px;
   padding-right: 20px;
-  padding-top: 50px;
+  padding-top: 40px;
 
 
 }
@@ -177,7 +175,11 @@ a {
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
-
+.about-main-info-wrapper{
+  animation: fadeInAnimation ease 7s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
 @keyframes fadeInAnimation {
   0% {
     opacity: 0;
@@ -187,6 +189,9 @@ a {
     opacity: 1;
   }
 }
+
+
+
 /*  
 
 
@@ -217,7 +222,8 @@ a {
 }
 
 .product-card-title-link {
-  font-size: 17px !important;
+  font-size: 14px !important;
+  color: #474747 !important ;
 }
 
 .product-card-description-values{
@@ -229,7 +235,7 @@ a {
   padding-bottom: 5px;
 }
 .all-products-currency{
-  font-size: small;
+  font-size: 13px;
   color: #7a7777;
   font-family: sans-serif;
 }
@@ -284,7 +290,6 @@ a {
 
     gap: 5px;
     padding-left: 0px !important;
-    font-size: large;
     flex-wrap: wrap !important;
     justify-content: center !important;
     flex-direction: row !important;
@@ -386,7 +391,7 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
   width: 500px;
   height: 70vh;
   z-index: 1;
-  background-color:  #e2edf7; 
+  background-color:  #efefef; 
   border-radius: 5px;
   border: 1px solid;
   box-shadow: 12px 9px 25px 4px rgba(0, 0, 0, 0.24);
@@ -397,7 +402,7 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
 
 
 .exit-cart-wrapper_1{
-  background: #e2edf7;
+  background: #efefef;
   position: sticky;
   top: 0px;
 }
@@ -522,7 +527,7 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
   /* For mobile phones: */
 
   .add-to-cart-button{
-    width: 100%;
+    /* width: 100%; */
   }
 }
 
@@ -585,17 +590,36 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
   display: flex;
   justify-content: space-between;
   padding: var(--pdn);
-  font-family: 'Archivo' !important;
+  padding-bottom: 10px;
+  font-family: sans-serif !important;
   font-size: larger;
   position: fixed;
   top: 0px;
   right: 0px;
   left: 0px;
   z-index: 3;
-  background-color: #e2edf7; /* shop page */
+  background-color: #efefef; /* shop page */
   /*background-color: transparent; landing page */
+  border-bottom: 1px solid #b9b9b9;
+  color: #323232 !important;
+  /* only if keep the title_png  */
+  align-items: center;
 } 
 
+.title_header_div{
+  display: flex;
+  align-items: center;
+}
+
+/* I like the look of this, if want to keep, create breakpoints via mediaqueries */
+.title_header{
+  /* width: 375px; especially this size looks great */
+
+  width: 150px;
+  -webkit-box-shadow: -4px 14px 12px -10px rgba(0,0,0,0.12);
+-moz-box-shadow: -4px 14px 12px -10px rgba(0,0,0,0.12);
+box-shadow: -4px 14px 12px -10px rgba(0,0,0,0.12);
+}
 
 
 .main-links{
@@ -649,8 +673,8 @@ display: flex;
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
   .nav-links{
-    padding: var(--pdnhalf);
-    font-size: large;
+    padding: 11px;
+    font-size: medium;
   }
   .main-links{
     flex-direction: column;
@@ -689,6 +713,28 @@ display: flex;
 }
 
 
+@media only screen and (max-width: 568px) {
+  /* For mobile phones: */
+  .title_header_div{
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 2s, opacity 2s linear;
+  }
+  
+  
+  
+}
+
+@media only screen and (max-width: 400px) {
+  /* For mobile phones: */
+  .title_header_div{
+    display: none;
+  }
+  
+  
+  
+}
+
 
 
 /* Single Product Page */
@@ -706,7 +752,7 @@ display: flex;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--pdn);
   align-items: start;
-  padding-top: 40px;
+  padding-top: 50px;
 
 }
 
@@ -739,21 +785,22 @@ display: flex;
  display: flex;
  flex-direction: column;
  position: sticky;
- top: 76px;
+ top: 100px;
  gap: 20px;
 }
 
 .product-title-card{
-  font-size: x-large;
+  font-size: large;
 }
 
 .product-descript {
-  width: 60%;
+  width: 50%;
   font-weight: 300;
+  font-size: small;
 
 }
 .product-price{
-  font-size: large;
+  font-size: medium;
 }
 /* products tag styles */
 .product-tag-wrapper{
@@ -817,7 +864,7 @@ display: flex;
 
   
   .product-descript{
-    width: 100%;
+    width: 90%;
   }
   
 }
@@ -847,6 +894,7 @@ display: flex;
   .product-info{
     top: 50px;
     gap: var(--pdnhalf);
+    padding-left: var(--pdnhalf);
   }
   
   
@@ -961,7 +1009,7 @@ display: flex;
 /* PAGE STYLING FOR ABOUT & PRIVACY POLICY */
 
 canvas{
-  padding-right: 20px;
+  width: 100% !important;
 }
 .about-section-wrapper{
   display: flex;
@@ -981,7 +1029,7 @@ canvas{
 
 
 .about-main-info-wrapper{
-  padding-top: 100px;
+  padding-top: 50px;
 }
 
 .about-page-main-wrapper{
@@ -993,17 +1041,25 @@ canvas{
   display: flex;
   padding-left: var(--pdn);
   gap: 10%;
-  padding-right: 20px;
+  justify-content: center;
 }
 .about-description-text{
   width: 50%;
   padding-top: var(--pdnhalf);
+  color: #323232;
+}
+.about-description-text p{
+  padding-bottom: 10px;
 }
 
 
 .about-page-title{
-  font-size: xxx-large;
-  padding-left: 10px;
+  font-size: xx-large;
+  padding-left: 30px;
+  padding-top: 40px;
+  color:#464646;
+  padding-bottom: 20px;
+  position: fixed;
 }
 
 .seperator-about{
@@ -1035,7 +1091,9 @@ canvas{
 /* media queries about page */
 @media only screen and (max-width: 768px)  {
   /* For mobile phones: */
-
+  .about-main-info-wrapper {
+    padding-top: 70px;
+}
   .about-description-wrapper{
     padding-left: var(--pdnhalf);
     flex-direction: column;
@@ -1057,13 +1115,15 @@ canvas{
   .seperator-about{
     height: 100px;
   } */
+  .about-main-info-wrapper {
+    padding-top: 70px;
+}
 
   .about-description-wrapper{
     flex-direction: column-reverse !important;
   }
   canvas{
-    width: 250px !important;
-    height: 250px !important;
+    height: 100dvh !important;
 
   }
 }

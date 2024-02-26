@@ -41,8 +41,10 @@ async function init() {
 
   // const axesHelper = new THREE.AxesHelper(5)
   // scene.add(axesHelper)
-  camera.position.z = 10
 
+  camera.position.x = 2.76942813020402
+  camera.position.y = -7.906113373639309
+  camera.position.z = 5.543139630886989
   const controls = new OrbitControls(camera, renderer.domElement)
 
   controls.enableZoom = false
@@ -55,8 +57,10 @@ async function init() {
     'https://cdn.shopify.com/s/files/1/0734/8522/2208/files/model.gltf?v=1703723345',
     async function (gltf) {
       await gltf
-      gltf.scene.rotation.x = 0.7
+      // gltf.scene.rotation.x = 5
       let model = gltf.scene.children[0]
+      model.rotation.x = -2
+
       model.material.color = silver
       model.material.roughness = 0.025
       scene.add(model)
@@ -76,12 +80,14 @@ async function init() {
       scene.environment = texture
     }
   )
-
-  document.getElementById('about-main-title').after(renderer.domElement)
+  if (document.getElementById('about-main-title')) {
+    document.getElementById('about-main-title').after(renderer.domElement)
+  }
 
   function animate() {
     requestAnimationFrame(animate)
     rotateModel(scene)
+
     renderer.render(scene, camera)
   }
 
