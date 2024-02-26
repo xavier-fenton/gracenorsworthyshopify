@@ -25,29 +25,21 @@
 
       {% if link.url == full_url %}
 
-        <div>
           <a  href="{{ link.url }}">*{{ link.title }}</a>
 
-        </div>
       {% elsif type == 'collection' and link.title == 'Shop' %}
-        <div>
           <a  href="{{ link.url }}">*{{ link.title }}</a>
 
-        </div>
 
         {% elsif type == 'product' and link.title == 'Shop' %}
-          <div>
             <a  href="{{ link.url }}">*{{ link.title }}</a>
   
-          </div>
   
       {% else %}
 
-        <div>
           <a href="{{ link.url }}">{{ link.title }}</a>
           
 
-        </div>
       {% endif %}
 
 
@@ -69,16 +61,12 @@
         
         {% if link.url == full_url %}
           
-          <div>
             <a href="{{ link.url }}"> <span class="astrix">*</span>{{ link.title }}</a>
             
-            </div>
             {% else %}
-            <div>
               <a href="{{ link.url }}">{{ link.title }}</a>
               
               
-              </div>
             {% endif %}
             
             
@@ -100,4 +88,3 @@
   </div>
 
 
-</div>
