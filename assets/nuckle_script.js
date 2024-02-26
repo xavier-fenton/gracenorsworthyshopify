@@ -16,7 +16,22 @@ async function init() {
     1000
   )
 
-  renderer = new THREE.WebGLRenderer()
+  renderer = new THREE.WebGLRenderer({ antialias: true })
+
+  renderer.domElement.style.width = '100% !important'
+  renderer.setPixelRatio(window.devicePixelRatio)
+  renderer.setSize(window.innerWidth, window.innerHeight)
+
+  window.addEventListener('resize', function () {
+    let width = window.innerWidth
+    let height = window.innerHeight
+
+    renderer.setSize(width, height)
+
+    camera.aspect = width / height
+
+    camera.updateProjectionMatrix()
+  })
 
   const ambientLight = new THREE.AmbientLight(0xffffff, 0.2)
   scene.add(ambientLight)
@@ -24,9 +39,13 @@ async function init() {
   light.position.set(1, 1, 1)
   scene.add(light)
 
-  camera.position.z = 5
+  // const axesHelper = new THREE.AxesHelper(5)
+  // scene.add(axesHelper)
+  camera.position.z = 10
 
   const controls = new OrbitControls(camera, renderer.domElement)
+
+  controls.enableZoom = false
 
   const silver = new THREE.Color('rgb(211,211,211)')
 
@@ -41,7 +60,6 @@ async function init() {
       model.material.color = silver
       model.material.roughness = 0.025
       scene.add(model)
-
     },
     undefined,
     function (error) {
@@ -59,31 +77,15 @@ async function init() {
     }
   )
 
-  const screenWidth = 500
-  const screenHeight = 500
-
-  renderer.setSize(screenWidth, screenHeight)
-
-  document.getElementById('about_description').appendChild(renderer.domElement)
+  document.getElementById('about-main-wrap').after(renderer.domElement)
 
   function animate() {
     requestAnimationFrame(animate)
-    window.addEventListener('resize', onWindowResize)
     rotateModel(scene)
     renderer.render(scene, camera)
   }
 
   animate()
-
-  function onWindowResize() {
-    const width = screenWidth
-    const height = screenHeight
-
-    camera.aspect = width / height
-    camera.updateProjectionMatrix()
-
-    renderer.setSize(width, height)
-  }
 
   function rotateModel(model) {
     model.rotation.x += 0.0025
