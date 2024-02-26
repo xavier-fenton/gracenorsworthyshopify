@@ -77,7 +77,7 @@ async function init() {
     }
   )
 
-  document.getElementById('about-main-wrap').after(renderer.domElement)
+  document.getElementById('about-main-title').after(renderer.domElement)
 
   function animate() {
     requestAnimationFrame(animate)
