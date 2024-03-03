@@ -594,7 +594,7 @@ body.js-ajax-cart-request-in-progress .my-cart__items {
   font-family: sans-serif !important;
   font-size: larger;
   position: fixed;
-  top: 0px;
+  top: -1px;
   right: 0px;
   left: 0px;
   z-index: 3;
@@ -981,7 +981,7 @@ display: flex;
   display: flex;
   gap: 10px;
   align-items: center;
-  padding: var(--pdnhalf);
+  padding: 20px;
 }
 
 .footer-privacy{
@@ -1010,7 +1010,10 @@ display: flex;
 
 canvas{
   width: 100% !important;
+  image-rendering: pixelated;
 }
+
+
 .about-section-wrapper{
   display: flex;
   flex-wrap: wrap;
@@ -1028,23 +1031,15 @@ canvas{
 }
 
 
-.about-main-info-wrapper{
-  padding-top: 50px;
-}
 
 .about-page-main-wrapper{
-    padding: 10px;
-    /* height: 100dvh; */
     padding-bottom: 20px;
 }
 .about-description-wrapper{
-  display: flex;
   padding-left: var(--pdn);
-  gap: 10%;
-  justify-content: center;
 }
 .about-description-text{
-  width: 50%;
+  width: 70%;
   padding-top: var(--pdnhalf);
   color: #323232;
 }
@@ -1055,11 +1050,12 @@ canvas{
 
 .about-page-title{
   font-size: xx-large;
-  padding-left: 30px;
-  padding-top: 40px;
+  padding-left: 20px;
+  padding-top: 20px;
   color:#464646;
   padding-bottom: 20px;
-  position: fixed;
+  width: fit-content;
+  /* position: fixed; */
 }
 
 .seperator-about{
@@ -1091,11 +1087,13 @@ canvas{
 /* media queries about page */
 @media only screen and (max-width: 768px)  {
   /* For mobile phones: */
-  .about-main-info-wrapper {
+  /* .about-main-info-wrapper {
     padding-top: 70px;
-}
+} */
   .about-description-wrapper{
     padding-left: var(--pdnhalf);
+    padding-right: var(--pdnhalf);
+
     flex-direction: column;
     align-items: center;
     gap: 20px;
@@ -1115,9 +1113,9 @@ canvas{
   .seperator-about{
     height: 100px;
   } */
-  .about-main-info-wrapper {
+  /* .about-main-info-wrapper {
     padding-top: 70px;
-}
+} */
 
   .about-description-wrapper{
     flex-direction: column-reverse !important;
@@ -1126,6 +1124,25 @@ canvas{
     height: 100dvh !important;
 
   }
+}
+
+/* FAQ PAGE */
+
+.faq-page-wrapper{
+ margin-top: 58px;
+ padding-top: 20px;
+ padding-left: 20px;
+ padding-right: 20px;
+ height: 100dvh;
+
+}
+.faq-title{
+ font-weight: 600;
+ font-size: larger;
+ padding-bottom: 10px;
+}
+.faq-page-content p{
+  padding-bottom: 10px;
 }
 
 /* FADEIN ANIMATION */
