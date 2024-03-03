@@ -992,6 +992,9 @@ display: flex;
   gap: var(--pdn);
   font-weight: 600;
 }
+
+/* Footer Headings */
+
 /* FOOTER MEDIA QUERIES */
 
 @media only screen and (max-width: 768px)  {
@@ -1101,21 +1104,19 @@ canvas{
   .about-description-text{
     width: 100%;
   }
+    .privacy-page-content{
+    width: fit-content;
+  }
+  .privacy-page-wrapper{
+    padding-left: 0px;
+    padding-right: 0px;
+
+  }
 }
 
 @media only screen and (max-width: 500px)  {
   /* For mobile phones: */
-  /* .about-page-title{
-    top: 0px;
-    position: relative;
-    padding-top: 40px;
-  }
-  .seperator-about{
-    height: 100px;
-  } */
-  /* .about-main-info-wrapper {
-    padding-top: 70px;
-} */
+
 
   .about-description-wrapper{
     flex-direction: column-reverse !important;
@@ -1133,16 +1134,66 @@ canvas{
  padding-top: 20px;
  padding-left: 20px;
  padding-right: 20px;
- height: 100dvh;
 
 }
 .faq-title{
  font-weight: 600;
- font-size: larger;
+ font-size: xx-large;
  padding-bottom: 10px;
+ width: fit-content;
 }
 .faq-page-content p{
+  font-size: medium;
   padding-bottom: 10px;
+  padding-top: 10px;
+  color: #5f5f5f;
+  width: 50%;
+}
+
+.faq-page-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.faq-page-content h1{
+  font-size: xx-large;
+  font-weight: bold;
+  color: #152b20;
+
+}
+
+.faq-page-content h2{
+  font-size: x-large;
+  font-weight: bold;
+  color: #152b20;
+
+}
+.faq-page-content h3{
+  font-size: large;
+  font-weight: bold;
+  color: #152b20; 
+}
+
+@media only screen and (max-width: 1024px)  {
+  /* For mobile phones: */
+
+
+  .faq-page-content p{
+    
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 768px)  {
+  /* For mobile phones: */
+
+
+  .faq-page-content p{
+    
+    width: 100%;
+  }
 }
 
 /* FADEIN ANIMATION */
