@@ -1143,13 +1143,12 @@ canvas{
 /* custom PAGEs */
 
 #custom-orders-title{
-  padding-top: 20px;
+  padding-top: 40px;
   position: absolute;
   color: #f5f8f7;
 }
 .custom-page-wrapper{
  margin-top: 36px;
- padding-top: 20px;
  padding-left: 20px;
  padding-right: 20px;
 
@@ -1173,6 +1172,10 @@ canvas{
   padding-bottom: 0px;
   padding-top: 0px;
 }
+.custom-page-content h1:has(img){
+  padding-bottom: 0px;
+  padding-top: 0px;
+}
 img[alt~="display"]{
   object-fit: cover;
   image-rendering: pixelated;
@@ -1183,22 +1186,28 @@ img[alt~="display"]{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
 }
 .custom-page-content h1{
+  padding-top: 10px;
   font-size: xx-large;
   font-weight: bold;
   color: #152b20;
+  padding-bottom: 10px;
 
 }
 
 .custom-page-content h2{
+  padding-top: 10px;
+  padding-bottom: 10px;
+
   font-size: x-large;
   font-weight: bold;
   color: #152b20;
 
 }
 .custom-page-content h3{
+  padding-top: 10px;
+  padding-bottom: 10px;
   font-size: large;
   font-weight: bold;
   color: #152b20; 
@@ -1242,7 +1251,6 @@ span, li{
   }
   .custom-page-content h1:has(> img){
     object-fit: cover;
-    image-rendering: pixelated;
     width: 100dvw !important;
   }
   
@@ -1270,9 +1278,7 @@ span, li{
    #custom-orders-title{
     padding-top: 100px;
   }
-  .custom-page-wrapper{
-    padding-top: 30px;
-  }
+ 
    
 }
 
