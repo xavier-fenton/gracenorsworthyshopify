@@ -1176,6 +1176,22 @@ canvas{
   color: #152b20; 
 }
 
+.faq-page-content ul{
+ list-style:circle;
+ width: 50%;
+}
+
+.faq-page-content ol{
+  list-style-type: style;
+  width: 50%;
+}
+li::marker{
+  font-weight: bold;
+  font-size: small;
+}
+span, li{
+  padding-bottom: 5px;
+}
 @media only screen and (max-width: 1024px)  {
   /* For mobile phones: */
 
@@ -1184,6 +1200,15 @@ canvas{
     
     width: 80%;
   }
+  .faq-page-content ul{
+    width: 80%;
+   }
+   
+   .faq-page-content ol{
+     width: 80%;
+    padding-left: 40px;
+
+   }
 }
 
 @media only screen and (max-width: 768px)  {
@@ -1194,6 +1219,17 @@ canvas{
     
     width: 100%;
   }
+  .faq-page-content ul{
+    width: fit-content;
+    padding-left: 20px;
+
+   }
+   
+   .faq-page-content ol{
+     width: fit-content;
+    padding-left: 20px;
+
+   }
 }
 
 /* FADEIN ANIMATION */
