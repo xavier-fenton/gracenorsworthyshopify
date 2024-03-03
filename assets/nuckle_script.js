@@ -80,8 +80,10 @@ async function init() {
       scene.environment = texture
     }
   )
-  if (document.getElementById('about-main-title')) {
-    document.getElementById('about-main-title').after(renderer.domElement)
+  if (document.getElementById('about-main-info-wrapper')) {
+    document
+      .getElementById('about-main-info-wrapper')
+      .before(renderer.domElement)
   }
 
   function animate() {
