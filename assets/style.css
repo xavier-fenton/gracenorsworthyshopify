@@ -1178,7 +1178,6 @@ canvas{
 }
 img[alt~="display"]{
   object-fit: cover;
-  image-rendering: pixelated;
   width: 100dvw !important;
   padding-bottom: 10px;
 }
