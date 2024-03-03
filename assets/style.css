@@ -1140,10 +1140,15 @@ canvas{
   }
 }
 
-/* FAQ PAGE */
+/* custom PAGEs */
 
+#custom-orders-title{
+  padding-top: 20px;
+  position: absolute;
+  color: #f5f8f7;
+}
 .custom-page-wrapper{
- margin-top: 58px;
+ margin-top: 36px;
  padding-top: 20px;
  padding-left: 20px;
  padding-right: 20px;
@@ -1152,6 +1157,8 @@ canvas{
 .custom-title{
  font-weight: 600;
  font-size: xx-large;
+ padding-top: 10px;
+
  padding-bottom: 10px;
  width: fit-content;
 }
@@ -1238,6 +1245,7 @@ span, li{
     image-rendering: pixelated;
     width: 100dvw !important;
   }
+  
 }
 
 @media only screen and (max-width: 768px)  {
@@ -1259,6 +1267,13 @@ span, li{
     padding-left: 20px;
 
    }
+   #custom-orders-title{
+    padding-top: 100px;
+  }
+  .custom-page-wrapper{
+    padding-top: 30px;
+  }
+   
 }
 
 /* FADEIN ANIMATION */
