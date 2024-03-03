@@ -14,6 +14,16 @@
       {% elsif full_url contains 'about' %}
         
         {% section 'about-page' %}
+
+        {% elsif full_url contains 'faq' %}
+        
+         {% section 'faq-page' %}
+
+        {% elsif full_url contains 'stockists' %}
+            {% section 'stockists-page' %}
+            
+        {% elsif full_url contains 'custom-orders' %}
+          {% section 'custom-orders-page' %}
   {% endif %}
   </div>
 
