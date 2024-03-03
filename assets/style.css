@@ -1129,20 +1129,20 @@ canvas{
 
 /* FAQ PAGE */
 
-.faq-page-wrapper{
+.custom-page-wrapper{
  margin-top: 58px;
  padding-top: 20px;
  padding-left: 20px;
  padding-right: 20px;
 
 }
-.faq-title{
+.custom-title{
  font-weight: 600;
  font-size: xx-large;
  padding-bottom: 10px;
  width: fit-content;
 }
-.faq-page-content p{
+.custom-page-content p{
   font-size: medium;
   padding-bottom: 10px;
   padding-top: 10px;
@@ -1150,38 +1150,38 @@ canvas{
   width: 50%;
 }
 
-.faq-page-content{
+.custom-page-content{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 10px;
 }
-.faq-page-content h1{
+.custom-page-content h1{
   font-size: xx-large;
   font-weight: bold;
   color: #152b20;
 
 }
 
-.faq-page-content h2{
+.custom-page-content h2{
   font-size: x-large;
   font-weight: bold;
   color: #152b20;
 
 }
-.faq-page-content h3{
+.custom-page-content h3{
   font-size: large;
   font-weight: bold;
   color: #152b20; 
 }
 
-.faq-page-content ul{
+.custom-page-content ul{
  list-style:circle;
  width: 50%;
 }
 
-.faq-page-content ol{
+.custom-page-content ol{
   list-style-type: style;
   width: 50%;
 }
@@ -1196,15 +1196,15 @@ span, li{
   /* For mobile phones: */
 
 
-  .faq-page-content p{
+  .custom-page-content p{
     
     width: 80%;
   }
-  .faq-page-content ul{
+  .custom-page-content ul{
     width: 80%;
    }
    
-   .faq-page-content ol{
+   .custom-page-content ol{
      width: 80%;
     padding-left: 40px;
 
@@ -1215,17 +1215,17 @@ span, li{
   /* For mobile phones: */
 
 
-  .faq-page-content p{
+  .custom-page-content p{
     
     width: 100%;
   }
-  .faq-page-content ul{
+  .custom-page-content ul{
     width: fit-content;
     padding-left: 20px;
 
    }
    
-   .faq-page-content ol{
+   .custom-page-content ol{
      width: fit-content;
     padding-left: 20px;
 
