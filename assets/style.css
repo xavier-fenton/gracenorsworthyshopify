@@ -1174,12 +1174,13 @@ canvas{
 }
 .custom-page-content h1:has(img){
   padding-bottom: 0px;
-  padding-top: 0px;
+  padding-top: 0px !important;
 }
 img[alt~="display"]{
   object-fit: cover;
   image-rendering: pixelated;
   width: 100dvw !important;
+  padding-bottom: 10px;
 }
 .custom-page-content{
   display: flex;
@@ -1188,7 +1189,6 @@ img[alt~="display"]{
   align-items: center;
 }
 .custom-page-content h1{
-  padding-top: 10px;
   font-size: xx-large;
   font-weight: bold;
   color: #152b20;
