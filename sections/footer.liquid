@@ -1,50 +1,51 @@
 <div class="footer-wrapper">
   <div class="footer-childern">
     <div class="footer-title">©orswo</div>
+
     <div class="foot-contact-num">
-    <div>{{ section.settings.footer_Number }}</div>
-    <div> {{ section.settings.footer_Email }}</div>
+      <div>{{ section.settings.footer_Number }}</div>
+      <div>{{ section.settings.footer_Email }}</div>
     </div>
-    
-   
-  </div> 
+  </div>
   <div class="info-list">
-    <div class="info-insta">
-      <a href="{{ section.settings.footer_Instagram }}">Instagram</a></div>
-    <div class="footer-privacy"> <a href="/pages/privacy-policy">Privacy Policy</a></div>
-    <div class="footer-privacy"> <a href="/pages/faq">FAQS</a></div>
-    <div class="footer-privacy"> <a href="/pages/stockists">stockists</a></div>
-    <div class="footer-privacy"> <a href="/pages/custom-orders">Custom Orders</a></div>
+    <div class="footer-privacy">
+      {% for link in linklists['main-menu'].links %}
+        {% if link.title == 'About' %}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        {% else %}
+
+        {% endif %}
+      {% endfor %}
     </div>
-
-
-
-
-
+    <div class="info-insta">
+      <a href="{{ section.settings.footer_Instagram }}">Instagram</a>
+    </div>
+    <div class="footer-privacy"><a href="/pages/privacy-policy">Privacy Policy</a></div>
+    <div class="footer-privacy"><a href="/pages/faq">FAQS</a></div>
+    <div class="footer-privacy"><a href="/pages/stockists">stockists</a></div>
+    <div class="footer-privacy"><a href="/pages/custom-orders">Custom Orders</a></div>
+  </div>
 </div>
 
-
 {% schema %}
-  {
-    "name": "Footer Information",
-    "settings": [
-     
-      {
-        "type": "text",
-        "id": "footer_Number",
-        "label": "Contact Number"
-      },
-      {
-        "type": "text",
-        "id": "footer_Email",
-        "label": "Contact Email"
-      },
-      {
-        "type": "text",
-        "id": "footer_Instagram",
-        "label": "Instagram Link"
-      }
-    ]
-    
-  }
+{
+  "name": "Footer Information",
+  "settings": [
+    {
+      "type": "text",
+      "id": "footer_Number",
+      "label": "Contact Number"
+    },
+    {
+      "type": "text",
+      "id": "footer_Email",
+      "label": "Contact Email"
+    },
+    {
+      "type": "text",
+      "id": "footer_Instagram",
+      "label": "Instagram Link"
+    }
+  ]
+}
 {% endschema %}
