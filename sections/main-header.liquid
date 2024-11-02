@@ -1,100 +1,55 @@
 <div class="nav-links">
-
   {% assign full_url = request.path %}
-  {% assign type = request.page_type %} 
+  {% comment %} {% assign type = request.page_type %}s {% endcomment %}
 
   {% if full_url == '/' %}
     {% style %}
-      .nav-links{
+      .nav-links {
         background-color: transparent !important;
         border-bottom: none !important;
       }
-      .nav-links a{
+      .nav-links a {
         color: #e1f5ed !important;
       }
 
-      .title_header{
+      .title_header {
         display: none !important;
       }
     {% endstyle %}
-
-    
   {% endif %}
-  
 
- 
   <div class="main-links">
-    {% for link in linklists.main-menu.links %}
- 
-
-
-      {% if link.url == full_url %}
-
-          <a  href="{{ link.url }}">*{{ link.title }}</a>
-
-      {% elsif type == 'collection' and link.title == 'Shop' %}
-          <a  href="{{ link.url }}">*{{ link.title }}</a>
-
-
-        {% elsif type == 'product' and link.title == 'Shop' %}
-            <a  href="{{ link.url }}">*{{ link.title }}</a>
-  
-  
+    {% for link in linklists['main-menu'].links %}
+      {% if link.title == 'About' %}
       {% else %}
-
-          <a href="{{ link.url }}">{{ link.title }}</a>
-          
-
+        <a href="{{ link.url }}">{{ link.title }}</a>
       {% endif %}
-
-
     {% endfor %}
-
   </div>
+  <div class="catergories-and-cart">
+    {% comment %}
+      <div class="sdbar-lnks-wrapper">
+        {% assign full_url = request.path %}
 
-{% comment %} 
-  Remember if I am going to keep this, to adjust styling I like the look of this, if want to keep, create breakpoints via mediaqueries
-{% endcomment %}
+        {% if type == 'collection' %}
+          {% for link in linklists['sidebar-menu'].links %}
+            {% if link.url == full_url %}
+              <a href="{{ link.url }}"> <span class="astrix">*</span>{{ link.title }}</a>
 
-  <div id="title_header_image" class="title_header_div"><img class="title_header" src="{{ 'title.png' | asset_url }}" alt="title"/></div>
-
- <div class="catergories-and-cart">
-
-  <div class="sdbar-lnks-wrapper">
-  {% assign full_url = request.path %}  
-
-  {% if type == 'collection' %}
-      {% for link in linklists.sidebar-menu.links %}
-
-
-          
-        
-        {% if link.url == full_url %}
-          
-            <a href="{{ link.url }}"> <span class="astrix">*</span>{{ link.title }}</a>
-            
             {% else %}
               <a href="{{ link.url }}">{{ link.title }}</a>
-              
-              
             {% endif %}
-            
-            
           {% endfor %}
-        {% endif %}  
-</div>
-
-  <div class="cart-link-btn">
-    <a data-ajax-cart-toggle-class-button="js-my-cart-open" href="{{ routes.cart_url }}">
-      
-        Cart 
-      <span data-ajax-cart-bind-state="cart.item_count">
-
-       {{ cart.item_count }}
-      </span> 
+        {% endif %}
+      </div>
+    {% endcomment %}
+    <div class="cart-link-btn">
+      <a data-ajax-cart-toggle-class-button="js-my-cart-open" href="{{ routes.cart_url }}">
+        Cart
+        <span data-ajax-cart-bind-state="cart.item_count">
+          {{ cart.item_count }}
+        </span>
       </a>
+    </div>
   </div>
 </div>
-  </div>
-
-
