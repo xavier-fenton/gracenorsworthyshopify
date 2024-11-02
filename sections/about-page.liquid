@@ -1,44 +1,27 @@
 {% assign page = pages.about %}
 
-
-
 <div class="about-section-wrapper">
- <div id="about-main-info-wrapper" class="about-main-info-wrapper">
-   <div id="about-page-main-wrapper" class="about-page-main-wrapper" >
-     
-     <div class="about-page-title" id="about-main-title">*{{ page.title }}</div>
-     <div id="about_description" class="about-description-wrapper">
-                      <div class="about-description-text">{{ page.content }} </div>
-
-                  </div>
-                </div>
-                <div></div>
-            </div>
-
-     
+  <div id="about-main-info-wrapper" class="about-main-info-wrapper">
+    <div id="about-page-main-wrapper" class="about-page-main-wrapper">
+      <div class="about-page-title" id="about-main-title">{{ page.title }}</div>
+      <div id="about_description" class="about-description-wrapper">
+        <div class="about-description-text">{{ page.content }}</div>
+      </div>
+    </div>
+    <div></div>
+  </div>
 </div>
 
-
-
-
 {% schema %}
-  {
-    "name": "About Content",
-    "settings":[
-     
-     
-      
-    ],
-   
-    "presets": [
-      {
-        "name": " About Page Content",
-        "category": "Content"
-      }
-    ]
-      
-  }
-  
+{
+  "name": "About Content",
+  "settings": [],
+
+  "presets": [
+    {
+      "name": " About Page Content",
+      "category": "Content"
+    }
+  ]
+}
 {% endschema %}
-
-
