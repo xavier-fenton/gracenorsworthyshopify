@@ -85,9 +85,8 @@
   .my-floating-cart a {
   }
   
-  .cart-link-btn a {
+  .cart-link-btn {
     text-transform: uppercase;
-    font-size: small;
   }
   
   .inner-cart-block {

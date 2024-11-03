@@ -1,48 +1,28 @@
 <div class="nav-links">
-  {% assign full_url = request.path %}
-  {% comment %} {% assign type = request.page_type %}s {% endcomment %}
-
-  {% if full_url == '/' %}
-    {% style %}
-      .nav-links {
-        background-color: transparent !important;
-        border-bottom: none !important;
-      }
-      .nav-links a {
-        color: #e1f5ed !important;
-      }
-
-      .title_header {
-        display: none !important;
-      }
-    {% endstyle %}
-  {% endif %}
-
   <div class="main-links">
     {% for link in linklists['main-menu'].links %}
-      {% if link.title == 'About' %}
+      {% if link.title == 'Products' %}
+        <div class="orswo-link">
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        </div>
       {% else %}
-        <a href="{{ link.url }}">{{ link.title }}</a>
+
       {% endif %}
     {% endfor %}
   </div>
-  <div class="catergories-and-cart">
-    {% comment %}
-      <div class="sdbar-lnks-wrapper">
-        {% assign full_url = request.path %}
+  <div class="main-links">
+    {% for link in linklists['main-menu'].links %}
+      {% if link.title == 'Orswo' %}
+        <div class="orswo-link">
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        </div>
+      {% else %}
 
-        {% if type == 'collection' %}
-          {% for link in linklists['sidebar-menu'].links %}
-            {% if link.url == full_url %}
-              <a href="{{ link.url }}"> <span class="astrix">*</span>{{ link.title }}</a>
+      {% endif %}
+    {% endfor %}
+  </div>
 
-            {% else %}
-              <a href="{{ link.url }}">{{ link.title }}</a>
-            {% endif %}
-          {% endfor %}
-        {% endif %}
-      </div>
-    {% endcomment %}
+  <div class="nav-cart">
     <div class="cart-link-btn">
       <a data-ajax-cart-toggle-class-button="js-my-cart-open" href="{{ routes.cart_url }}">
         Cart
@@ -52,4 +32,10 @@
       </a>
     </div>
   </div>
+</div>
+
+<div class="sub-links">
+  {% for link in linklists['sidebar-menu'].links %}
+    <a href="{{ link.url }}">{{ link.title }}</a>
+  {% endfor %}
 </div>

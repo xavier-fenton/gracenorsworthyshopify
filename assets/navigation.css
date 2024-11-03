@@ -6,40 +6,50 @@
     display: flex;
     justify-content: space-between;
     position: fixed;
-    width: calc(100dvw - 40px);
+    width: calc(100dvw - 37px);
     padding: 10px;
   
   }
-  
-  /* .title_header_div{
-    display: flex;
-    align-items: center;
+
+   .orswo-link {
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgb(236, 226, 226);
+    
   }
-   */
-  /* I like the look of this, if want to keep, create breakpoints via mediaqueries */
-  /* width: 375px; especially this size looks great (title_header) */
   
-  /* .title_header{
-  
-    width: 150px;
-    -webkit-box-shadow: -4px 14px 12px -10px rgba(0,0,0,0.12);
-  -moz-box-shadow: -4px 14px 12px -10px rgba(0,0,0,0.12);
-  box-shadow: -4px 14px 12px -10px rgba(0,0,0,0.12);
-  }
-   */
-  
+
+
   .main-links{
     display: flex;
     gap: 10px;
-    font-size: small;
+    font-size: 10px;
     text-transform: uppercase;
     align-items: center;
   
   }
   
   
-  .catergories-and-cart{
+  .nav-cart{
     display: flex;
     align-items: center;
-    gap: 20px;
+    font-size: 10px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgb(236, 226, 226);
+  }
+
+  .sub-links{
+    /* place holder for styling */
+    margin-top: 100px;
+    padding-left: 10px;
+    text-transform: uppercase;
+    font-size: 10px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgb(236, 226, 226);
+    
   }

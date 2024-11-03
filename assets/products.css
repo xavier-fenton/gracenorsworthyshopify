@@ -25,7 +25,9 @@
     grid-template-columns: repeat(3,minmax(0,1fr));
     gap: 10px;
     width: 100%;
-    padding-top: 40px;
+    /* padding-top: 40px; */
+    /* placeholder margin for nav adjustments */
+    margin-top: 100px;
   }
   
   .product-section {

@@ -1,6 +1,6 @@
 <div id="visualGrid" class="visualGrid"></div>
-{% if collection.all_products_count > 0 %}
-  <div class="all-products-wrapper">
+<div class="all-products-wrapper">
+  {% if collection.all_products_count > 0 %}
     <div class="all-products">
       {% for product in collection.products %}
         {% comment %} This product-card could possibly be turned to a section {% endcomment %}
@@ -25,11 +25,11 @@
         </div>
       {% endfor %}
     </div>
-  </div>
 
-{% else %}
-  <p>Sorry, there are no products in this collection</p>
-{% endif %}
+  {% else %}
+    <p>Sorry, there are no products in this collection</p>
+  {% endif %}
+</div>
 
 {% comment %} FOR IMAGE {% endcomment %}
 {% comment %}
