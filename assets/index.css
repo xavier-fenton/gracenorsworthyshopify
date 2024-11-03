@@ -67,7 +67,7 @@ table {
   min-height: calc(100vh - 20px);
   top: 10px;
   left: 10px;
-  background-image: radial-gradient(circle at 1px 1px, #000 1px, transparent 0px);
+  background-image: radial-gradient(circle at 1px 1px, #a0a0a0 1px, transparent 0px);
   background-size: calc((100vw - 20px) / var(--grid-max)) calc((100vw - 10px) / var(--grid-max));
   pointer-events: none;
   z-index: -1;
