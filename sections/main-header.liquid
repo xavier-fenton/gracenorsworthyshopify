@@ -1,55 +1,52 @@
-<div class="nav-links">
-  {% assign full_url = request.path %}
-  {% comment %} {% assign type = request.page_type %}s {% endcomment %}
+<div class="nav-links-wrap">
+  <div class="nav-links">
+    <div class="main-links">
+      {% for link in linklists['main-menu'].links %}
+        {% if link.title == 'Products' %}
+          <div class="orswo-link">
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          </div>
+        {% else %}
 
-  {% if full_url == '/' %}
-    {% style %}
-      .nav-links {
-        background-color: transparent !important;
-        border-bottom: none !important;
-      }
-      .nav-links a {
-        color: #e1f5ed !important;
-      }
-
-      .title_header {
-        display: none !important;
-      }
-    {% endstyle %}
-  {% endif %}
-
-  <div class="main-links">
-    {% for link in linklists['main-menu'].links %}
-      {% if link.title == 'About' %}
-      {% else %}
-        <a href="{{ link.url }}">{{ link.title }}</a>
-      {% endif %}
-    {% endfor %}
-  </div>
-  <div class="catergories-and-cart">
-    {% comment %}
-      <div class="sdbar-lnks-wrapper">
-        {% assign full_url = request.path %}
-
-        {% if type == 'collection' %}
-          {% for link in linklists['sidebar-menu'].links %}
-            {% if link.url == full_url %}
-              <a href="{{ link.url }}"> <span class="astrix">*</span>{{ link.title }}</a>
-
-            {% else %}
-              <a href="{{ link.url }}">{{ link.title }}</a>
-            {% endif %}
-          {% endfor %}
         {% endif %}
-      </div>
-    {% endcomment %}
-    <div class="cart-link-btn">
-      <a data-ajax-cart-toggle-class-button="js-my-cart-open" href="{{ routes.cart_url }}">
-        Cart
-        <span data-ajax-cart-bind-state="cart.item_count">
-          {{ cart.item_count }}
-        </span>
-      </a>
+      {% endfor %}
     </div>
+    <div class="main-links">
+      {% for link in linklists['main-menu'].links %}
+        {% if link.title == 'Orswo' %}
+          <div class="orswo-link">
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          </div>
+        {% else %}
+
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="nav-cart">
+      <div class="cart-link-btn">
+        <a data-ajax-cart-toggle-class-button="js-my-cart-open" href="{{ routes.cart_url }}">
+          Cart
+          <span data-ajax-cart-bind-state="cart.item_count">
+            {{ cart.item_count }}
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  {% comment %} Sub catergories {% endcomment %}
+  <div class="sub-links-wrapped">
+    <fieldset class="sub-links">
+      <legend class="custom-legend">Categories</legend>
+      <div class="sub-links-flex">
+        {% for link in linklists['sidebar-menu'].links %}
+          <label class="custom-radio">
+            <input type="radio" name="categories" id="{{ link.title }}">
+            <span class="radio"></span> {{ link.title }}
+          </label>
+        {% endfor %}
+      </div>
+    </fieldset>
   </div>
 </div>
