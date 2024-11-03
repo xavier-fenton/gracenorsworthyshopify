@@ -49,3 +49,28 @@
     
   }
   
+
+  /* FADEIN ANIMATION */
+
+
+
+
+
+
+
+
+
+/* .footer-wrapper{
+  animation: fadeInAnimation ease .5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: .25;
+  }
+
+  100% {
+    opacity: 1;
+  }
