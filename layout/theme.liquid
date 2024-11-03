@@ -1,11 +1,12 @@
 <!doctype html>
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!-->
-<html class="no-js"> <!--<![endif]-->
-<head>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9 ]> <html class="ie9 no-js"> <![endif]-->
+<!-- [if (gt IE 9)|!(IE)]><! -->
+<html class="no-js">
+  <!-- <![endif] -->
+  <head>
     <script type="importmap">
       {
         "imports": {
@@ -14,79 +15,71 @@
         }
       }
     </script>
-    
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     {% if template == 'index' %}
-      <title>{{ shop.name }} | {{ page_title }}</title>
+      <title>
+        {{ shop.name }}
+        |
+        {{ page_title }}
+      </title>
     {% elsif template == '404' %}
-      <title>Page Not Found | {{ shop.name }}</title>
+      <title>
+        Page Not Found |
+        {{ shop.name }}
+      </title>
     {% else %}
-      <title>{{ page_title }} | {{ shop.name }}</title>
+      <title>
+        {{ page_title }}
+        |
+        {{ shop.name }}
+      </title>
     {% endif %}
     {% if page_description %}
-      <meta name="description" content="{{ page_description }}" />
+      <meta name="description" content="{{ page_description }}">
     {% endif %}
-    <link rel="canonical" href="{{ canonical_url }}" />
-    <meta name="viewport" content="width=device-width" />
+    <link rel="canonical" href="{{ canonical_url }}">
+    <meta name="viewport" content="width=device-width">
     {{ content_for_header }}
     {{ 'index.css' | asset_url | stylesheet_tag }}
-    {{ 'http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js' | script_tag  }}
+    {{ 'products.css' | asset_url | stylesheet_tag }}
 
-    
+    {{ 'http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js' | script_tag }}
+
     <script type="application/json" data-ajax-cart-initial-state>
-    {{ cart | json }}
+      {{ cart | json }}
     </script>
-
 
     <script type="module">
       import '{{ "liquid-ajax-cart-v1.11.1.js" | asset_url }}';
-      </script>
+    </script>
 
-<script type="module" src="{{ 'nuckle_script.js' | asset_url }} " defer></script>
-</head>
+    <script type="module" src="{{ 'nuckle_script.js' | asset_url }} " defer></script>
+  </head>
 
-  <body id="{{ page_title | handle }}" class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">
-
-
-
-
-    
-
-      <div class="header-cont-nav-cart"> 
-        {% section 'main-header' %}
-         
-        
-
-      </div>
-        <div class="my-floating-cart">
-      
-          {% section 'my-cart' %}
-          
-          </div> 
-          
-        
-        <style>
-            .my-floating-cart { display: none; }
-
-            /* Show the floating cart if the 'js-my-cart-open' CSS class exists */
-            .js-my-cart-open .my-floating-cart { display: block; }
-          </style>
-
-
-
-         
-
-
-    {{ content_for_layout }}
-
-
-    
-
-
-
+  <body
+    id="{{ page_title | handle }}"
+    class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}"
+  >
+    <div class="header-cont-nav-cart">
+      {% section 'main-header' %}
+    </div>
+    <div class="my-floating-cart">
+      {% section 'my-cart' %}
     </div>
 
-    
+    <style>
+      .my-floating-cart {
+        display: none;
+      }
+
+      /* Show the floating cart if the 'js-my-cart-open' CSS class exists */
+      .js-my-cart-open .my-floating-cart {
+        display: block;
+      }
+    </style>
+
+    {{ content_for_layout }}
   </body>
 </html>
