@@ -1,0 +1,45 @@
+/* NAV Bar*/
+ 
+.nav-links {
+    top: 20px;
+    z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    width: calc(100dvw - 40px);
+    padding: 10px;
+  
+  }
+  
+  /* .title_header_div{
+    display: flex;
+    align-items: center;
+  }
+   */
+  /* I like the look of this, if want to keep, create breakpoints via mediaqueries */
+  /* width: 375px; especially this size looks great (title_header) */
+  
+  /* .title_header{
+  
+    width: 150px;
+    -webkit-box-shadow: -4px 14px 12px -10px rgba(0,0,0,0.12);
+  -moz-box-shadow: -4px 14px 12px -10px rgba(0,0,0,0.12);
+  box-shadow: -4px 14px 12px -10px rgba(0,0,0,0.12);
+  }
+   */
+  
+  .main-links{
+    display: flex;
+    gap: 10px;
+    font-size: small;
+    text-transform: uppercase;
+    align-items: center;
+  
+  }
+  
+  
+  .catergories-and-cart{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
