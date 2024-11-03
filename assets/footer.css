@@ -1,0 +1,51 @@
+/* FOOTER STYLING */
+
+.footer-wrapper {
+    display: block;
+  }
+  
+  .footer-childern{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 20px 20px 10px 20px;
+  }
+  
+  .footer-privacy{
+    font-weight: 600;
+  }
+  .foot-contact-num {
+    display: flex;
+    gap: var(--pdn);
+    font-weight: 600;
+  }
+  .info-list{
+    text-transform: lowercase;
+    font-size: small;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: fit-content;
+    padding-left: 20px;
+    padding-bottom: 20px;
+  }
+  .info-insta{
+    font-weight: 600;
+  
+  }
+  /* Footer Headings */
+  
+  /* FOOTER MEDIA QUERIES */
+  
+  @media only screen and (max-width: 768px)  {
+    /* For mobile phones: */
+    .footer-childern{
+      gap: 10px;
+      flex-wrap: wrap;
+      /* justify-content: center; */
+      padding: 10px;
+      font-size: 15px;
+    }
+    
+  }
+  
