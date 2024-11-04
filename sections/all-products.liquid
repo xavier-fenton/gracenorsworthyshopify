@@ -1,10 +1,14 @@
 <div id="visualGrid" class="visualGrid"></div>
+
+
+
 <div class="all-products-wrapper">
   {% if collection.all_products_count > 0 %}
     <div class="all-products">
       {% for product in collection.products %}
+       
         {% comment %} This product-card could possibly be turned to a section {% endcomment %}
-        <div class="product-card">
+        <div class="product-card" data-type="{{ product.type | downcase }}">
           <a href="{{ product.url }}">
             <img
               class="product-img"
