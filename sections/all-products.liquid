@@ -1,8 +1,37 @@
 <div id="visualGrid" class="visualGrid"></div>
 
 
-
 <div class="all-products-wrapper">
+  <div class="place-holder">
+    
+    <div class="all-images">
+      
+      
+    {% assign all_images = "" %} <!-- Initialize an empty string to collect images -->
+
+    {% for product in collection.products %}
+      {% for image in product.images %}
+        {% if forloop.first and forloop.index0 > 0 %}
+          {% assign all_images = all_images | append: ", " %} <!-- Add a comma if not the first image -->
+        {% endif %}
+        {% assign all_images = all_images | append: image.src %} <!-- Append each image src to the string -->
+      {% endfor %}
+    {% endfor %}
+    
+    <span class="collect-images" data-images="{{ all_images }}"></span>
+    
+    <img
+      id="featured-image"
+      src=""
+      loading="lazy"
+      width=""
+      height=""
+    >
+
+
+  </div>
+
+  </div>
   {% if collection.all_products_count > 0 %}
     <div class="all-products">
       {% for product in collection.products %}
@@ -21,9 +50,9 @@
           <div class="product-card-description">
             <div class="product-card-description-values">
               <a class="{{ product.url }} product-card-title-link" href="{{ product.url }}" id="{{ product.url }}">
-                {{- product.title -}}
+                {{ product.title }}
               </a>
-              <div class="all-products-currency">{{ product.price | money }}</div>
+              <div class="all-products-currency">{{ product.price | money_with_currency }}</div>
             </div>
           </div>
         </div>
