@@ -1,14 +1,21 @@
 {% assign page = pages.about %}
+<div id="visualGrid" class="visualGrid"></div>
 
 <div class="about-section-wrapper">
   <div id="about-main-info-wrapper" class="about-main-info-wrapper">
     <div id="about-page-main-wrapper" class="about-page-main-wrapper">
-      <div class="about-page-title" id="about-main-title">{{ page.title }}</div>
+      {% comment %} <div class="about-page-title" id="about-main-title">{{ page.title }}</div> {% endcomment %}
+       {% comment %}
+      
+         Should this be just orwso? (about title)
+        
+       {% endcomment %}
+      <div class="about-page-title" id="about-main-title" > orswo </div>
+
       <div id="about_description" class="about-description-wrapper">
         <div class="about-description-text">{{ page.content }}</div>
       </div>
     </div>
-    <div></div>
   </div>
 </div>
 

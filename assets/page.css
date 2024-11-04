@@ -1,6 +1,8 @@
 /* PAGE STYLING FOR ABOUT & PRIVACY POLICY */
 
-
+.about-description-wrapper{
+  height: 100dvh;
+}
 .about-section-wrapper{
     display: flex;
     flex-wrap: wrap;
@@ -17,40 +19,44 @@
       z-index: -1;
   }
   
-  
+  .about-page-title{
+    text-transform: uppercase;
+    font-size: 24px;
+    color:#464646;
+    width: fit-content;
+    padding-bottom: 5px;
+  }
   
   .about-page-main-wrapper{
-      padding-bottom: 10px;
+      padding: 10px;
   }
-  .about-description-wrapper{
-    padding-left: 10px;
-  }
+  
   .about-description-text{
-    width: 50%;
-    padding-top: var(--pdnhalf);
+    width: calc(100dvw - 70%);
     color: #323232;
   }
   .about-description-text p{
-    padding-bottom: 10px;
+    padding-bottom: 5px;
+    font-size: 12px;
   }
   
   
-  .about-page-title{
-    font-size: x-large;
-    padding-left: 10px;
-    padding-top: 10px;
-    color:#464646;
-    padding-bottom: 10px;
-    width: fit-content;
-    /* position: fixed; */
+  
+  .title-styl-seperator {
+    position: relative;
+    align-items: center;
+    justify-content: center;
   }
   
-  .seperator-about{
-    height: calc(100dvh / 2);
-    background-color: red;
-  
+
+  .orswoTitleImage{
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    height: 100%;
+    width: 100dvw;
+    object-fit: cover;
   }
-  
   
   .privacy-page-wrapper{
    

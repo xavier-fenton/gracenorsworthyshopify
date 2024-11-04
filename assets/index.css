@@ -52,14 +52,6 @@ table {
 	border-spacing: 0;
 }
 
-/* .grid-deco {
-  display: grid;
-  height: calc(100vh - var(--grid-module) - 10px);
-  grid-column-start: 1;
-  grid-column-end: calc(var(--grid-max) + 1);
-  grid-template-columns: var(--grid-cols);
-  grid-template-rows: var(--grid-rows);
-} */
 
 .visualGrid {
   position: fixed;
@@ -71,6 +63,19 @@ table {
   background-size: calc((100vw - 20px) / var(--grid-max)) calc((100vw - 10px) / var(--grid-max));
   pointer-events: none;
   z-index: -1;
+}
+.visualGrid2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: calc(100vw - 20px);
+  min-height: 100%;
+  top: 10px;
+  left: 10px;
+  background-image: radial-gradient(circle at 1px 1px, #a0a0a0 1px, transparent 0px);
+  background-size: calc((100vw - 20px) / var(--grid-max)) calc((100vw - 10px) / var(--grid-max));
+  pointer-events: none;
+  z-index: 1;
 }
 
 :root {
