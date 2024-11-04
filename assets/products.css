@@ -17,17 +17,26 @@
   }
   .all-products-wrapper{
     display: flex;
+    flex-direction: row;
     width: 100%;
+    gap: 10px;
   }
   
+  /* Placeholder for image */
+  .place-holder{
+    width: 50%;
+    border: 1px solid black;
+    height: 100dvh;
+    background-color: red;
+  }
+
   .all-products {
     display: grid;
-    grid-template-columns: repeat(3,minmax(0,1fr));
+    grid-template-columns: repeat(5,minmax(0,1fr));
     gap: 10px;
     width: 100%;
-    /* padding-top: 40px; */
-    /* placeholder margin for nav adjustments */
-    margin-top: 100px;
+    height: fit-content;
+ 
   }
   
   .product-section {
@@ -112,6 +121,7 @@
   .product-card {
     display: flex;
     flex-direction: column;
+    height: fit-content;
   }
   
   .product-card-description{
