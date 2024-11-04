@@ -23,8 +23,6 @@
       "front-page": {
         "type": "front-page",
         "settings": {
-          "image_1": "shopify://shop_images/HomePageImage.jpg",
-          "image_2": "shopify://shop_images/FinalTitle.png"
         }
       },
       "about-page": {
