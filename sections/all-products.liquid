@@ -1,6 +1,5 @@
 <div id="visualGrid" class="visualGrid"></div>
 
-
 <div class="all-products-wrapper">
   <div class="place-holder">
     
@@ -19,10 +18,11 @@
     {% endfor %}
     
     <span class="collect-images" data-images="{{ all_images }}"></span>
-    
+ 
+
     <img
       id="featured-image"
-      src=""
+      src="{{ collection.products[0].featured_image |  image_url }}"
       loading="lazy"
       width=""
       height=""
@@ -44,6 +44,8 @@
               src="{{ product.featured_image.src | img_url: '500x500', format: 'pjpg' }}"
               alt="{{ product.title | escape }}"
               loading="lazy"
+              width=""
+              height=""
             >
           </a>
 

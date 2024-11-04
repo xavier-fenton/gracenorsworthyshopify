@@ -16,6 +16,12 @@
   width: 100%
 }
 
+#featured-image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+}
 
 .display-image{
   width: 100%;
@@ -43,9 +49,8 @@
 /* Placeholder for image */
 .place-holder{
   width: 50%;
-  border: 1px solid black;
+  border: 1px solid rgb(146, 146, 146);
   height: 100dvh;
-  background-color: red;
 }
 
 .all-products {
@@ -166,10 +171,6 @@
       
     }
   
-    .all-products {
-     padding: 0px;
-     gap: 20px;
-    }
     .product-card{
       width: 100%;
     }
@@ -189,7 +190,7 @@
   
   @media only screen and (max-width: 1024px){
     .all-products{
-    grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
     .place-holder{
       display: none;
@@ -210,8 +211,9 @@
     }
     
     .all-products {
-      grid-template-columns: repeat(1,minmax(0,1fr)) !important;
+      grid-template-columns: repeat(2,minmax(0,1fr)) !important;
       
-  }
+    }
+
   }
   
