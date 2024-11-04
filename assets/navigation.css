@@ -9,7 +9,6 @@
     display: flex;
     justify-content: space-between;
     /* position: fixed; */
-    width: calc(100dvw - 37px);
     padding: 10px;
   
   }

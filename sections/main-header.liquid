@@ -42,7 +42,7 @@
       <div class="sub-links-flex">
         {% for link in linklists['sidebar-menu'].links %}
           <label class="custom-radio">
-            <input type="radio" name="categories" id="{{ link.title }}">
+            <input type="radio" name="type-filter" id="{{ link.title |  downcase }}">
             <span class="radio"></span> {{ link.title }}
           </label>
         {% endfor %}

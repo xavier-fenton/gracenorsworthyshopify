@@ -57,23 +57,26 @@
     {{ 'navigation.css' | asset_url | stylesheet_tag }}
     {{ 'footer.css' | asset_url | stylesheet_tag }}
 
-    {{ 'http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js' | script_tag }}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
+    <script type="text/javascript" src="{{ 'type-filter.js' | asset_url }}" defer></script>
 
+    
+    
     <script type="application/json" data-ajax-cart-initial-state>
-      {{ cart | json }}
+    {{ cart | json }}
     </script>
-
+    
     <script type="module">
       import '{{ "liquid-ajax-cart-v1.11.1.js" | asset_url }}';
-    </script>
+      </script>
 
-    <script type="module" src="{{ 'nuckle_script.js' | asset_url }} " defer></script>
-  </head>
+<script type="module" src="{{ 'nuckle_script.js' | asset_url }} " defer></script>
+</head>
 
-  <body
-    id="{{ page_title | handle }}"
-    class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}"
-  >
+<body
+id="{{ page_title | handle }}"
+class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}"
+>
     <div class="header-cont-nav-cart">
       {% section 'main-header' %}
     </div>
