@@ -43,7 +43,7 @@
         {% for link in linklists['sidebar-menu'].links %}
           {% assign product_catergories = link.title |  downcase %}
           <label class="custom-radio">
-            <input type="radio" name="type-filter" id="{{ product_catergories }}" {% if link.title == 'all' %}checked{% endif %}>
+            <input type="radio" name="type-filter" id="{{ product_catergories }}" {% if product_catergories == 'all' %}checked{% endif %}>
             <span class="radio"></span> {{ link.title }}
           </label>
         {% endfor %}
