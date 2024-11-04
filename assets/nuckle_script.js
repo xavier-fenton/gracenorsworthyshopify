@@ -47,7 +47,10 @@ async function init() {
   camera.position.z = 5.543139630886989
   const controls = new OrbitControls(camera, renderer.domElement)
 
-  controls.enableZoom = false
+  controls.enableZoom = false;
+  controls.enablePan = false;
+  
+
 
   const silver = new THREE.Color('rgb(211,211,211)')
 
