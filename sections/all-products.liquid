@@ -1,5 +1,18 @@
 <div id="visualGrid" class="visualGrid"></div>
-
+<div class="sub-links-wrapped">
+          <fieldset class="sub-links">
+            <legend class="custom-legend">Categories</legend>
+            <div class="sub-links-flex">
+              {% for link in linklists['sidebar-menu'].links %}
+                {% assign product_catergories = link.title |  downcase %}
+                <label class="custom-radio">
+                  <input type="radio" name="type-filter" id="{{ product_catergories }}" {% if product_catergories == 'all' %}checked{% endif %}>
+                  <span class="radio"></span> {{ link.title }}
+                </label>
+              {% endfor %}
+            </div>
+          </fieldset>
+        </div>
 <div class="all-products-wrapper">
   <div class="place-holder">
     

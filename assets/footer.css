@@ -6,7 +6,9 @@
     font-size: 12px;
     text-transform: uppercase;
     gap: 5px;
+    margin-top: 40px;
     padding-left: 10px;
+    padding-right: 10px;
     padding-bottom: 10px;
     font-weight: 600;
   }
