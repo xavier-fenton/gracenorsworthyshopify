@@ -59,7 +59,7 @@
         <img
           class="sngl-prdct-img"
           alt="{{ product.alt }}"
-          src="{{ product.featured_image.src | img_url: '500x500', format: 'pjpg' }}"
+          src="{{ product.featured_image.src | image_url }}"
           loading="lazy"
           height=""
           width=""
@@ -71,7 +71,7 @@
           <img
             class="sngl-prdct-img"
             alt="{{ product.alt }}"
-            src="{{ imageSource.src | img_url: '500x500', format: 'pjpg' }}"
+            src="{{ imageSource.src | image_url }}"
             loading="lazy"
             height=""
             width=""
