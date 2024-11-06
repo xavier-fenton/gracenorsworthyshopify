@@ -62,7 +62,7 @@ table {
   min-height: calc(100vh - 20px);
   top: 10px;
   left: 10px;
-  background-image: radial-gradient(circle at 1px 1px, var(--grid-colour) 1px, transparent 0px);
+  background-image: radial-gradient(circle at 1px 1px, var(--visual-grid-colour) 1px, transparent 0px);
   background-size: calc((100vw - 20px) / var(--grid-max)) calc((100vw - 10px) / var(--grid-max));
   pointer-events: none;
   z-index: -1;
@@ -90,13 +90,16 @@ table {
   --grid-rows: repeat(auto-fill, calc((100vw - 20px) / 24));
   --grid-max: 24;
   --grid-colour: #cfcfcf;
+  --background-colour: #8ac9bd;
+  --visual-grid-colour: #0fae8f;
+
 }
 
 body {
 
 
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #fff;
+  background-color: var(--background-colour);
 
 }
 
