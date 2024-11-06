@@ -162,7 +162,9 @@
   }
   @media only screen and (max-width: 500px)  {
     /* For mobile phones: */
-
+    .product-images-layout{
+      display: none;
+    }
     .single-product-card-main
     {
       padding-left: 0px;

@@ -2,148 +2,72 @@
   <div class="product-info">
     <div class="product-title-card">
       <div class="product-title-with-cart">
-      {{ product.title }}
-      <form
-        class="form-wrapper"
-        action="/cart/add"
-        method="post"
-        enctype="multipart/form-data"
-      >
-        {% comment %} USING THIS CLASS TO HIDE WITH CSS SEEMS HACKY BUT ONLY WAY TO UPDATE CART WITH "VARIANTS" ATTACHED {% endcomment %}
-        <select class="hide-this-select" name="id">
-          {% for variant in product.variants %}
-            {% if variant.available == true %}
-              <option value="{{ variant.id }}">
-                {{ variant.price | money_with_currency }}
-              </option>
-            {% else %}
-              <option disabled="disabled">{{ variant.title }} - sold out!</option>
-            {% endif %}
-          {% endfor %}
-        </select>
-        <input
-          class="add-to-cart-button"
-          type="submit"
-          name="add"
-          id="add-to-cart-button"
-          value="Add to Cart"
-          class="button"
-        >
-      </form>
-    </div>
+        {{ product.title }}
+        
+        {% form 'product', product %}
+          <!-- Add Variant Selector if necessary -->
+          {% if product.variants.size > 1 %}
+            <select name="id" class="product-variant-select">
+              {% for variant in product.variants %}
+                {% if variant.available %}
+                  <option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+                {% else %}
+                  <option disabled>{{ variant.title }} - Sold Out</option>
+                {% endif %}
+              {% endfor %}
+            </select>
+          {% else %}
+            <!-- Add hidden input if only one variant exists -->
+            <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+          {% endif %}
 
+          <input type="submit" value="Add to cart">
+          <div data-ajax-cart-messages="form"></div> 
+        {% endform %}
+      </div>
       <div class="product-price">{{ product.price | money_with_currency }}</div>
     </div>
 
-    <div class="product-descript">
-      {{ product.description }}
-    </div>
+    <div class="product-descript">{{ product.description }}</div>
   </div>
 
-  {% comment %} Swiper  {% endcomment %}
+  <!-- Swiper for Mobile Only -->
   <div id="swiper-display" class="swiper mySwiper">
     <div class="swiper-wrapper">
       {% for imageSource in product.images %}
         <div class="swiper-slide">
-          <img
-            class="sngl-prdct-img"
-            alt="{{ product.alt }}"
-            src="{{ imageSource.src | image_url }}"
-            loading="lazy"
-            height="100%"
-            width=""
-          >
+          <img class="sngl-prdct-img" alt="{{ product.alt }}" src="{{ imageSource.src | image_url }}" loading="lazy">
         </div>
       {% endfor %}
     </div>
   </div>
 
+  <!-- Product Image Layout for Desktop -->
   <div class="product-images-layout">
     {% if product.images.size == 0 %}
-      <div id="single-product-imagelayout" >
-        <img
-          class="sngl-prdct-img"
-          alt="{{ product.alt }}"
-          src="{{ product.featured_image.src | image_url }}"
-          loading="lazy"
-          height=""
-          width=""
-        >
-      </div>
-    {% elsif product.images.size >= 1 %}
+      <img class="sngl-prdct-img" alt="{{ product.alt }}" src="{{ product.featured_image.src | image_url }}" loading="lazy">
+    {% else %}
       {% for imageSource in product.images %}
-        <div id="single-product-imagelayout">
-          <img
-            class="sngl-prdct-img"
-            alt="{{ product.alt }}"
-            src="{{ imageSource.src | image_url }}"
-            loading="lazy"
-            height=""
-            width=""
-          >
-        </div>
+        <img class="sngl-prdct-img" alt="{{ product.alt }}" src="{{ imageSource.src | image_url }}" loading="lazy">
       {% endfor %}
     {% endif %}
-    </div>
+  </div>
 </div>
 
 <script type="module">
   import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
-
-  const swiper = new Swiper('.mySwiper', { loop: true, mousewheel: true });
+  document.addEventListener("DOMContentLoaded", function() {
+      const swiper = new Swiper('.mySwiper', { loop: true, mousewheel: true });
+  });
 </script>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
 <style>
-  #swiper-display {
-    display: none !important;
-  }
-  .swiper {
-    position: relative;
-    width: 100%;
-    /* height: 100%; */
-  }
-
-  .swiper-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-  }
- .swiper-slide-active{
-  height: 100%;
- }
-  .swiper-slide img {
-    display: block;
-    /* width: 100%;
-    height: 100%; */
-  }
-
+  #swiper-display { display: none; }
+  .swiper { width: 100%; }
   @media only screen and (max-width: 500px) {
-    #single-product-imagelayout {
-      display: none !important;
-    }
-    #swiper-display {
-      display: block !important;
-    }
+    #single-product-imagelayout { display: none; }
+    #swiper-display { display: block; }
   }
 </style>
-
-{% schema %}
-{
-  "name": "tag_descriptions",
-  "settings": [
-    {
-      "type": "textarea",
-      "id": "ready_to_ship_status_description",
-      "label": "Ready to ship status description"
-    },
-    {
-      "type": "textarea",
-      "id": "to_be_made_status_description",
-      "label": "To be made status description"
-    }
-  ]
-}
-{% endschema %}
