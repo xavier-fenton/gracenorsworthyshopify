@@ -75,9 +75,9 @@
             <div class="in-cart-description">
               <span class="price-in-cart-desc">Price: </span>
 
-              <div class="cart-title-money"> {{ item.final_price | money }}</div>
+              <div class="cart-title-money"> {{ item.final_price | money_with_currency }}</div>
             </div>
-            <div class="quatity-main">
+            <div class="quantity-main">
               <span class="quantity-in-cart-desc">Quantity:</span>
               <div class="cart-quantity-wrapper">
                 <!-- data-ajax-cart-request-button ajaxifies the "Minus one" button -->
@@ -109,7 +109,7 @@
 
             <div class="in-cart-description">
               <span class="total-in-cart-desc"> Total: </span>
-              <div class="cart-title-money"> {{ item.final_line_price | money }}</div>
+              <div class="cart-title-money"> {{ item.final_line_price | money_with_currency }}</div>
             </div>
             <a class="cart-remove" data-ajax-cart-request-button href="{{ item.url_to_remove }}">
               Remove
