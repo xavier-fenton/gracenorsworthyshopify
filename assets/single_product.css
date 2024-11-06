@@ -1,9 +1,7 @@
 /* Single Product Page */
 
 
-.sngl-prdct-main-wrap {
 
-  }
  
   .single-product-card-main{
     order: -1;
@@ -173,7 +171,6 @@
     }
     .sngl-prdct-main-wrap{
       padding: var(--pdnhalf);
-      padding-top: 12px;
     }
     .single-product-card-main {
       grid-template-columns: repeat(1, 1fr);
@@ -187,15 +184,29 @@
     }
     
     
+    .sngl-prdct-img{
+      width: 100%;
+      height: 100%;
+      object-position: center;
+      aspect-ratio: 1 / 1.4;
+    }
   }
   /* similar products section */
+
+  .similar-product-card{
+    width: calc(100% - 30%);
+    height: calc(100% - 30%);
+
+
+  }
+
   .you-may-like-title{
     padding-bottom: 5px;
     font-size: 10px;
   }
   
   .similar-products-wrapper{
-    padding: var(--pdn);
+    padding: 10px;
     padding-bottom: 20px;
   }
   

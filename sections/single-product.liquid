@@ -39,20 +39,25 @@
       {{ product.description }}
     </div>
   </div>
+
+  {% comment %} Swiper  {% endcomment %}
   <div id="swiper-display" class="swiper mySwiper">
     <div class="swiper-wrapper">
       {% for imageSource in product.images %}
         <div class="swiper-slide">
           <img
-            class="sngl-prdct-img "
+            class="sngl-prdct-img"
             alt="{{ product.alt }}"
-            src="{{ imageSource.src | img_url: '500x500', format: 'pjpg' }}"
+            src="{{ imageSource.src | image_url }}"
             loading="lazy"
+            height="100%"
+            width=""
           >
         </div>
       {% endfor %}
     </div>
   </div>
+
   <div class="product-images-layout">
     {% if product.images.size == 0 %}
       <div id="single-product-imagelayout" >
@@ -95,20 +100,24 @@
     display: none !important;
   }
   .swiper {
+    position: relative;
     width: 100%;
+    /* height: 100%; */
   }
 
   .swiper-slide {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
   }
-
+ .swiper-slide-active{
+  height: 100%;
+ }
   .swiper-slide img {
     display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    /* width: 100%;
+    height: 100%; */
   }
 
   @media only screen and (max-width: 500px) {
