@@ -56,16 +56,18 @@ table {
 
 .visualGrid {
   position: fixed;
+  top: 0;
+  right: 0;
   width: calc(100vw - 20px);
   min-height: calc(100vh - 20px);
   top: 10px;
   left: 10px;
-  background-image: radial-gradient(circle at 1px 1px, #a0a0a0 1px, transparent 0px);
+  background-image: radial-gradient(circle at 1px 1px, var(--grid-colour) 1px, transparent 0px);
   background-size: calc((100vw - 20px) / var(--grid-max)) calc((100vw - 10px) / var(--grid-max));
   pointer-events: none;
   z-index: -1;
 }
-.visualGrid2 {
+/* .visualGrid2 {
   position: absolute;
   top: 0;
   right: 0;
@@ -73,19 +75,21 @@ table {
   min-height: 100%;
   top: 10px;
   left: 10px;
-  background-image: radial-gradient(circle at 1px 1px, #a0a0a0 1px, transparent 0px);
+  background-image: radial-gradient(circle at 1px 1px, var(--grid-colour) 1px, transparent 0px);
   background-size: calc((100vw - 20px) / var(--grid-max)) calc((100vw - 10px) / var(--grid-max));
   pointer-events: none;
   z-index: 1;
-}
+} */
 
 :root {
+  --pdn-top: 50px;
   --pdn: 20px;
   --pdnhalf: 10px;
   --grid-module: calc((100vw - 20px) / 24);
   --grid-cols: repeat(24, calc((100vw - 20px) / 24));
   --grid-rows: repeat(auto-fill, calc((100vw - 20px) / 24));
   --grid-max: 24;
+  --grid-colour: #cfcfcf;
 }
 
 body {

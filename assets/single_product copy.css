@@ -2,80 +2,63 @@
 
 
 .sngl-prdct-main-wrap {
-
+    display: flex;
+    padding: var(--pdn);
+    padding-bottom: 22%;
+  
   }
- 
+  
   .single-product-card-main{
     order: -1;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--pdn);
     align-items: start;
-    padding-top: var(--pdn-top);
-    justify-items: center;
-    padding-left: 10px;
-    padding-right: 10px;
-
+    padding-top: 20px;
+  
   }
   
   .sngl-prdct-img {
     object-fit: cover;
     object-position: center;
-    width: 70%;
+    aspect-ratio: 1 / 1.4;
+    width: 80%;
   }
 
-  #single-product-imagelayout{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    height: 100%;
-    width: 100%;
-  }
+  
+  
+  
+  
   
   .product-images-layout{
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    width: 100%;
+    gap: var(--pdn);
   }
   
-   .product-title-with-cart{
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
-  }
+  
   
   
   .product-info {
-    display: flex;
-    flex-direction: column;
-    position: sticky;
-    gap: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
-    top: 50px;
-    width: 400px;
-    padding: 0 5px;
-    box-sizing: border-box;
-   }
+   display: flex;
+   flex-direction: column;
+   position: sticky;
+   top: 100px;
+   gap: 20px;
+  }
   
-   .product-title-card{
-    display: flex;
-    flex-direction: column;
-    font-size: 30px;
-    text-transform: uppercase;
+  .product-title-card{
+    font-size: large;
   }
   
   .product-descript {
+    width: 50%;
     font-weight: 300;
     font-size: small;
+  
   }
   .product-price{
-    display: flex;
-    flex-direction: row-reverse;
-    font-size: 24px;
+    font-size: medium;
   }
   /* products tag styles */
   .product-tag-wrapper{
@@ -100,20 +83,6 @@
   }
   
   
-  
-  
-  
-  .form-wrapper {
-    display: flex;
-    gap: 35px;
-    flex-direction: column;
-  }
-  
-  .hide-this-select{
-    display: none !important;
-  }
-  
-  /*  ADD BUTTON  */
   input[type=submit], a.btn {
     display: inline-block;
     background: #000;
@@ -126,51 +95,59 @@
   }
   
   
+  .form-wrapper {
+    display: flex;
+    gap: 35px;
+    flex-direction: column;
+  }
+  
+  .hide-this-select{
+    display: none !important;
+  }
+  
+  
+  
+  
+  
   
   /* single product page media queris */
   
   @media only screen and (max-width: 1024px)  {
     /* For mobile phones: */
     .sngl-prdct-main-wrap{
+      padding: var(--pdn);
       
     }
-   
+    .single-product-card-main {
+      /* grid-template-columns: repeat(1, 1fr); */
+      height: fit-content;
+      padding-top: 65px;
+    }
     .sngl-prdct-img{
       width: 100%;
     }
   
     
-    
+    .product-descript{
+      width: 90%;
+    }
     
   }
   
   @media only screen and (max-width: 768px)  {
     /* For mobile phones: */
-    .single-product-card-main{
-      display: flex;
-      flex-direction: column;
-    }
     .sngl-prdct-main-wrap{
       padding: var(--pdnhalf);
     }
     .product-info{
-      top: 0px;
+      top: 90px;
       gap: var(--pdnhalf);
-      position: relative;
-      width: 100%;
     }
     
     
   }
   @media only screen and (max-width: 500px)  {
     /* For mobile phones: */
-
-    .single-product-card-main
-    {
-      padding-left: 0px;
-      padding-right: 0px;
-
-    }
     .sngl-prdct-main-wrap{
       padding: var(--pdnhalf);
       padding-top: 12px;
@@ -180,29 +157,29 @@
       height: fit-content;
     }
     .product-info{
+      top: 50px;
       gap: var(--pdnhalf);
-      padding-left: 0px;
-      padding-right: 0px;
-
+      padding-left: var(--pdnhalf);
     }
     
     
   }
   /* similar products section */
   .you-may-like-title{
-    padding-bottom: 5px;
-    font-size: 10px;
+    padding-bottom: var(--pdn);
+    font-size: large;
   }
   
   .similar-products-wrapper{
     padding: var(--pdn);
-    padding-bottom: 20px;
+    padding-bottom: 20%;
   }
   
   
   .reccomended-wrapper{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 1%;
     gap: 10px;
   }
   
@@ -244,10 +221,10 @@
   
   @media only screen and (max-width: 768px)  {
     /* For mobile phones: */
-    .similar-products-wrapper{
-      padding: 10px;
-    }
     
+    .you-may-like-title{
+      font-size: medium;
+    }
     
   }
   
