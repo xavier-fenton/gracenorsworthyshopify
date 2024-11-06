@@ -82,7 +82,7 @@
               <span class="quantity-in-cart-desc">Quantity:</span>
               <div class="cart-quantity-wrapper">
                 <!-- data-ajax-cart-request-button ajaxifies the "Minus one" button -->
-                <div data-ajax-cart-section="">
+                <div class="quantity-flex" data-ajax-cart-section="">
                   <a data-ajax-cart-request-button
                     href="{{ routes.cart_change_url }}?line={{ item_index }}&quantity={{ item.quantity | plus: 1 }}">
                     +
