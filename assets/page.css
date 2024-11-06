@@ -200,9 +200,7 @@
     font-weight: bold;
     font-size: small;
   }
-  span, li{
-    padding-bottom: 5px;
-  }
+ 
   @media only screen and (max-width: 1024px)  {
     /* For mobile phones: */
   
