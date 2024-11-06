@@ -53,7 +53,7 @@
           <a href="{{ product.url }}">
             <img
               class="product-img"
-              src="{{ product.featured_image.src | img_url: '500x500', format: 'pjpg' }}"
+              src="{{ product.featured_image | image_url }}"
               alt="{{ product.title | escape }}"
               loading="lazy"
               width=""
