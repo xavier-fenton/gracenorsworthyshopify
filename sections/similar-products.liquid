@@ -13,15 +13,22 @@
     <div class="reccomended-wrapper">
       {%- for product in recommendations.products -%}
 
-        <div class="product">
+        <div class="product-card">
         
           <div class="reccomended-products-card-wrapper">
               <a href="{{ product.url }}">
-              <img class="product__img" src="{{ product.featured_image | image_url: width: 300, height: 300 }}"
-                alt="{{ product.featured_image.alt }}" /></a>
+              <img class="product-img" src="{{ product.featured_image | image_url: width: 300, height: 300 }}"
+                alt="{{ product.featured_image.alt }}" />
+                </a>
         
-              <div class="product__title"> {{ product.title }}</div>
-              <div class="product__price">{{ product.price | money}}</div>
+                <div class="product-card-description">
+                  <div class="product-card-description-values">
+                    <a class="{{ product.url }} product-card-title-link" href="{{ product.url }}" id="{{ product.url }}">
+                      {{ product.title }}
+                    </a>
+                    <div class="all-products-currency">{{ product.price | money_with_currency }}</div>
+                  </div>
+                </div>
           </div>
         </div>
 
