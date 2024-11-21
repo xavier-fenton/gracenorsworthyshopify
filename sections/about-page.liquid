@@ -1,45 +1,33 @@
 {% assign page = pages.about %}
 
-
-
 <div class="about-section-wrapper">
- <div class="about-main-info-wrapper">
-              <div class="about-page-title">*{{ page.title }}</div>
-              <div class="about-page-main-wrapper">
+  <div id="about-main-info-wrapper" class="about-main-info-wrapper">
+    <div id="about-page-main-wrapper" class="about-page-main-wrapper">
+      {% comment %} <div class="about-page-title" id="about-main-title">{{ page.title }}</div> {% endcomment %}
+       {% comment %}
+      
+         Should this be just orwso? (about title)
+        
+       {% endcomment %}
+      <div class="about-page-title" id="about-main-title" > orswo </div>
 
-                    <div id="about_description" class="about-description-wrapper">
-                    
-                      <div class="about-description-text">{{ page.content }} </div>
-
-                  </div>
-                </div>
-                <div></div>
-            </div>
-
-     
+      <div id="about_description" class="about-description-wrapper">
+        <div class="about-description-text">{{ page.content }}</div>
+      </div>
+    </div>
+  </div>
 </div>
 
-
-
-
 {% schema %}
-  {
-    "name": "About Content",
-    "settings":[
-     
-     
-      
-    ],
-   
-    "presets": [
-      {
-        "name": " About Page Content",
-        "category": "Content"
-      }
-    ]
-      
-  }
-  
+{
+  "name": "About Content",
+  "settings": [],
+
+  "presets": [
+    {
+      "name": " About Page Content",
+      "category": "Content"
+    }
+  ]
+}
 {% endschema %}
-
-

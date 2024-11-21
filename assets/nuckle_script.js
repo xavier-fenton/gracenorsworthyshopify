@@ -16,7 +16,22 @@ async function init() {
     1000
   )
 
-  renderer = new THREE.WebGLRenderer()
+  renderer = new THREE.WebGLRenderer({ antialias: true })
+
+  renderer.domElement.style.width = '100% !important'
+  renderer.setPixelRatio(window.devicePixelRatio)
+  renderer.setSize(window.innerWidth, window.innerHeight)
+
+  window.addEventListener('resize', function () {
+    let width = window.innerWidth
+    let height = window.innerHeight
+
+    renderer.setSize(width, height)
+
+    camera.aspect = width / height
+
+    camera.updateProjectionMatrix()
+  })
 
   const ambientLight = new THREE.AmbientLight(0xffffff, 0.2)
   scene.add(ambientLight)
@@ -24,9 +39,18 @@ async function init() {
   light.position.set(1, 1, 1)
   scene.add(light)
 
-  camera.position.z = 5
+  // const axesHelper = new THREE.AxesHelper(5)
+  // scene.add(axesHelper)
 
+  camera.position.x = 2.76942813020402
+  camera.position.y = -7.906113373639309
+  camera.position.z = 5.543139630886989
   const controls = new OrbitControls(camera, renderer.domElement)
+
+  controls.enableZoom = false;
+  controls.enablePan = false;
+  
+
 
   const silver = new THREE.Color('rgb(211,211,211)')
 
@@ -36,12 +60,13 @@ async function init() {
     'https://cdn.shopify.com/s/files/1/0734/8522/2208/files/model.gltf?v=1703723345',
     async function (gltf) {
       await gltf
-      gltf.scene.rotation.x = 0.7
+      // gltf.scene.rotation.x = 5
       let model = gltf.scene.children[0]
+      model.rotation.x = -2
+
       model.material.color = silver
       model.material.roughness = 0.025
       scene.add(model)
-
     },
     undefined,
     function (error) {
@@ -58,32 +83,20 @@ async function init() {
       scene.environment = texture
     }
   )
-
-  const screenWidth = 500
-  const screenHeight = 500
-
-  renderer.setSize(screenWidth, screenHeight)
-
-  document.getElementById('about_description').appendChild(renderer.domElement)
+  if (document.getElementById('about-main-info-wrapper')) {
+    document
+      .getElementById('about-main-info-wrapper')
+      .before(renderer.domElement)
+  }
 
   function animate() {
     requestAnimationFrame(animate)
-    window.addEventListener('resize', onWindowResize)
     rotateModel(scene)
+
     renderer.render(scene, camera)
   }
 
   animate()
-
-  function onWindowResize() {
-    const width = screenWidth
-    const height = screenHeight
-
-    camera.aspect = width / height
-    camera.updateProjectionMatrix()
-
-    renderer.setSize(width, height)
-  }
 
   function rotateModel(model) {
     model.rotation.x += 0.0025

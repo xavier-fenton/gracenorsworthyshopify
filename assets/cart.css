@@ -1,0 +1,294 @@
+/* CART SECTION */
+
+.js-ajax-cart-message--error {
+  font-size: 11px;
+  color: #d44b0c;
+}
+
+
+
+
+
+.sorry-no-items{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    text-transform: uppercase;
+    font-size: 10px;
+    padding-top: 50%;
+  }
+  
+  .my-cart__items {
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    transition: opacity 0.2s;
+    gap: 10px;
+    padding-top: 10px;
+  }
+  
+  body.js-ajax-cart-request-in-progress .my-cart__items {
+    opacity: .7;
+  }
+  
+  
+  .product-image-in-cart {
+    width: 80%;
+    height: 175px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px;
+  }
+  
+  .floating-cart-wrapper{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Hide the scrollbar for WebKit browsers (Chrome, Safari) */
+.my-floating-cart::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.my-floating-cart {
+  scrollbar-width: none; /* Firefox */
+}
+
+.my-floating-cart {
+  padding: 10px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: auto auto;
+  position: fixed;
+  inset: 0;
+  width: 500px;
+  height: 70vh;
+  z-index: 1;
+  background-color:  #efefef42; 
+  backdrop-filter: blur(10px);
+  border-radius: 5px;
+  border: 1px solid;
+  box-shadow: 12px 9px 25px 4px rgba(0, 0, 0, 0.24);
+  -webkit-box-shadow: 12px 9px 25px 4px rgba(0, 0, 0, 0.24);
+  -moz-box-shadow: 12px 9px 25px 4px rgba(0, 0, 0, 0.24);
+  z-index: 4;
+  }
+  
+  
+  .exit-cart-wrapper_1{
+    position: sticky;
+    top: 0px;
+  }
+  .orswo-cart-title{
+    font-weight: 600;
+  }
+  
+  .exit-cart{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 10px;
+    text-transform: uppercase;
+    font-size: 10px;
+    backdrop-filter: blur(10px);
+    border: 1px solid;
+    border-radius: 10px;
+  }
+  
+  .exit-the-cart{
+    position: relative;
+    font-weight: 400;
+  }
+  
+  .quantity-flex {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    font-size: 10px;
+    align-items: center;
+}
+  
+  .quantity-input-bar {
+    height: 15px !important;
+
+    width: 40px !important;
+    font-size: 10px;
+    background-color: transparent;
+  }
+  
+  
+  
+  .cart-link-btn {
+    text-transform: uppercase;
+  }
+  
+  .inner-cart-block {
+    display: flex;
+    font-size: medium;
+    gap: 10px;
+    height: 50%;
+    color: #fff;
+  }
+  
+  .inner-wrapper-cart__items {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  
+  .cart-title-money{
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  .cart-remove{
+    font-size: smaller;
+    font-weight: 600;
+    display: inline-block;
+    background: #000;
+    color: #fff;
+    font-size: 10px;
+    line-height: 1.1em;
+    padding: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-align: center;
+    width: fit-content;
+  }
+  
+  /* CSS */
+  /* .button-4 {
+    background-color: #ffffff !important;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 2px;
+    height: 3dvh;
+  } */
+  
+  
+  
+  .checkout-btn {
+    display: flex;
+    color: #dcd1d1fb !important;
+    justify-content: center;
+    padding: var(--pdn);
+    
+  }
+  
+  .checkout-btn button{
+
+
+    display: inline-block;
+    background: #000;
+    color: #fff;
+    font-size: 10px;
+    line-height: 1.1em;
+    padding: 10px 5px 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  
+  .checkout-button-wrapper{
+    position: sticky;
+    bottom: 0px;
+  }
+  
+  /* FLOATING CART MEDIA QUERIES */
+  
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+   .my-floating-cart{
+    width: 80%;
+   }
+   .inner-cart-block{
+    font-size: small;
+   }
+    
+  }
+  
+  
+  @media only screen and (max-width: 501px) {
+    /* For mobile phones: */
+  
+    .add-to-cart-button{
+      /* width: 100%; */
+    }
+  }
+  
+  
+  
+  
+  /* Show the floating cart if the 'js-my-cart-open' CSS class exists */
+  .js-my-cart-open {
+    display: block;
+  }
+  
+  .cart-link-btn {
+    position: relative;
+  
+  }
+  
+  
+  .my-cart-icon {
+    /* display: flex; */
+    align-items: center;
+    gap: 2px;
+    padding-left: var(--pdn);
+    padding-top: var(--pdn);
+  
+  }
+  
+  
+  .in-cart-description{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    
+  }
+  .title-in-cart-desc{
+    font-size: 10px;
+    text-transform: uppercase;
+  }
+  .price-in-cart-desc{
+    font-size: 10px;
+    text-transform: uppercase;
+  }
+  
+  
+
+  .quantity-in-cart-desc{
+    font-size: 10px;
+    text-transform: uppercase;
+  }
+  .total-in-cart-desc{
+    font-size: 10px;
+    text-transform: uppercase;
+  }
+  
+
+
+  /* 
+    Animations
+  */
+
+  
+.my-floating-cart {
+  animation: fadeInAnimation ease .5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: .25;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+

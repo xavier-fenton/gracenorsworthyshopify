@@ -1,41 +1,7 @@
 <div class="footer-wrapper">
-  <div class="footer-childern">
-    <div class="footer-title">ORSWO</div>
-    <div class="foot-contact-num">
-    <div>{{ section.settings.footer_Number }}</div>
-    <div> {{ section.settings.footer_Email }}</div>
-    </div>
-    <div>
-      <a href="{{ section.settings.footer_Instagram }}">Instagram</a></div>
-    <div class="footer-privacy"> <a href="/pages/privacy-policy">Privacy Policy</a></div>
-  </div>
-
-
-
+      {% for page in pages %}
+        {{ page.title | link_to: page.url }}
+      {%- endfor %}
 </div>
 
 
-{% schema %}
-  {
-    "name": "Footer Information",
-    "settings": [
-     
-      {
-        "type": "text",
-        "id": "footer_Number",
-        "label": "Contact Number"
-      },
-      {
-        "type": "text",
-        "id": "footer_Email",
-        "label": "Contact Email"
-      },
-      {
-        "type": "text",
-        "id": "footer_Instagram",
-        "label": "Instagram Link"
-      }
-    ]
-    
-  }
-{% endschema %}

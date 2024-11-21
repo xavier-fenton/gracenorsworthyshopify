@@ -1,10 +1,14 @@
 <div class="title-styl-seperator">
+<div class="visualGrid2"></div>
+
   <div class="title-image-product">  
-{{ section.settings.image_1 | img_url: '800x' | img_tag }}
+{% comment %} {{ section.settings.image_1 | img_url: '800x' | img_tag }} {% endcomment %}
+  {% comment %} {{ 'orswoTitle.png' |  asset_img_url }} {% endcomment %}
+  <img class="orswoTitleImage" src="{{ 'orswoTitle.png' | asset_url }}" width="" height="" loading="lazy" /> 
+
 </div>
 </div> 
 
-</div>
 {% schema %}
   {
     "name": "Title Image",
