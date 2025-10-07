@@ -56,7 +56,7 @@
       {% for product in collection.products %}
 
       {% comment %} This product-card could possibly be turned to a section {% endcomment %}
-      <div class="flex flex-col gap-[10px] w-fit" data-type="{{ product.type | downcase }}">
+      <div class="product-card flex flex-col gap-[10px] w-fit" data-type="{{ product.type | downcase }}">
         <a class="" href="{{ product.url }}">
           <img class="h-[845px] w-[609px] object-cover" src="{{ product.featured_image | image_url }}"
             alt="{{ product.title | escape }}" loading="lazy" width="" height="">
