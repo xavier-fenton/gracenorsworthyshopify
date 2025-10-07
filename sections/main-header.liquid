@@ -1,5 +1,4 @@
-
-<div class="nav-sticky" >
+<div class="nav-sticky">
   <div class="nav-links-wrap">
     <div class="nav-links">
       <div class="main-links">
@@ -17,7 +16,14 @@
         {% for link in linklists['main-menu'].links %}
           {% if link.title == 'Orswo' %}
             <div class="orswo-link">
-              <a href="{{ link.url }}">{{ link.title }}</a>
+              <a href="{{ link.url }}">
+                <img
+                  class=""
+                  src="{{ "orswo_logo.png" | asset_img_url }}"
+                  loading="lazy"
+                  width=""
+                  height="">
+              </a>
             </div>
           {% else %}
 
@@ -37,21 +43,21 @@
       </div>
     </div>
 
-    {% comment %} Sub catergories {% endcomment %}
-    {% comment %} <div class="sub-links-wrapped">
-          <fieldset class="sub-links">
-            <legend class="custom-legend">Categories</legend>
-            <div class="sub-links-flex">
-              {% for link in linklists['sidebar-menu'].links %}
-                {% assign product_catergories = link.title |  downcase %}
-                <label class="custom-radio">
-                  <input type="radio" name="type-filter" id="{{ product_catergories }}" {% if product_catergories == 'all' %}checked{% endif %}>
-                  <span class="radio"></span> {{ link.title }}
-                </label>
-              {% endfor %}
-            </div>
-          </fieldset>
-        </div> {% endcomment %}
-    
+  {% comment %} Sub catergories {% endcomment %}
+  {% comment %} <div class="sub-links-wrapped">
+                                              <fieldset class="sub-links">
+                                                <legend class="custom-legend">Categories</legend>
+                                                <div class="sub-links-flex">
+                                                  {% for link in linklists['sidebar-menu'].links %}
+                                                    {% assign product_catergories = link.title |  downcase %}
+                                                    <label class="custom-radio">
+                                                      <input type="radio" name="type-filter" id="{{ product_catergories }}" {% if product_catergories == 'all' %}checked{% endif %}>
+                                                      <span class="radio"></span> {{ link.title }}
+                                                    </label>
+                                                  {% endfor %}
+                                                </div>
+                                              </fieldset>
+                          </div> {% endcomment %}
+
   </div>
 </div>
