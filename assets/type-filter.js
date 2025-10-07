@@ -1,6 +1,8 @@
+/* 
+  TODO:
+    Change the filtering to ready-to-ship, made-to-order
 
-
-
+*/
 $(document).ready(function() {
     // When a filter option is selected
     $('input[name="type-filter"]').change(function() {
