@@ -1,6 +1,11 @@
-<div class="nav-sticky">
-  <div class="nav-links-wrap">
-    <div class="nav-links">
+{% comment %} 
+  TODO:
+    Get rid of vanilla css, replace with tailwind
+{% endcomment %}
+
+
+<div class="fixed w-full z-10">
+  <div class="flex justify-between w-full p-[10px]">
       <div class="main-links">
         {% for link in linklists['main-menu'].links %}
           {% if link.title == 'Shop' %}
@@ -12,25 +17,20 @@
           {% endif %}
         {% endfor %}
       </div>
-      <div class="main-links">
-        {% for link in linklists['main-menu'].links %}
-          {% if link.title == 'Orswo' %}
-            <div class="orswo-link">
-              <a href="{{ link.url }}">
-                <img
-                  class=""
-                  src="{{ "orswo_logo.png" | asset_img_url }}"
-                  loading="lazy"
-                  width=""
-                  height="">
-              </a>
-            </div>
-          {% else %}
-
-          {% endif %}
-        {% endfor %}
+      {% comment %} 
+        TODO:
+          Set height to nav bar height, has to extend width. 
+      {% endcomment %}
+      <div class="flex justify-center items-center">
+        <a href="/">
+          <img
+            class=""
+            src="{{ "orswo_logo.png" | asset_img_url }}"
+            loading="lazy"
+            width=""
+            height="">
+        </a>
       </div>
-
       <div class="nav-cart">
         <div class="cart-link-btn">
           <a data-ajax-cart-toggle-class-button="js-my-cart-open" href="{{ routes.cart_url }}">
@@ -42,22 +42,23 @@
         </div>
       </div>
     </div>
+</div>
 
-  {% comment %} Sub catergories {% endcomment %}
-  {% comment %} <div class="sub-links-wrapped">
-                                              <fieldset class="sub-links">
-                                                <legend class="custom-legend">Categories</legend>
-                                                <div class="sub-links-flex">
-                                                  {% for link in linklists['sidebar-menu'].links %}
-                                                    {% assign product_catergories = link.title |  downcase %}
-                                                    <label class="custom-radio">
-                                                      <input type="radio" name="type-filter" id="{{ product_catergories }}" {% if product_catergories == 'all' %}checked{% endif %}>
-                                                      <span class="radio"></span> {{ link.title }}
-                                                    </label>
-                                                  {% endfor %}
-                                                </div>
-                                              </fieldset>
-                          </div> {% endcomment %}
-
-  </div>
+<div class="hidden md:block md:fixed bottom-0 lg:block lg:fixed lg:bottom-0 w-full z-10 ">
+  <div class="flex justify-between w-full p-[10px]">
+      <div class="main-links">
+              <a class="orswo-link" href="https://www.instagram.com/orswo/">@orswo</a>
+      </div>
+{% comment %} 
+      TODO:
+        Make this as its own button that opens feature shown on figma file.
+{% endcomment %}
+        <div class="nav-cart">
+          <div class="cart-link-btn">
+            <a data-ajax-cart-toggle-class-button="js-my-cart-open" href="{{ routes.cart_url }}">
+              info
+            </a>
+          </div>
+        </div>
+    </div>
 </div>
