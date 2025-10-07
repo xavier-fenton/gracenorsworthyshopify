@@ -7,10 +7,6 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --spacing: 0.25rem;
-    --text-2xl: 1.5rem;
-    --text-2xl--line-height: calc(2 / 1.5);
-    --font-weight-black: 900;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
   }
@@ -164,9 +160,6 @@
   }
 }
 @layer utilities {
-  .absolute {
-    position: absolute;
-  }
   .fixed {
     position: fixed;
   }
@@ -175,9 +168,6 @@
   }
   .\!top-\[60px\] {
     top: 60px !important;
-  }
-  .top-0 {
-    top: calc(var(--spacing) * 0);
   }
   .top-\[60px\] {
     top: 60px;
@@ -194,23 +184,14 @@
   .hidden {
     display: none;
   }
-  .table {
-    display: table;
-  }
   .h-\[845px\] {
     height: 845px;
   }
   .h-dvh {
     height: 100dvh;
   }
-  .h-full {
-    height: 100%;
-  }
   .\!w-\[609px\] {
     width: 609px !important;
-  }
-  .w-\[220px\] {
-    width: 220px;
   }
   .w-\[609px\] {
     width: 609px;
@@ -221,21 +202,6 @@
   .w-full {
     width: 100%;
   }
-  .max-w-\[220px\] {
-    max-width: 220px;
-  }
-  .max-w-\[609px\] {
-    max-width: 609px;
-  }
-  .min-w-\[220px\] {
-    min-width: 220px;
-  }
-  .min-w-\[609px\] {
-    min-width: 609px;
-  }
-  .border-collapse {
-    border-collapse: collapse;
-  }
   .resize {
     resize: both;
   }
@@ -245,14 +211,8 @@
   .flex-row {
     flex-direction: row;
   }
-  .items-center {
-    align-items: center;
-  }
   .justify-between {
     justify-content: space-between;
-  }
-  .justify-center {
-    justify-content: center;
   }
   .justify-end {
     justify-content: flex-end;
@@ -263,21 +223,8 @@
   .gap-\[10px\] {
     gap: 10px;
   }
-  .gap-\[25\%\] {
-    gap: 25%;
-  }
-  .border {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
-  }
   .object-cover {
     object-fit: cover;
-  }
-  .\!p-\[10px\] {
-    padding: 10px !important;
-  }
-  .p-\[10px\] {
-    padding: 10px;
   }
   .p-\[30px\] {
     padding: 30px;
@@ -285,26 +232,8 @@
   .\!px-\[10px\] {
     padding-inline: 10px !important;
   }
-  .px-\[10px\] {
-    padding-inline: 10px;
-  }
-  .px-\[10x\] {
-    padding-inline: 10x;
-  }
   .py-\[30px\] {
     padding-block: 30px;
-  }
-  .\!pt-\[10px\] {
-    padding-top: 10px !important;
-  }
-  .\!pt-\[50px\] {
-    padding-top: 50px !important;
-  }
-  .\!pt-\[60px\] {
-    padding-top: 60px !important;
-  }
-  .pt-\[60px\] {
-    padding-top: 60px;
   }
   .\!text-\[10px\] {
     font-size: 10px !important;
@@ -314,13 +243,6 @@
   }
   .uppercase {
     text-transform: uppercase;
-  }
-  .underline {
-    text-decoration-line: underline;
-  }
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
   }
   .filter {
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
@@ -333,11 +255,6 @@
   .md\:flex-col {
     @media (width >= 48rem) {
       flex-direction: column;
-    }
-  }
-  .md\:flex-row {
-    @media (width >= 48rem) {
-      flex-direction: row;
     }
   }
   .md\:gap-\[10px\] {
@@ -360,36 +277,11 @@
       gap: 6.25%;
     }
   }
-  .lg\:gap-\[8\%\] {
-    @media (width >= 64rem) {
-      gap: 8%;
-    }
-  }
-  .lg\:gap-\[12\.5\%\] {
-    @media (width >= 64rem) {
-      gap: 12.5%;
-    }
-  }
-  .lg\:gap-\[25\%\] {
-    @media (width >= 64rem) {
-      gap: 25%;
-    }
-  }
   .lg\:\!pt-\[60px\] {
     @media (width >= 64rem) {
       padding-top: 60px !important;
     }
   }
-}
-@property --tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@property --tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
 }
 @property --tw-blur {
   syntax: "*";
@@ -447,8 +339,6 @@
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
-      --tw-border-style: solid;
-      --tw-outline-style: solid;
       --tw-blur: initial;
       --tw-brightness: initial;
       --tw-contrast: initial;
