@@ -161,9 +161,6 @@
   }
 }
 @layer utilities {
-  .\!sticky {
-    position: sticky !important;
-  }
   .fixed {
     position: fixed;
   }
@@ -200,17 +197,8 @@
   .h-\[845px\] {
     height: 845px;
   }
-  .h-auto {
-    height: auto;
-  }
   .h-dvh {
     height: 100dvh;
-  }
-  .h-fit {
-    height: fit-content;
-  }
-  .h-full {
-    height: 100%;
   }
   .\!w-\[609px\] {
     width: 609px !important;
@@ -261,29 +249,17 @@
   .object-cover {
     object-fit: cover;
   }
+  .\!p-\[10px\] {
+    padding: 10px !important;
+  }
   .p-\[10px\] {
     padding: 10px;
-  }
-  .p-\[30px\] {
-    padding: 30px;
   }
   .\!px-\[10px\] {
     padding-inline: 10px !important;
   }
-  .py-\[30px\] {
-    padding-block: 30px;
-  }
   .pb-\[30px\] {
     padding-bottom: 30px;
-  }
-  .pb-\[40px\] {
-    padding-bottom: 40px;
-  }
-  .pb-\[50px\] {
-    padding-bottom: 50px;
-  }
-  .pb-\[60px\] {
-    padding-bottom: 60px;
   }
   .\!text-\[10px\] {
     font-size: 10px !important;
@@ -304,33 +280,14 @@
   .filter {
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   }
-  .backdrop-filter {
-    -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
-    backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
-  }
-  .sm\:hidden {
-    @media (width >= 40rem) {
-      display: none;
-    }
-  }
   .md\:fixed {
     @media (width >= 48rem) {
       position: fixed;
     }
   }
-  .md\:bottom-0 {
-    @media (width >= 48rem) {
-      bottom: calc(var(--spacing) * 0);
-    }
-  }
   .md\:block {
     @media (width >= 48rem) {
       display: block;
-    }
-  }
-  .md\:hidden {
-    @media (width >= 48rem) {
-      display: none;
     }
   }
   .md\:h-\[845px\] {
@@ -358,29 +315,14 @@
       bottom: calc(var(--spacing) * 0);
     }
   }
-  .lg\:z-10 {
-    @media (width >= 64rem) {
-      z-index: 10;
-    }
-  }
   .lg\:block {
     @media (width >= 64rem) {
       display: block;
     }
   }
-  .lg\:hidden {
-    @media (width >= 64rem) {
-      display: none;
-    }
-  }
   .lg\:h-\[845px\] {
     @media (width >= 64rem) {
       height: 845px;
-    }
-  }
-  .lg\:w-full {
-    @media (width >= 64rem) {
-      width: 100%;
     }
   }
   .lg\:flex-row {
@@ -462,42 +404,6 @@
   syntax: "*";
   inherits: false;
 }
-@property --tw-backdrop-blur {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-backdrop-brightness {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-backdrop-contrast {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-backdrop-grayscale {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-backdrop-hue-rotate {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-backdrop-invert {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-backdrop-opacity {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-backdrop-saturate {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-backdrop-sepia {
-  syntax: "*";
-  inherits: false;
-}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
@@ -516,15 +422,6 @@
       --tw-drop-shadow-color: initial;
       --tw-drop-shadow-alpha: 100%;
       --tw-drop-shadow-size: initial;
-      --tw-backdrop-blur: initial;
-      --tw-backdrop-brightness: initial;
-      --tw-backdrop-contrast: initial;
-      --tw-backdrop-grayscale: initial;
-      --tw-backdrop-hue-rotate: initial;
-      --tw-backdrop-invert: initial;
-      --tw-backdrop-opacity: initial;
-      --tw-backdrop-saturate: initial;
-      --tw-backdrop-sepia: initial;
     }
   }
 }

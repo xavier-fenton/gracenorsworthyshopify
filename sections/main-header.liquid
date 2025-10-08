@@ -4,8 +4,8 @@
 {% endcomment %}
 
 
-<div class="fixed w-full z-10">
-  <div class="flex justify-between w-full p-[10px]">
+<div class="fixed w-full z-10 !p-[10px]">
+  <div class="flex justify-between w-full">
       <div class="main-links">
         {% for link in linklists['main-menu'].links %}
           {% if link.title == 'Shop' %}
@@ -44,7 +44,8 @@
     </div>
 </div>
 
-<div class="hidden md:block md:fixed bottom-0 lg:block lg:fixed lg:bottom-0 w-full z-10 ">
+{% comment %} Footer {% endcomment %}
+<div class="hidden md:block md:fixed bottom-0 lg:block lg:fixed lg:bottom-0 w-full z-10 !p-[10px]">
   <div class="flex justify-between w-full p-[10px]">
       <div class="main-links">
               <a class="orswo-link" href="https://www.instagram.com/orswo/">@orswo</a>
