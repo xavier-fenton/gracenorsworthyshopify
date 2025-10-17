@@ -93,7 +93,6 @@ body {
 a {
   /* Underlines or nah? */
   text-decoration: none;
-  color: #323232;
 }
 
 
@@ -103,3 +102,7 @@ canvas{
   image-rendering: pixelated;
 }
 
+#mobile-menu {
+  position: fixed;
+  transition: top 3s;
+}

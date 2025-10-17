@@ -1,12 +1,13 @@
 {% comment %} 
   TODO:
-    Get rid of vanilla css, replace with tailwind
+    - Get rid of vanilla css, replace with tailwind
+    - Working on mobile Menu, want the fixed menu to pop in an out on menu click
 {% endcomment %}
 
 
-<div class="fixed w-full z-10 !p-[10px]">
-  <div class="flex justify-between w-full">
-      <div class="main-links">
+<div class="bg-[#ffffff67] lg:bg-[#fff0] lg:backdrop-blur-none backdrop-blur-sm fixed w-full z-50 !p-[10px] h-[50px]">
+  <div class="flex justify-between w-full h-full items-center">
+      <div class="hidden lg:flex !text-[10px] uppercase">
         {% for link in linklists['main-menu'].links %}
           {% if link.title == 'Shop' %}
             <div class="orswo-link">
@@ -21,18 +22,18 @@
         TODO:
           Set height to nav bar height, has to extend width. 
       {% endcomment %}
-      <div class="flex justify-center items-center">
-        <a href="/">
+      <div class="w-[110px] md:w-fit !lg:w-1/2 flex justify-center items-center">
+        <a class="w-full" href="/">
           <img
-            class=""
+            class="lg:w-fit w-full"
             src="{{ "orswo_logo.png" | asset_img_url }}"
             loading="lazy"
             width=""
             height="">
         </a>
       </div>
-      <div class="nav-cart">
-        <div class="cart-link-btn">
+      <div class="hidden lg:flex">
+        <div class="orswo-link uppercase !text-[10px]">
           <a data-ajax-cart-toggle-class-button="js-my-cart-open" href="{{ routes.cart_url }}">
             Cart
             <span data-ajax-cart-bind-state="cart.item_count">
@@ -41,11 +42,63 @@
           </a>
         </div>
       </div>
+      <div onclick="toggleSlideUp()" class="lg:hidden">
+          <a id="menu" class="orswo-link !text-[10px] !font-bold uppercase cursor-pointer">
+            Menu
+          </a>
+      </div>
     </div>
 </div>
 
+<!-- Mobile Menu -->
+<!-- 
+  This will be the pages to navigate to "ready to ship, made to order"
+-->
+
+<div id="mobile-menu" class="lg:hidden flex bg-[#ffffff67] backdrop-blur-sm h-[calc(100dvh-50px)] w-full z-10 top-[50px] !px-[10px] flex-col gap-[5px] text-[#fff] justify-between duration-500 ease-out transition-all translate-y-full">
+  <!--- Navigational --->
+  <div class="!pt-[0px]">
+    <div class="!font-extrabold uppercase !text-2xl">Shop</div>
+    <div class="flex flex-col w-fit uppercase !px-[10px] !gap-[5px] ">
+      {% for link in linklists['sidebar-menu'].links %}
+
+            {% assign product_catergories = link.title | downcase %}
+            <a class="!text-[#fff] !font-bold" href="{{ link.url }}">
+              {{ link.title }}
+            </a>
+          {% endfor %}
+    </div>  
+    <!--- Cart ---> 
+  <div class="w-fit !pt-[20px]">
+    <a class="!font-extrabold uppercase !text-2xl !text-[#fff] items-center" data-ajax-cart-toggle-class-button="js-my-cart-open" href="{{ routes.cart_url }}">
+      Cart 
+      (<span data-ajax-cart-bind-state="cart.item_count">
+        {{ cart.item_count }} 
+      </span>)
+    </a>
+
+   
+  </div>
+  </div>
+
+
+  <!--- Pages Navigations --->
+  <div class="!pb-[20px] !text-[#fff]">
+    <div class="!font-extrabold uppercase !text-3xl">Orswo</div>
+    {% for page in pages %}
+      <div class="!font-extrabold uppercase !text-xl !text-[#fff]">{{ page.title | link_to: page.url }}</div>
+    {%- endfor %}
+   
+
+
+
+    
+  </div>
+
+</div>
+
 {% comment %} Footer {% endcomment %}
-<div class="hidden md:block md:fixed bottom-0 lg:block lg:fixed lg:bottom-0 w-full z-10 !p-[10px]">
+<div class="hidden lg:fixed bottom-0 lg:block lg:bottom-0 w-full z-10 !p-[10px]">
   <div class="flex justify-between w-full p-[10px]">
       <div class="main-links">
               <a class="orswo-link" href="https://www.instagram.com/orswo/">@orswo</a>
