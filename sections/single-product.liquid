@@ -46,7 +46,7 @@
       <img class="w-full" alt="{{ product.alt }}" src="{{ product.featured_image.src | image_url }}" loading="lazy">
     {% else %}
       {% for imageSource in product.images %}
-        <img class="md:h-full w-full lg:h-[845px] lg:w-[609px] object-cover" alt="{{ product.alt }}" src="{{ imageSource.src | image_url }}" loading="lazy">
+        <img class="aspect-[1/1.4] h-full w-full lg:h-[810px] lg:w-[540px] object-cover" alt="{{ product.alt }}" src="{{ imageSource.src | image_url }}" loading="lazy">
       {% endfor %}
     {% endif %}
   </div>
