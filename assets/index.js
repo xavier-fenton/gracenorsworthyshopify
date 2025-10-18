@@ -1,6 +1,8 @@
 /**
   Todo:
-    Close one tab if opening another eg: cart open and user clicks info, close cart so info opens
+      [] Close one tab if opening another eg: cart open and user clicks info, close cart so info opens
+
+      [] Change the colour of text given the background color
  */
 
 
@@ -28,3 +30,4 @@ function togglePageMenu() {
 
   
 }
+

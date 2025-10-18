@@ -408,6 +408,9 @@
   .\!text-\[\#fff\] {
     color: #fff !important;
   }
+  .\!text-black {
+    color: var(--color-black) !important;
+  }
   .text-\[\#fff\] {
     color: #fff;
   }
