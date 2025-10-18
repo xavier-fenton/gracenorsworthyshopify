@@ -102,7 +102,7 @@ canvas{
   image-rendering: pixelated;
 }
 
-#mobile-menu {
+/* #mobile-menu {
   position: fixed;
   transition: top 3s;
-}
+} */
