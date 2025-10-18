@@ -211,14 +211,7 @@
   }
   
   
-  @media only screen and (max-width: 501px) {
-    /* For mobile phones: */
-  
-    .add-to-cart-button{
-      /* width: 100%; */
-    }
-  }
-  
+
   
   
   
@@ -276,11 +269,12 @@
   */
 
   
-.my-floating-cart {
-  animation: fadeInAnimation ease .5s;
+.my-floating-cart, #infoTab {
+  animation: fadeInAnimation ease-out .5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
+
 
 @keyframes fadeInAnimation {
   0% {
