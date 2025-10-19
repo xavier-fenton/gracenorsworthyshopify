@@ -2,10 +2,10 @@
   <!-- Product Information Desktop -->
   <div class="!sticky !top-0 flex lg:justify-center lg:w-1/2 lg:h-[845px] !px-[10px]">
     <div class="!sticky !top-0 flex flex-col gap-[10px] lg:justify-center md:w-1/2 lg:w-1/2 h-full">
-        <div class="!text-[16px] uppercase">{{ product.title }}</div>
-        <div class="sm:!text-[12px] lg:!text-[10px]">{{ product.price | money_with_currency }}</div>
-        <div class="!text-[12px] lg:!text-[10px]">{{ product.description }}</div>
-
+      <div class="!text-[16px] uppercase">{{ product.title }}</div>
+      <div class="sm:!text-[12px] lg:!text-[10px]">{{ product.price | money_with_currency }}</div>
+      <div class="!text-[12px] lg:!text-[10px]">{{ product.description }}</div>
+      <ajax-cart-product-form>
         {% form 'product', product %}
           <!-- Add Variant Selector if necessary -->
           {% if product.variants.size > 1 %}
@@ -24,9 +24,10 @@
           {% endif %}
 
           <input class="!text-[12px] !w-1/2" type="submit" value="Add to cart">
-          <div data-ajax-cart-messages="form"></div> 
+          <div class="uppercase !p-[10px]" data-ajax-cart-messages="form"></div>
         {% endform %}
-      </div>
+      </ajax-cart-product-form>
+    </div>
   </div>
 
   <!-- Swiper for Mobile Only -->
@@ -34,7 +35,12 @@
     <div class="swiper-wrapper">
       {% for imageSource in product.images %}
         <div class="swiper-slide">
-          <img class="object-cover h-dvh w-full" alt="{{ product.alt }}" src="{{ imageSource.src | image_url }}" loading="lazy">
+          <img
+            class="object-cover h-dvh w-full"
+            alt="{{ product.alt }}"
+            src="{{ imageSource.src | image_url }}"
+            loading="lazy"
+          >
         </div>
       {% endfor %}
     </div>
@@ -46,35 +52,48 @@
       <img class="w-full" alt="{{ product.alt }}" src="{{ product.featured_image.src | image_url }}" loading="lazy">
     {% else %}
       {% for imageSource in product.images %}
-        <img class="aspect-[1/1.4] h-full w-full lg:h-[810px] lg:w-[540px] object-cover" alt="{{ product.alt }}" src="{{ imageSource.src | image_url }}" loading="lazy">
+        <img
+          class="aspect-[1/1.4] h-full w-full lg:h-[810px] lg:w-[540px] object-cover"
+          alt="{{ product.alt }}"
+          src="{{ imageSource.src | image_url }}"
+          loading="lazy"
+        >
       {% endfor %}
     {% endif %}
   </div>
 </div>
 
-
-  <!-- 
+<!--
   TODO:
-    - Trying to figure out the height to be full on the swiper. 
-  
-  -->
-
+  - Trying to figure out the height to be full on the swiper.
+-->
 
 <script type="module">
   import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
-  document.addEventListener("DOMContentLoaded", function() {
-      const swiper = new Swiper('.mySwiper', { loop: true, mousewheel: true });
+  document.addEventListener('DOMContentLoaded', function () {
+    const swiper = new Swiper('.mySwiper', { loop: true, mousewheel: true });
   });
 </script>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
 <style>
-  #swiper-display { display: none; }
-  .swiper { width: 100%; }
-  .swiper-slde, .swiper-slide-active {height: 100% !important; }
+  #swiper-display {
+    display: none;
+  }
+  .swiper {
+    width: 100%;
+  }
+  .swiper-slde,
+  .swiper-slide-active {
+    height: 100% !important;
+  }
   @media only screen and (max-width: 768px) {
-    #single-product-imagelayout { display: none; }
-    #swiper-display { display: block; }
+    #single-product-imagelayout {
+      display: none;
+    }
+    #swiper-display {
+      display: block;
+    }
   }
 </style>

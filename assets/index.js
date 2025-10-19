@@ -31,3 +31,7 @@ function togglePageMenu() {
   
 }
 
+function toggleCart() {
+  document.getElementById("cart").classList.toggle('hidden')
+  
+}

@@ -87,7 +87,7 @@
     </script>
     
     <script type="module">
-      import '{{ "liquid-ajax-cart-v1.11.1.js" | asset_url }}';
+      import '{{ "liquid-ajax-cart-v2.2.0.js" | asset_url }}';
       </script>
 
 <script type="module" src="{{ 'nuckle_script.js' | asset_url }} " defer></script>
@@ -102,9 +102,7 @@ class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle 
     <div class="header-cont-nav-cart">
       {% section 'main-header' %}
     </div>
-    <div class="my-floating-cart">
       {% section 'my-cart' %}
-    </div>
 
     <style>
       .my-floating-cart {
