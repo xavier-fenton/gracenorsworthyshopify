@@ -34,4 +34,9 @@ function togglePageMenu() {
 function toggleCart() {
   document.getElementById("cart").classList.toggle('hidden')
   
-}
+};
+
+function toggleInfoPages(arg){
+  let selected;
+  // document.getElementById("info-titles").classList.toggle("")
+ }

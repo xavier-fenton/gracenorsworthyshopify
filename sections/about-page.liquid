@@ -1,20 +1,9 @@
 {% assign page = pages.about %}
 
-<div class="about-section-wrapper">
-  <div id="about-main-info-wrapper" class="about-main-info-wrapper">
-    <div id="about-page-main-wrapper" class="about-page-main-wrapper">
-      {% comment %} <div class="about-page-title" id="about-main-title">{{ page.title }}</div> {% endcomment %}
-       {% comment %}
-      
-         Should this be just orwso? (about title)
-        
-       {% endcomment %}
-      <div class="about-page-title" id="about-main-title" > orswo </div>
-
-      <div id="about_description" class="about-description-wrapper">
-        <div class="about-description-text">{{ page.content }}</div>
-      </div>
-    </div>
+<div id="about-main-info-wrapper" class="about-main-info-wrapper">
+  <div class="!p-[10px] flex flex-col gap-[10px] !pb-[50px] !absolute top-[50px] !w-fit ![&>p]:pb-[10px]">
+    <div class="!text-[20px] !font-extrabold uppercase">{{ page.title }}</div>
+    <div class="w-full md:w-1/2 !text-[16px] [&>p]:!pb-[10px]">{{ page.content }}</div>
   </div>
 </div>
 

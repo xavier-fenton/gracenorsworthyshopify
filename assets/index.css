@@ -138,3 +138,6 @@ input[type="number"]::-webkit-inner-spin-button {
 .my-cart__items::-webkit-scrollbar {
   display: none;
 }
+#infoTab::-webkit-scrollbar {
+  display: none;
+}
