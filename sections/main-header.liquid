@@ -53,36 +53,118 @@
 
 <div
   id="mobile-menu"
-  class="fixed lg:hidden flex bg-[#ffffff67] backdrop-blur-sm h-[calc(100dvh-50px)] w-full z-10 top-[50px] !px-[10px] flex-col gap-[5px] text-[#fff] justify-between duration-500 ease-in-out transition-all translate-y-full"
+  class="fixed lg:hidden flex bg-[#ffffff67] backdrop-blur-sm h-[calc(100dvh-50px)] w-full z-50 top-[50px] !px-[10px] flex-col gap-[5px] text-black duration-500 ease-in-out transition-all translate-y-full !overscroll-contain"
 >
   <!-- - Navigational - -->
-  <div class="!pt-[0px]">
-    <div class="!font-extrabold uppercase !text-2xl">Shop</div>
-    <div class="flex flex-col w-fit uppercase !px-[10px] !gap-[5px] ">
-      {% for link in linklists['sidebar-menu'].links %}
-        {% assign product_catergories = link.title | downcase %}
-        <a class="!text-[#fff] !font-bold" href="{{ link.url }}">
-          {{ link.title }}
-        </a>
-      {% endfor %}
-    </div>
-    <!-- - Cart - -->
-    <div class="w-fit !pt-[20px]">
-      <a
-        class="!font-extrabold uppercase !text-2xl !text-[#fff] items-center"
-        data-ajax-cart-toggle-class-button="js-my-cart-open"
-        href="{{ routes.cart_url }}"
-      >
-        Cart (<span data-ajax-cart-bind-state="cart.item_count"> {{ cart.item_count }} </span>)
+  <div class="!font-extrabold uppercase !text-2xl">Shop</div>
+  <div class="flex flex-col w-fit uppercase !px-[10px] !pb-[20px] !gap-[5px] ">
+    {% for link in linklists['sidebar-menu'].links %}
+      {% assign product_catergories = link.title | downcase %}
+      <a class="!font-extrabold" href="{{ link.url }}">
+        {{ link.title }}
       </a>
+    {% endfor %}
+  </div>
+  <!-- - Cart - -->
+  <div class="flex flex-row justify-between items-center">
+    <div class="w-fit">
+      <div
+        class="!font-extrabold uppercase !text-2xl items-center"
+      >
+        Cart (<span class="header__cart-quantity" data-ajax-cart-bind="item_count"> {{ cart.item_count }} </span>)
+      </div>
     </div>
+    {% if cart.item_count >= 1 %}
+      <div class="flex !p-[10px]">
+        {% form 'cart', cart, id: 'my-ajax-cart-form' %}
+          <button
+            class="bg-black text-white text-[10px] uppercase p-[10px] cursor-pointer"
+            type="submit"
+            name="checkout"
+          >
+            Checkout — {{ cart.total_price | money_with_currency }}
+          </button>
+        {% endform %}
+      </div>
+    {% else %}
+
+    {% endif %}
   </div>
 
+  {% comment %} CART IN MOBILE MENU {% endcomment %}
+  <div class="flex h-1/2 w-full">
+    <div class="my-cart__items overflow-y-scroll relative w-full" data-ajax-cart-section>
+      <!-- Loop through cart items -->
+      {% for line_item in cart.items %}
+        {% assign line_item_index = forloop.index %}
+        {% comment %}
+          TODO:
+            Tidy up styling, remove uneccessary divs
+        {% endcomment %}
+        <div class="flex flex-col gap-[5px]">
+          <div class="grid grid-cols-2 gap-[5px]">
+            <img
+              class="!h-[275px] w-full object-cover"
+              alt="{{ line_item.image }}"
+              src="{{ line_item.image | image_url }}"
+              loading="lazy"
+            >
+            <div class="flex flex-col gap-[5px] uppercase !text-[14px] lg:!text-[10px] !font-bold">
+              <div class="flex flex-col justify-between h-full">
+                <div class="flex flex-col gap-[5px]">
+                  <a href="{{ line_item.url }}">{{ line_item.title | escape }}</a>
+                  <div>{{ line_item.final_price | money_with_currency }}</div>
+                  <div class="flex flex-row gap-[5px]">
+                    Quantity:
+                    <ajax-cart-quantity class="flex flex-row gap-[5px] items-center">
+                      <!-- "Minus one" button -->
+                      <a
+                        data-ajax-cart-quantity-minus
+                        href="{{ routes.cart_change_url }}?line={{ line_item_index }}&quantity={{ line_item.quantity | minus: 1 }}"
+                      >
+                        -
+                      </a>
+
+                      <!-- Item quantity input -->
+                      <input
+                        class="!w-[20px] flex justify-center items-center text-center"
+                        data-ajax-cart-quantity-input="{{ line_item_index }}"
+                        name="updates[]"
+                        value="{{ line_item.quantity }}"
+                        type="number"
+                        form="my-ajax-cart-form"
+                        aria-hidden=""
+                      >
+
+                      <!-- "Plus one" button -->
+                      <a
+                        data-ajax-cart-quantity-plus
+                        href="{{ routes.cart_change_url }}?line={{ line_item_index }}&quantity={{ line_item.quantity | plus: 1 }}"
+                      >
+                        +
+                      </a>
+                    </ajax-cart-quantity>
+                  </div>
+
+                  <!-- Item error messages -->
+                  <div data-ajax-cart-errors="{{ line_item.key }}"></div>
+                </div>
+              </div>
+              <!-- "Remove item" button -->
+              <a data-ajax-cart-request-button href="{{ line_item.url_to_remove }}"> Remove </a>
+
+              <hr>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
   <!-- - Pages Navigations - -->
-  <div class="!pb-[20px] !text-[#fff]">
+  <div class="absolute bottom-0 !pb-[20px] ">
     <div class="!font-extrabold uppercase !text-3xl">Orswo</div>
     {% for page in pages %}
-      <div class="!font-extrabold uppercase !text-xl !text-[#fff]">{{ page.title | link_to: page.url }}</div>
+      <div class="!font-extrabold uppercase !text-xl ">{{ page.title | link_to: page.url }}</div>
     {%- endfor %}
   </div>
 </div>
