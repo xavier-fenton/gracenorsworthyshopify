@@ -36,7 +36,3 @@ function toggleCart() {
   
 };
 
-function toggleInfoPages(arg){
-  let selected;
-  // document.getElementById("info-titles").classList.toggle("")
- }
