@@ -36,3 +36,9 @@ function toggleCart() {
   
 };
 
+function toggleInfo(title) {
+
+
+  document.getElementById(`page-info-${title}`).classList.toggle('hidden')
+
+}
