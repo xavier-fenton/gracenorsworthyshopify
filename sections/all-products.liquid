@@ -1,88 +1,79 @@
-<div class="sub-links-wrapped">
-          <fieldset class="sub-links">
-            <legend class="custom-legend">Categories</legend>
-            <div class="sub-links-flex">
-              {% for link in linklists['sidebar-menu'].links %}
-                {% assign product_catergories = link.title |  downcase %}
-                <label class="custom-radio">
-                  <input type="radio" name="type-filter" id="{{ product_catergories }}" {% if product_catergories == 'all' %}checked{% endif %}>
-                  <span class="radio"></span> {{ link.title }}
-                </label>
-              {% endfor %}
-            </div>
-          </fieldset>
-        </div>
-<div class="all-products-wrapper">
-  <div class="featured-images">
-    
-    <div class="all-images">
-      
-      
-    {% assign all_images = "" %} <!-- Initialize an empty string to collect images -->
+ {% comment %} CATERGORIES {% endcomment %}
+  <div class="hidden lg:fixed lg:flex flex-col gap-[5px] !top-[60px] !px-[10px] z-50">
 
-    {% for product in collection.products %}
-      {% for image in product.images %}
-        {% if forloop.first and forloop.index0 > 0 %}
-          {% assign all_images = all_images | append: ", " %} <!-- Add a comma if not the first image -->
-        {% endif %}
-        {% assign all_images = all_images | append: image.src %} <!-- Append each image src to the string -->
-      {% endfor %}
-    {% endfor %}
-    
-    <span class="collect-images" data-images="{{ all_images }}"></span>
- 
-
-    <img
-      id="featured-image"
-      src="{{ collection.products[0].featured_image |  image_url }}"
-      loading="lazy"
-      width=""
-      height=""
-    >
-
-
-  </div>
-
-  </div>
-  {% if collection.all_products_count > 0 %}
-    <div class="all-products">
-      {% for product in collection.products %}
-       
-        {% comment %} This product-card could possibly be turned to a section {% endcomment %}
-        <div class="product-card" data-type="{{ product.type | downcase }}">
-          <a href="{{ product.url }}">
-            <img
-              class="product-img"
-              src="{{ product.featured_image | image_url }}"
-              alt="{{ product.title | escape }}"
-              loading="lazy"
-              width=""
-              height=""
-            >
-          </a>
-
-          <div class="product-card-description">
-            <div class="product-card-description-values">
-              <a class="{{ product.url }} product-card-title-link" href="{{ product.url }}" id="{{ product.url }}">
-                {{ product.title }}
-              </a>
-              <div class="all-products-currency">{{ product.price | money_with_currency }}</div>
-            </div>
-          </div>
-        </div>
+      {% for link in linklists['sidebar-menu'].links %}
+      {% assign product_catergories = link.title | downcase %}
+      <label class="custom-radio !text-[12px] uppercase">
+        <input type="radio" name="type-filter" id="{{ product_catergories }}" {% if product_catergories=='all' %}
+          checked{% endif %}>
+        <span class="radio"></span>
+        {{ link.title }}
+      </label>
       {% endfor %}
     </div>
 
-  {% else %}
-    <p>Sorry, there are no products in this collection</p>
-  {% endif %}
-</div>
+<div class="flex flex-col lg:gap-[6.25%] md:flex-col md:gap-[10px] lg:flex-row w-full lg:!pt-[60px]">
+ 
+    
+  <div class="flex w-full justify-end">
+ 
 
-{% comment %} FOR IMAGE {% endcomment %}
-{% comment %}
-  <img
-  class="product-img"
-  src="{{ product.featured_image | product_img_url: 'grande' }}"
-  alt="{{ product.title | escape }}"
-  loading="lazy" />
-{% endcomment %}
+
+    {% comment %} GALLERY AND PRODUCTS {% endcomment %}
+    <div class="hidden lg:block lg:sticky top-[60px] h-dvh md:h-[845px] lg:h-[845px]">
+
+      <div class="all-images">
+
+
+        {% assign all_images = "" %}
+
+        {% for product in collection.products %}
+        {% for image in product.images %}
+        {% if forloop.first and forloop.index0 > 0 %}
+        {% assign all_images = all_images | append: ", " %}
+        {% endif %}
+        {% assign all_images = all_images | append: image.src %}
+        {% endfor %}
+        {% endfor %}
+
+        <span class="collect-images" data-images="{{ all_images }}"></span>
+
+        {% comment %} 
+          TODO: 
+            Animate image in
+        {% endcomment %}
+        <img class="aspect-[1/1.4] h-full w-full lg:!h-[810px] lg:!w-[540px] !object-cover" id="featured-image"
+          src="{{ collection.products[0].featured_image |  image_url }}" loading="lazy" width="" height="">
+
+
+      </div>
+    </div>
+  </div>
+    {% comment %} All products scroll section {% endcomment %}
+    {% if collection.all_products_count > 0 %}
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:flex lg:flex-col lg:flex-start gap-[10px] w-full !pt-[50px] lg:!pt-0 pb-0 lg:!pb-[80px] !p-[10px]">
+      {% for product in collection.products %}
+
+      {% comment %} This product-card could possibly be turned to a section {% endcomment %}
+      <div class="product-card flex flex-col gap-[5px] w-fit" data-type="{{ product.type | downcase }}">
+        <a class="" href="{{ product.url }}">
+          <img class="aspect-[1/1.4] h-full w-full lg:h-[810px] lg:w-[540px] object-cover" src="{{ product.featured_image | image_url }}"
+            alt="{{ product.title | escape }}" loading="lazy" width="" height="">
+        </a>
+
+        <div class="flex flex-row justify-between">
+          <a class="{{ product.url }} uppercase !text-[10px]" href="{{ product.url }}" id="{{ product.url }}">
+            {{ product.title }}
+          </a>
+          <div class="!text-[10px]">{{ product.price | money_with_currency }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    {% else %}
+    <p>Sorry, there are no products in this collection</p>
+    {% endif %} 
+</div>
+</div>

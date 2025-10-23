@@ -48,6 +48,8 @@
     {% endcomment %}
 
     {{ 'index.css' | asset_url | stylesheet_tag }}
+    {{ 'output.css' | asset_url | stylesheet_tag }}
+
     {{ 'home.css' | asset_url | stylesheet_tag }}
     {{ 'products.css' | asset_url | stylesheet_tag }}
     {{ 'single_product.css' | asset_url | stylesheet_tag }}
@@ -59,8 +61,24 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
     <script type="text/javascript" src="{{ 'type-filter.js' | asset_url }}" defer></script>
-    <script type="text/javascript" src="{{ 'display-images.js' | asset_url }}" defer></script>
+    <script type="text/javascript" src="{{ 'index.js' | asset_url }}" defer></script>
 
+    <script type="text/javascript" src="{{ 'display-images.js' | asset_url }}" defer></script>
+    <style type="text/tailwindcss">
+      @theme {
+        extend: {
+          animation: {
+            'fade-in': 'fade-in 5s ease-out forwards',
+          },
+          keyframes: {
+            'fade-in': {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            }
+          }
+        }
+      }
+    </style>
 
     
     
@@ -69,7 +87,7 @@
     </script>
     
     <script type="module">
-      import '{{ "liquid-ajax-cart-v1.11.1.js" | asset_url }}';
+      import '{{ "liquid-ajax-cart-v2.2.0.js" | asset_url }}';
       </script>
 
 <script type="module" src="{{ 'nuckle_script.js' | asset_url }} " defer></script>
@@ -84,9 +102,7 @@ class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle 
     <div class="header-cont-nav-cart">
       {% section 'main-header' %}
     </div>
-    <div class="my-floating-cart">
       {% section 'my-cart' %}
-    </div>
 
     <style>
       .my-floating-cart {

@@ -54,19 +54,6 @@ table {
 }
 
 
-.visualGrid {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: calc(100vw - 20px);
-  min-height: calc(100vh - 20px);
-  top: 10px;
-  left: 10px;
-  background-image: radial-gradient(circle at 1px 1px, var(--visual-grid-colour) 1px, transparent 0px);
-  background-size: calc((100vw - 20px) / var(--grid-max)) calc((100vw - 10px) / var(--grid-max));
-  pointer-events: none;
-  z-index: -1;
-}
 /* .visualGrid2 {
   position: absolute;
   top: 0;
@@ -81,7 +68,7 @@ table {
   z-index: 1;
 } */
 
-:root {
+/* :root {
   --pdn-top: 50px;
   --pdn: 20px;
   --pdnhalf: 10px;
@@ -90,10 +77,10 @@ table {
   --grid-rows: repeat(auto-fill, calc((100vw - 20px) / 24));
   --grid-max: 24;
   --grid-colour: #cfcfcf;
-  --background-colour: #8ac9bd;
+  --background-colour: #ffffff;
   --visual-grid-colour: #0fae8f;
 
-}
+} */
 
 body {
 
@@ -106,7 +93,6 @@ body {
 a {
   /* Underlines or nah? */
   text-decoration: none;
-  color: #323232;
 }
 
 
@@ -116,3 +102,45 @@ canvas{
   image-rendering: pixelated;
 }
 
+/* #mobile-menu {
+  position: fixed;
+  transition: top 3s;
+} */
+ /* Show a loading indicator */
+ajax-cart-product-form[processing]:before {
+  content: 'Loading...';
+  display: block;
+  font-size: 10px;
+  padding-left: 0px;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+
+}
+
+/* Make the "Add to cart" button look visually disabled while loading */
+ajax-cart-product-form[processing] [type="submit"] {
+  opacity: .7;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+#cart::-webkit-scrollbar {
+  display: none;
+}
+
+#toggle-cart::-webkit-scrollbar {
+  display: none;
+}
+#infoTab::-webkit-scrollbar {
+  display: none;
+}
+#mobile-cart::-webkit-scrollbar {
+  display: none;
+}

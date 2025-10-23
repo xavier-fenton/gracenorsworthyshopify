@@ -1,57 +1,205 @@
+<div class="bg-[#ffffff67] lg:bg-[#fff0] lg:backdrop-blur-none backdrop-blur-sm fixed w-full z-50 !p-[10px] h-[50px]">
+  <div class="flex justify-between w-full h-full items-center">
+    <div class="hidden lg:flex !text-[10px] uppercase">
+      {% for link in linklists['main-menu'].links %}
+        {% if link.title == 'Shop' %}
+          <div class="orswo-link">
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          </div>
+        {% else %}
 
-<div class="nav-sticky" >
-  <div class="nav-links-wrap">
-    <div class="nav-links">
-      <div class="main-links">
-        {% for link in linklists['main-menu'].links %}
-          {% if link.title == 'Shop' %}
-            <div class="orswo-link">
-              <a href="{{ link.url }}">{{ link.title }}</a>
-            </div>
-          {% else %}
-
-          {% endif %}
-        {% endfor %}
-      </div>
-      <div class="main-links">
-        {% for link in linklists['main-menu'].links %}
-          {% if link.title == 'Orswo' %}
-            <div class="orswo-link">
-              <a href="{{ link.url }}">{{ link.title }}</a>
-            </div>
-          {% else %}
-
-          {% endif %}
-        {% endfor %}
-      </div>
-
-      <div class="nav-cart">
-        <div class="cart-link-btn">
-          <a data-ajax-cart-toggle-class-button="js-my-cart-open" href="{{ routes.cart_url }}">
-            Cart
-            <span data-ajax-cart-bind-state="cart.item_count">
-              {{ cart.item_count }}
-            </span>
-          </a>
-        </div>
-      </div>
+        {% endif %}
+      {% endfor %}
     </div>
 
-    {% comment %} Sub catergories {% endcomment %}
-    {% comment %} <div class="sub-links-wrapped">
-          <fieldset class="sub-links">
-            <legend class="custom-legend">Categories</legend>
-            <div class="sub-links-flex">
-              {% for link in linklists['sidebar-menu'].links %}
-                {% assign product_catergories = link.title |  downcase %}
-                <label class="custom-radio">
-                  <input type="radio" name="type-filter" id="{{ product_catergories }}" {% if product_catergories == 'all' %}checked{% endif %}>
-                  <span class="radio"></span> {{ link.title }}
-                </label>
-              {% endfor %}
+    <div class="w-[110px] md:w-fit !lg:w-1/2 flex justify-center items-center">
+      <a class="w-full" href="/">
+        <img
+          class="lg:w-fit w-full"
+          src="{{ "orswo_logo.png" | asset_img_url }}"
+          loading="lazy"
+          width=""
+          height=""
+        >
+      </a>
+    </div>
+    <div class="hidden lg:flex">
+      <div onclick="toggleCart()" class="orswo-link uppercase !text-[10px] cursor-pointer">
+        <a>
+          Cart
+          <span class="header__cart-quantity" data-ajax-cart-bind="item_count">
+            {{ cart.item_count }}
+          </span>
+        </a>
+      </div>
+    </div>
+    <div onclick="toggleSlideUp()" class="lg:hidden">
+      <a id="menu" class="orswo-link !text-[10px] lg:!text-[24px] !font-extrabold uppercase cursor-pointer"> Menu </a>
+    </div>
+  </div>
+</div>
+
+<!-- Mobile Menu -->
+<!-- This will be the pages to navigate to "ready to ship, made to order" -->
+
+<div
+  id="mobile-menu"
+  class="fixed lg:hidden flex bg-[#ffffff67] backdrop-blur-sm h-[calc(100dvh-50px)] w-full z-50 top-[50px] !px-[10px] flex-col gap-[5px] text-black duration-500 ease-in-out transition-all translate-y-full !overscroll-contain"
+>
+  <!-- - Navigational - -->
+  <div class="!font-extrabold uppercase !text-2xl">Shop</div>
+  <div class="flex flex-col w-fit uppercase !px-[10px] !pb-[20px] !gap-[5px] ">
+    {% for link in linklists['sidebar-menu'].links %}
+      {% assign product_catergories = link.title | downcase %}
+      <a class="!font-extrabold" href="{{ link.url }}">
+        {{ link.title }}
+      </a>
+    {% endfor %}
+  </div>
+  <!-- - Cart - -->
+  <div class="flex flex-row justify-between items-center">
+    <div class="w-fit">
+      <div
+        class="!font-extrabold uppercase !text-2xl items-center"
+      >
+        Cart (<span class="header__cart-quantity" data-ajax-cart-bind="item_count"> {{ cart.item_count }} </span>)
+      </div>
+    </div>
+    {% if cart.item_count >= 1 %}
+      <div class="flex !p-[10px]">
+        {% form 'cart', cart, id: 'my-ajax-cart-form' %}
+          <button
+            class="bg-black text-white text-[10px] uppercase p-[10px] cursor-pointer"
+            type="submit"
+            name="checkout"
+          >
+            Checkout — {{ cart.total_price | money_with_currency }}
+          </button>
+        {% endform %}
+      </div>
+    {% else %}
+
+    {% endif %}
+  </div>
+
+  {% comment %} CART IN MOBILE MENU {% endcomment %}
+  <div class="flex h-1/3 md:h-3/4 w-full">
+    <div id="mobile-cart" class="overflow-y-scroll relative w-full flex flex-col gap-[5px]" data-ajax-cart-section>
+      <!-- Loop through cart items -->
+      {% for line_item in cart.items %}
+        {% assign line_item_index = forloop.index %}
+        <div class="flex flex-col gap-[5px]">
+          <div class="grid grid-cols-2 gap-[5px]">
+            <img
+              class="!h-[275px] w-full object-cover"
+              alt="{{ line_item.image }}"
+              src="{{ line_item.image | image_url }}"
+              loading="lazy"
+            >
+            <div class="flex flex-col gap-[5px] uppercase !text-[14px] lg:!text-[10px] !font-bold">
+              <div class="flex flex-col justify-between h-full">
+                <div class="flex flex-col gap-[5px]">
+                  <a href="{{ line_item.url }}">{{ line_item.title | escape }}</a>
+                  <div>{{ line_item.final_price | money_with_currency }}</div>
+                  <div class="flex flex-row gap-[5px]">
+                    Quantity:
+                    <ajax-cart-quantity class="flex flex-row gap-[5px] items-center">
+                      <!-- "Minus one" button -->
+                      <a
+                        data-ajax-cart-quantity-minus
+                        href="{{ routes.cart_change_url }}?line={{ line_item_index }}&quantity={{ line_item.quantity | minus: 1 }}"
+                      >
+                        -
+                      </a>
+
+                      <!-- Item quantity input -->
+                      <input
+                        class="!w-[20px] flex justify-center items-center text-center"
+                        data-ajax-cart-quantity-input="{{ line_item_index }}"
+                        name="updates[]"
+                        value="{{ line_item.quantity }}"
+                        type="number"
+                        form="my-ajax-cart-form"
+                        aria-hidden=""
+                      >
+
+                      <!-- "Plus one" button -->
+                      <a
+                        data-ajax-cart-quantity-plus
+                        href="{{ routes.cart_change_url }}?line={{ line_item_index }}&quantity={{ line_item.quantity | plus: 1 }}"
+                      >
+                        +
+                      </a>
+                    </ajax-cart-quantity>
+                  </div>
+
+                  <!-- Item error messages -->
+                  <div data-ajax-cart-errors="{{ line_item.key }}" class="!text-orange-500"></div>
+                </div>
+              </div>
+              <!-- "Remove item" button -->
+              <a data-ajax-cart-request-button href="{{ line_item.url_to_remove }}"> Remove </a>
+
+              <hr>
             </div>
-          </fieldset>
-        </div> {% endcomment %}
-    
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <!-- - Pages Navigations - -->
+  <div class="absolute bottom-0 !pb-[20px] ">
+    <div class="!font-extrabold uppercase !text-3xl">Orswo</div>
+    {% for page in pages %}
+      <div class="!font-extrabold uppercase !text-xl ">{{ page.title | link_to: page.url }}</div>
+    {%- endfor %}
+  </div>
+</div>
+
+<div class="hidden lg:fixed bottom-0 lg:block lg:bottom-0 w-full z-10 !p-[10px]">
+  <div class="flex justify-between w-full p-[10px]">
+    <div class="main-links">
+      <a class="orswo-link" href="https://www.instagram.com/orswo/">@orswo</a>
+    </div>
+    <div class="nav-cart">
+      <div class="cart-link-btn cursor-pointer" onclick="togglePageMenu()">info</div>
+    </div>
+  </div>
+</div>
+
+{% comment %} Desktop Info Tab {% endcomment %}
+<div
+  id="infoTab"
+  class="hidden !bg-[#cccccc42] fixed inset-0 overflow-x-hidden overflow-y-auto !m-auto w-[500px] h-[70dvh] z-10 backdrop-blur-[10px] rounded-[5px] border-solid shadow-2xl ease-in-out duration-300 transition !p-[10px] !border justify-between"
+>
+  <div class="flex flex-col h-full justify-between">
+    {% comment %} Info Rendered here {% endcomment %}
+    <div class="flex flex-col !pb-[10px] gap-[10px]">
+      <div class="sticky top-0 !backdrop-blur-[10px] !border !border-solid w-full !p-[10px] flex rounded-[10px] z-20 justify-between">
+        <div class="!text-[10px] uppercase !font-bold">info</div>
+        <div class="!text-[10px] uppercase !font-bold">orswo</div>
+        <div onclick="togglePageMenu()" class="cursor-pointer !text-[10px] uppercase !font-bold !backdrop-blur-[10px]">
+          exit
+        </div>
+      </div>
+      <div class="flex flex-end flex-col gap-[5px]">
+        {% for page in pages %}
+          <div id="page-{{ page.title }}" class="flex flex-col gap-[10px]">
+            <div
+              onclick="toggleInfo(`{{ page.title }}`)"
+              class="cursor-pointer !text-[20px] !font-extrabold uppercase !text-[#000000b0]"
+            >
+              {{ page.title }}
+            </div>
+            <div
+              id="page-info-{{ page.title }}"
+              class="hidden !text-[#000000b0] !p-[10px] !bg-[#ebebeb70] rounded-[5px] !border !border-solid [&>p]:!pb-[10px]"
+            >
+              {{ page.content }}
+            </div>
+          </div>
+        {%- endfor %}
+      </div>
+    </div>
   </div>
 </div>

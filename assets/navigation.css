@@ -1,24 +1,18 @@
 /* NAV Bar*/
 
-.nav-sticky{
-  position: fixed;
-  z-index: 5;
-  width: 100%;
-}
-
- .nav-links-wrap{
+ /* .nav-links-wrap{
   display: flex;
   flex-direction: column;
- }
-.nav-links {
+ } */
+/* .nav-links {
     top: 20px;
     z-index: 5;
     display: flex;
     justify-content: space-between;
-    /* position: fixed; */
     padding: 10px;
 
-  }
+  } 
+  */
 
    .orswo-link {
     border: 1px solid rgb(0, 0, 0);

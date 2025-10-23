@@ -1,8 +1,8 @@
-{% assign page = pages['faq'] %}
+{% assign page = pages.faq %}
 
-
-<div class="custom-page-wrapper">
-<div class="custom-title"> {{ page.title }}</div>
-<div class="custom-page-content"> {{ page.content }}</div>
-
+<div class="!p-[10px] flex flex-col gap-[10px] !pb-[50px] !absolute top-[50px] !w-fit">
+  <div class="!text-[20px] !font-extrabold uppercase">{{ page.title }}</div>
+  <div class="w-full md:w-1/2 !text-[16px] [&>p]:!pb-[10px] [&>h1]:!font-extrabold [&>h1]:!pb-[10px] [&>h2]:!pb-[10px] [&>h3]:!pb-[10px] [&>h2]:!font-extrabold [&>h3]:!font-extrabold">
+    {{ page.content }}
+  </div>
 </div>
