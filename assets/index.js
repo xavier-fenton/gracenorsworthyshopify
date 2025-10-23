@@ -32,7 +32,7 @@ function togglePageMenu() {
 }
 
 function toggleCart() {
-  document.getElementById("cart").classList.toggle('hidden')
+  document.getElementById("toggle-cart").classList.toggle('hidden')
   
 };
 

@@ -1,10 +1,5 @@
-{% comment %}
-  TODO:
-    Redo Cart, functionality not working properly
-{% endcomment %}
-
 <div
-  id="cart"
+  id="toggle-cart"
   class="hidden !bg-[#cccccc42] fixed  inset-0 overflow-x-hidden overflow-y-auto !m-auto w-[500px] h-[70dvh] z-10 backdrop-blur-[10px] rounded-[5px] border-solid shadow-2xl ease-in-out duration-300 transition !p-[10px] !border justify-between overscroll-contain"
   data-ajax-cart-section
 >
@@ -17,76 +12,73 @@
       </div>
     </div>
   </div>
+
   {% if cart.item_count == 0 %}
-    <div class="!text-[10px] uppercase h-full w-full flex justify-center items-center">cart is empty</div>
+    <div class="!text-[10px] uppercase h-[calc(100%-42px)] w-full flex justify-center items-center">cart is empty</div>
   {% else %}
-    <div class="my-cart__items" data-ajax-cart-section-scroll>
-      <!-- Loop through cart items -->
-      {% for line_item in cart.items %}
-        {% assign line_item_index = forloop.index %}
-        {% comment %}
-          TODO:
-            Tidy up styling, remove uneccessary divs
-        {% endcomment %}
-        <div class="flex flex-col gap-[5px]">
-          <div class="grid grid-cols-2 gap-[5px]">
-            <img
-              class="!h-[275px] w-full object-cover"
-              alt="{{ line_item.image }}"
-              src="{{ line_item.image | image_url }}"
-              loading="lazy"
-            >
-            <div class="flex flex-col gap-[5px] uppercase !text-[10px] !font-bold">
-              <div class="flex flex-col justify-between h-full">
-                <div class="flex flex-col gap-[5px]">
-                  <a href="{{ line_item.url }}">{{ line_item.title | escape }}</a>
-                  <div>{{ line_item.final_price | money_with_currency }}</div>
-                  <div class="flex flex-row gap-[5px]">
-                    Quantity:
-                    <ajax-cart-quantity class="flex flex-row gap-[5px] items-center">
-                      <!-- "Minus one" button -->
-                      <a
-                        data-ajax-cart-quantity-minus
-                        href="{{ routes.cart_change_url }}?line={{ line_item_index }}&quantity={{ line_item.quantity | minus: 1 }}"
-                      >
-                        -
-                      </a>
+    {% for line_item in cart.items %}
+      {% assign line_item_index = forloop.index %}
+      {% comment %}
+        TODO:
+          Tidy up styling, remove uneccessary divs
+      {% endcomment %}
+      <div class="flex flex-col gap-[5px] !pt-[10px]">
+        <div class="grid grid-cols-2 gap-[5px]">
+          <img
+            class="!h-[275px] w-full object-cover"
+            alt="{{ line_item.image }}"
+            src="{{ line_item.image | image_url }}"
+            loading="lazy"
+          >
+          <div class="flex flex-col gap-[5px] uppercase !text-[10px] !font-bold">
+            <div class="flex flex-col justify-between h-full">
+              <div class="flex flex-col gap-[5px]">
+                <a href="{{ line_item.url }}">{{ line_item.title | escape }}</a>
+                <div>{{ line_item.final_price | money_with_currency }}</div>
+                <div class="flex flex-row gap-[5px]">
+                  Quantity:
+                  <ajax-cart-quantity class="flex flex-row gap-[5px] items-center">
+                    <!-- "Minus one" button -->
+                    <a
+                      data-ajax-cart-quantity-minus
+                      href="{{ routes.cart_change_url }}?line={{ line_item_index }}&quantity={{ line_item.quantity | minus: 1 }}"
+                    >
+                      -
+                    </a>
 
-                      <!-- Item quantity input -->
-                      <input
-                        class="!w-[20px] flex justify-center items-center text-center"
-                        data-ajax-cart-quantity-input="{{ line_item_index }}"
-                        name="updates[]"
-                        value="{{ line_item.quantity }}"
-                        type="number"
-                        form="my-ajax-cart-form"
-                        aria-hidden=""
-                      >
+                    <!-- Item quantity input -->
+                    <input
+                      class="!w-[20px] flex justify-center items-center text-center"
+                      data-ajax-cart-quantity-input="{{ line_item_index }}"
+                      name="updates[]"
+                      value="{{ line_item.quantity }}"
+                      type="number"
+                      form="my-ajax-cart-form"
+                      aria-hidden=""
+                    >
 
-                      <!-- "Plus one" button -->
-                      <a
-                        data-ajax-cart-quantity-plus
-                        href="{{ routes.cart_change_url }}?line={{ line_item_index }}&quantity={{ line_item.quantity | plus: 1 }}"
-                      >
-                        +
-                      </a>
-                    </ajax-cart-quantity>
-                  </div>
-
-                  <!-- Item error messages -->
-                  <div data-ajax-cart-errors="{{ line_item.key }}"></div>
+                    <!-- "Plus one" button -->
+                    <a
+                      data-ajax-cart-quantity-plus
+                      href="{{ routes.cart_change_url }}?line={{ line_item_index }}&quantity={{ line_item.quantity | plus: 1 }}"
+                    >
+                      +
+                    </a>
+                  </ajax-cart-quantity>
                 </div>
-              </div>
-              <!-- "Remove item" button -->
-              <a data-ajax-cart-request-button href="{{ line_item.url_to_remove }}"> Remove </a>
 
-              <hr>
+                <!-- Item error messages -->
+                <div data-ajax-cart-errors="{{ line_item.key }}" class="!text-orange-500"></div>
+              </div>
             </div>
+            <!-- "Remove item" button -->
+            <a data-ajax-cart-request-button href="{{ line_item.url_to_remove }}"> Remove </a>
+
+            <hr>
           </div>
         </div>
-      {% endfor %}
-    </div>
-
+      </div>
+    {% endfor %}
     <div class="sticky bottom-0 flex w-full justify-center !p-[10px]">
       {% form 'cart', cart, id: 'my-ajax-cart-form' %}
         <button class="bg-black text-white text-[10px] uppercase p-[10px]" type="submit" name="checkout">
@@ -97,8 +89,4 @@
   {% endif %}
 </div>
 
-{% schema %}
-{
-  "name": "My Cart"
-}
-{% endschema %}
+{% schema %} { "name": "My Ajax cart" } {% endschema %}

@@ -135,9 +135,12 @@ input[type="number"]::-webkit-inner-spin-button {
   display: none;
 }
 
-.my-cart__items::-webkit-scrollbar {
+#toggle-cart::-webkit-scrollbar {
   display: none;
 }
 #infoTab::-webkit-scrollbar {
+  display: none;
+}
+#mobile-cart::-webkit-scrollbar {
   display: none;
 }

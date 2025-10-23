@@ -92,8 +92,8 @@
   </div>
 
   {% comment %} CART IN MOBILE MENU {% endcomment %}
-  <div class="flex h-1/2 w-full">
-    <div class="my-cart__items overflow-y-scroll relative w-full" data-ajax-cart-section>
+  <div class="flex h-1/3 md:h-3/4 w-full">
+    <div id="mobile-cart" class="overflow-y-scroll relative w-full flex flex-col gap-[5px]" data-ajax-cart-section>
       <!-- Loop through cart items -->
       {% for line_item in cart.items %}
         {% assign line_item_index = forloop.index %}
@@ -147,7 +147,7 @@
                   </div>
 
                   <!-- Item error messages -->
-                  <div data-ajax-cart-errors="{{ line_item.key }}"></div>
+                  <div data-ajax-cart-errors="{{ line_item.key }}" class="!text-orange-500"></div>
                 </div>
               </div>
               <!-- "Remove item" button -->
