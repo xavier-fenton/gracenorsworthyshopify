@@ -144,3 +144,6 @@ input[type="number"]::-webkit-inner-spin-button {
 #mobile-cart::-webkit-scrollbar {
   display: none;
 }
+#mobile-menu::-webkit-scrollbar {
+  display: none;
+}

@@ -10,7 +10,7 @@
 function toggleSlideUp() {
   document.getElementById('mobile-menu').classList.toggle('translate-y-full');
   document.getElementById('mobile-menu').classList.toggle('active');
-
+  document.body.classList.toggle("!overflow-y-hidden")
   let menuButton = document.getElementById('menu')
   if(menuButton.innerHTML == "close")
   {
@@ -26,6 +26,8 @@ function toggleSlideUp() {
 function togglePageMenu() {
   document.getElementById("infoTab").classList.toggle('hidden')
   document.getElementById("infoTab").classList.toggle('active')
+
+ 
 
 
   
