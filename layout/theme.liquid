@@ -50,6 +50,10 @@
     {{ 'index.css' | asset_url | stylesheet_tag }}
     {{ 'output.css' | asset_url | stylesheet_tag }}
 
+    {% comment %}
+      TODO: Remove this once converting the type-filter.js to Vanilla JS
+    {% endcomment %}
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
     <script type="text/javascript" src="{{ 'type-filter.js' | asset_url }}" defer></script>
     <script type="text/javascript" src="{{ 'index.js' | asset_url }}" defer></script>
