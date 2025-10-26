@@ -81,7 +81,11 @@
     {% endfor %}
     <div class="sticky bottom-0 flex w-full justify-center !p-[10px]">
       {% form 'cart', cart, id: 'my-ajax-cart-form' %}
-        <button class="bg-black text-white text-[10px] uppercase p-[10px]" type="submit" name="checkout">
+        <button
+          class="bg-black text-white text-[10px] uppercase p-[10px] !cursor-pointer"
+          type="submit"
+          name="checkout"
+        >
           Checkout — {{ cart.total_price | money_with_currency }}
         </button>
       {% endform %}
