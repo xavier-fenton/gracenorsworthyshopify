@@ -1,12 +1,4 @@
-
-
-
 @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -53,38 +45,9 @@ table {
 	border-spacing: 0;
 }
 
-
-/* .visualGrid2 {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: calc(100vw - 20px);
-  min-height: 100%;
-  top: 10px;
-  left: 10px;
-  background-image: radial-gradient(circle at 1px 1px, var(--grid-colour) 1px, transparent 0px);
-  background-size: calc((100vw - 20px) / var(--grid-max)) calc((100vw - 10px) / var(--grid-max));
-  pointer-events: none;
-  z-index: 1;
-} */
-
-/* :root {
-  --pdn-top: 50px;
-  --pdn: 20px;
-  --pdnhalf: 10px;
-  --grid-module: calc((100vw - 20px) / 24);
-  --grid-cols: repeat(24, calc((100vw - 20px) / 24));
-  --grid-rows: repeat(auto-fill, calc((100vw - 20px) / 24));
-  --grid-max: 24;
-  --grid-colour: #cfcfcf;
-  --background-colour: #ffffff;
-  --visual-grid-colour: #0fae8f;
-
-} */
+/* My Styles */
 
 body {
-
-
   font-family: Arial, Helvetica, sans-serif;
   background-color: var(--background-colour);
 
@@ -102,11 +65,29 @@ canvas{
   image-rendering: pixelated;
 }
 
-/* #mobile-menu {
-  position: fixed;
-  transition: top 3s;
-} */
- /* Show a loading indicator */
+.orswo-link {
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  padding: 10px;
+  background-color: rgba(236, 226, 226, 0.500);
+  backdrop-filter: blur(5px);
+  
+}
+
+  /*  ADD BUTTON  */
+input[type=submit], a.btn {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  font-size: 10px;
+  line-height: 1.1em;
+  padding: 10px 5px 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+  
+
+
 ajax-cart-product-form[processing]:before {
   content: 'Loading...';
   display: block;
@@ -147,3 +128,59 @@ input[type="number"]::-webkit-inner-spin-button {
 #mobile-menu::-webkit-scrollbar {
   display: none;
 }
+
+
+/* Cart animations */
+#toggle-cart, #infoTab{
+  animation: fadeInAnimation ease-out .5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: .25;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
+input[type="radio"] {
+  border-radius: 0;
+  height: 7px;
+  width: 10px;
+  min-width: 10px;
+  padding: 0;
+}
+
+input {
+  border: 1px solid #000;
+  color: inherit;
+  box-sizing: border-box;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  resize: none;
+  outline: none;
+  text-align: center;
+  margin: 0;
+}
+
+input:checked
+{
+  background-color: #000;
+
+}
+input::after
+{
+  appearance: none;
+
+}
+input:hover
+{
+  cursor: pointer;
+} 
