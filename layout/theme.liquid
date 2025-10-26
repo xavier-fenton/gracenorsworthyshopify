@@ -50,14 +50,9 @@
     {{ 'index.css' | asset_url | stylesheet_tag }}
     {{ 'output.css' | asset_url | stylesheet_tag }}
 
-    {{ 'home.css' | asset_url | stylesheet_tag }}
-    {{ 'products.css' | asset_url | stylesheet_tag }}
-    {{ 'single_product.css' | asset_url | stylesheet_tag }}
-    {{ 'page.css' | asset_url | stylesheet_tag }}
-
-    {{ 'cart.css' | asset_url | stylesheet_tag }}
-    {{ 'navigation.css' | asset_url | stylesheet_tag }}
-    {{ 'footer.css' | asset_url | stylesheet_tag }}
+    {% comment %}
+      TODO: Remove this once converting the type-filter.js to Vanilla JS
+    {% endcomment %}
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
     <script type="text/javascript" src="{{ 'type-filter.js' | asset_url }}" defer></script>
@@ -80,40 +75,25 @@
       }
     </style>
 
-    
-    
     <script type="application/json" data-ajax-cart-initial-state>
-    {{ cart | json }}
+      {{ cart | json }}
     </script>
-    
+
     <script type="module">
       import '{{ "liquid-ajax-cart-v2.2.0.js" | asset_url }}';
-      </script>
+    </script>
 
-<script type="module" src="{{ 'nuckle_script.js' | asset_url }} " defer></script>
-</head>
+    <script type="module" src="{{ 'nuckle_script.js' | asset_url }} " defer></script>
+  </head>
 
-<body
-id="{{ page_title | handle }}"
-class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}"
->
-<div id="visualGrid" class="visualGrid"></div>
-
+  <body
+    id="{{ page_title | handle }}"
+    class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}"
+  >
     <div class="header-cont-nav-cart">
       {% section 'main-header' %}
     </div>
-      {% section 'my-cart' %}
-
-    <style>
-      .my-floating-cart {
-        display: none;
-      }
-
-      /* Show the floating cart if the 'js-my-cart-open' CSS class exists */
-      .js-my-cart-open .my-floating-cart {
-        display: block;
-      }
-    </style>
+    {% section 'my-cart' %}
 
     {{ content_for_layout }}
   </body>
