@@ -1,5 +1,6 @@
 /* 
   TODO:
+    Use JavaScript
     Change the filtering to ready-to-ship, made-to-order
 
 */
