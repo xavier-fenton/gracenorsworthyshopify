@@ -12,23 +12,19 @@
     "sections": {
       "main-header": {
         "type": "main-header",
-        "settings": {
-        }
+        "settings": {}
       },
       "my-cart": {
         "type": "my-cart",
-        "settings": {
-        }
+        "settings": {}
       },
       "front-page": {
         "type": "front-page",
-        "settings": {
-        }
+        "settings": {}
       },
       "about-page": {
         "type": "about-page",
-        "settings": {
-        }
+        "settings": {}
       },
       "footer": {
         "type": "footer",
@@ -40,8 +36,7 @@
       },
       "all-products": {
         "type": "all-products",
-        "settings": {
-        }
+        "settings": {}
       },
       "title-seperator": {
         "type": "title-seperator",
@@ -51,17 +46,13 @@
       },
       "single-product": {
         "type": "single-product",
-        "settings": {
-        }
+        "settings": {}
       },
       "similar-products": {
         "type": "similar-products",
-        "settings": {
-        }
+        "settings": {}
       }
     },
-    "content_for_index": [
-
-    ]
+    "content_for_index": []
   }
 }

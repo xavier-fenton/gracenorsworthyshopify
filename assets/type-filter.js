@@ -1,22 +1,16 @@
-/* 
-  TODO:
-    Use JavaScript
-    Change the filtering to ready-to-ship, made-to-order
 
-*/
-$(document).ready(function() {
-    // When a filter option is selected
-    $('input[name="type-filter"]').change(function() {
-      const selectedType = $(this).attr('id');
-      // Show all products if "all" is selected
-      if (selectedType === 'all') {
-        $('.product-card').show();
-      } else {
-        // Hide all products
-        $('.product-card').hide();
-  
-        // Show only the products that match the selected type
-        $('.product-card[data-type="' + selectedType + '"]').show();
-      }
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('input[name="type-filter"]').forEach(input => {
+    input.addEventListener('change', function() {
+      const selectedType = this.id.replaceAll(" ", "");
+      
+      document.querySelectorAll('.product-card').forEach(card => {
+        if (selectedType === 'all' || card.dataset.type === selectedType) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
     });
   });
+});
