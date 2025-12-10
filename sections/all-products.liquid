@@ -20,8 +20,8 @@
 
                     {% for link in linklists['sidebar-menu'].links %}
                     {% assign product_catergories = link.title | downcase %}
-                      <label class="custom-radio !text-[12px] uppercase">
-                        <input type="radio" name="type-filter" id="{{ product_catergories }}" {% if product_catergories=='all' %}
+                      <label class="custom-radio !text-[10px] uppercase">
+                        <input type="radio" name="type-filter" id="{{ product_catergories }}" {% if product_catergories =='all' %}
                           checked{% endif %}>
                         <span class="radio"></span>
                         {{ link.title }}
@@ -67,7 +67,7 @@
       {% for product in collection.products %}
 
       {% comment %} This product-card could possibly be turned to a section {% endcomment %}
-      <div class="product-card flex flex-col gap-[5px] w-fit" data-type="{{ product.type | downcase }}">
+      <div class="product-card flex flex-col !gap-[5px] w-fit" data-type="{{ product.type | downcase }}">
         <a class="" href="{{ product.url }}">
           <img class="aspect-[1/1.4] h-full w-full lg:h-[810px] lg:w-[540px] object-cover" src="{{ product.featured_image | image_url }}"
             alt="{{ product.title | escape }}" loading="lazy" width="" height="">

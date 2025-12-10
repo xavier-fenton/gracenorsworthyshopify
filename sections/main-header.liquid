@@ -47,11 +47,11 @@
   class="fixed lg:hidden flex bg-[#ffffff67] backdrop-blur-sm h-[calc(100dvh-50px)] w-full z-50 top-[50px] !px-[10px] flex-col gap-[5px] text-black duration-500 ease-in-out transition-all translate-y-full"
 >
   <!-- - Navigational - -->
-  <div class="!font-extrabold uppercase !text-2xl">Shop</div>
-  <div class="flex flex-col w-fit uppercase !px-[10px] !pb-[20px] !gap-[5px] ">
+  <div class="!font-bold uppercase !text-2xl !pt-[10px]">Shop</div>
+  <div class="flex flex-col w-fit uppercase !pb-[20px] !gap-[5px] !text-md">
     {% for link in linklists['sidebar-menu'].links %}
       {% assign product_catergories = link.title | downcase %}
-      <a class="!font-extrabold" href="{{ link.url }}">
+      <a class="hover:!underline" href="{{ link.url }}">
         {{ link.title }}
       </a>
     {% endfor %}
@@ -60,7 +60,7 @@
   <div class="flex flex-row justify-between items-center">
     <div class="w-fit">
       <div
-        class="!font-extrabold uppercase !text-2xl items-center"
+        class="!font-bold uppercase !text-2xl items-center"
       >
         Cart (<span class="header__cart-quantity" data-ajax-cart-bind="item_count"> {{ cart.item_count }} </span>)
       </div>
@@ -100,14 +100,14 @@
               src="{{ line_item.image | image_url }}"
               loading="lazy"
             >
-            <div class="flex flex-col gap-[5px] uppercase !text-[14px] lg:!text-[10px] !font-bold">
+            <div class="flex flex-col gap-[5px] uppercase !text-[10px] !font-bold">
               <div class="flex flex-col justify-between h-full">
                 <div class="flex flex-col gap-[5px]">
-                  <a href="{{ line_item.url }}">{{ line_item.title | escape }}</a>
+                  <a class="!text-[12px]" href="{{ line_item.url }}">{{ line_item.title | escape }}</a>
                   <div>{{ line_item.final_price | money_with_currency }}</div>
-                  <div class="flex flex-row gap-[5px]">
+                  <div class="flex flex-row gap-[5px] items-center">
                     Quantity:
-                    <ajax-cart-quantity class="flex flex-row gap-[5px] items-center">
+                    <ajax-cart-quantity class="flex flex-row gap-[5px] !items-center justify-center">
                       <!-- "Minus one" button -->
                       <a
                         data-ajax-cart-quantity-minus
@@ -153,9 +153,9 @@
   </div>
   <!-- - Pages Navigations - -->
   <div class="absolute bottom-0 !pb-[20px] ">
-    <div class="!font-extrabold uppercase !text-3xl">Orswo</div>
+    <div class="!font-extrabold uppercase !text-2xl">Orswo</div>
     {% for page in pages %}
-      <div class="!font-extrabold uppercase !text-xl ">{{ page.title | link_to: page.url }}</div>
+      <div class="uppercase !text-xl hover:underline">{{ page.title | link_to: page.url }}</div>
     {%- endfor %}
   </div>
 </div>
@@ -191,13 +191,13 @@
           <div id="page-{{ page.title }}" class="flex flex-col gap-[10px]">
             <div
               onclick="toggleInfo(`{{ page.title }}`)"
-              class="cursor-pointer !text-[20px] !font-extrabold uppercase !text-[#000000b0]"
+              class="info-orswo-link cursor-pointer !text-[10px] !font-bold uppercase !text-[#000000b0] !w-fit"
             >
               {{ page.title }}
             </div>
             <div
               id="page-info-{{ page.title }}"
-              class="hidden !text-[#000000b0] !p-[10px] !bg-[#ebebeb70] rounded-[5px] !border !border-solid [&>p]:!pb-[10px]"
+              class="hidden !text-[#000000b0] backdrop-blur-[10px] !p-[10px] rounded-[5px] !border !border-[#363636] [&>p]:!pb-[10px]"
             >
               {{ page.content }}
             </div>
