@@ -1,9 +1,5 @@
- {% comment %} 
-  CATERGORIES
-    TODO:
-     At a screen width of 1410px maybe make the catergories above the cycling gallery 
- {% endcomment %}
-  
+{% assign full_url = request.path %}
+
 
 <div class="flex flex-col lg:gap-[6.25%] md:flex-col md:gap-[10px] lg:flex-row w-full lg:!pt-[60px]">
  
@@ -17,16 +13,25 @@
       <div class="relative md:block sm:block lg:block lg:sticky md:relative top-[50px] md:top-[60px] lg:h-[845px] w-full">
         <div class="flex flex-row justify-between w-full">
                 <div class="md:block md:relative @max-[1440px]:relative lg:flex flex-col gap-[5px] lg:!px-[20px] !p-[10px] z-10">
-
-                    {% for link in linklists['sidebar-menu'].links %}
-                    {% assign product_catergories = link.title | downcase %}
+                  <label class="hover:cursor-pointer custom-radio !text-[10px] uppercase">
+                    <input type="radio"
+                      {% if full_url == "/collections/all" %}
+                        checked
+                      {% endif %}>
+                    <span class="radio"></span>
+                     <a href="/collections/all">all</a>
+                  </label>
+                    {% for collection in collections %}
                       <label class="hover:cursor-pointer custom-radio !text-[10px] uppercase">
-                        <input type="radio" name="type-filter" id="{{ product_catergories }}" {% if product_catergories =='all' %}
-                          checked{% endif %}>
+                        <input type="radio"
+                          {% if full_url == collection.url %}
+                            checked
+                            {% endif %}>
                         <span class="radio"></span>
-                        {{ link.title }}
+                         <a href="{{ collection.url }}">{{ collection.title }}</a>
                       </label>
                     {% endfor %}
+                    
                 </div>
                 <div class="hidden lg:block all-images">
 
@@ -87,5 +92,5 @@
     <p>Sorry, there are no products in this collection</p>
     {% endif %} 
 </div>
-  <div class="lg:!hidden !p-[10px] !text-8xl !font-extrabold tracking-[-0.15em] !flex !flex-row">ORSWOORSWOORSWOORSWO</div>
+  {% comment %} <div class="lg:!hidden !p-[10px] !text-8xl !font-extrabold tracking-[-0.15em] !flex !flex-row">ORSWOORSWOORSWOORSWO</div> {% endcomment %}
 </div>
