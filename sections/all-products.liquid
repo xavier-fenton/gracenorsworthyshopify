@@ -14,13 +14,13 @@
 
 
     {% comment %} GALLERY AND PRODUCTS {% endcomment %}
-      <div class="hidden lg:block lg:sticky top-[60px] h-dvh md:h-[845px] lg:h-[845px] w-full">
+      <div class="relative md:block sm:block lg:block lg:sticky md:relative top-[50px] md:top-[60px] lg:h-[845px] w-full">
         <div class="flex flex-row justify-between w-full">
-                <div class="hidden @max-[1440px]:relative lg:flex flex-col gap-[5px] !top-[60px] !px-[20px] z-50">
+                <div class="md:block md:relative @max-[1440px]:relative lg:flex flex-col gap-[5px] lg:!px-[20px] !p-[10px] z-10">
 
                     {% for link in linklists['sidebar-menu'].links %}
                     {% assign product_catergories = link.title | downcase %}
-                      <label class="custom-radio !text-[10px] uppercase">
+                      <label class="hover:cursor-pointer custom-radio !text-[10px] uppercase">
                         <input type="radio" name="type-filter" id="{{ product_catergories }}" {% if product_catergories =='all' %}
                           checked{% endif %}>
                         <span class="radio"></span>
@@ -28,7 +28,7 @@
                       </label>
                     {% endfor %}
                 </div>
-                <div class="all-images">
+                <div class="hidden lg:block all-images">
 
 
                   {% assign all_images = "" %}
@@ -63,7 +63,7 @@
     {% comment %} All products scroll section {% endcomment %}
     {% if collection.all_products_count > 0 %}
 
-    <div class="grid  lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2  grid-cols-1  gap-2 !pt-[50px] pb-2 lg:flex lg:flex-col lg:flex-start w-full lg:!pt-0 lg:!pb-[80px] !p-[10px]">
+    <div class="grid  lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2  grid-cols-1 gap-2 lg:gap-2 md:gap-2 !pt-[50px] pb-2 lg:flex lg:flex-col lg:flex-start w-full lg:!pt-0 lg:!pb-[80px] !p-[10px]">
       {% for product in collection.products %}
 
       {% comment %} This product-card could possibly be turned to a section {% endcomment %}
