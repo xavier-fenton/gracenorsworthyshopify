@@ -63,7 +63,7 @@
     {% comment %} All products scroll section {% endcomment %}
     {% if collection.all_products_count > 0 %}
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:flex lg:flex-col lg:flex-start gap-[10px] w-full !pt-[50px] lg:!pt-0 pb-0 lg:!pb-[80px] !pr-[10px]">
+    <div class="grid  lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2  grid-cols-1  gap-2 !pt-[50px] pb-2 lg:flex lg:flex-col lg:flex-start w-full lg:!pt-0 lg:!pb-[80px] !p-[10px]">
       {% for product in collection.products %}
 
       {% comment %} This product-card could possibly be turned to a section {% endcomment %}
@@ -73,7 +73,7 @@
             alt="{{ product.title | escape }}" loading="lazy" width="" height="">
         </a>
 
-        <div class="flex flex-row justify-between">
+        <div class="flex flex-col lg:flex-row justify-between">
           <a class="{{ product.url }} uppercase !text-[10px]" href="{{ product.url }}" id="{{ product.url }}">
             {{ product.title }}
           </a>
@@ -87,4 +87,5 @@
     <p>Sorry, there are no products in this collection</p>
     {% endif %} 
 </div>
+  <div class="lg:!hidden !p-[10px] !text-8xl !font-extrabold tracking-[-0.15em] !flex !flex-row">ORSWOORSWOORSWOORSWO</div>
 </div>
