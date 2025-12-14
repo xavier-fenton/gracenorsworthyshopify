@@ -191,18 +191,12 @@
       <div class="flex flex-end flex-col gap-[5px]">
         {% for page in pages %}
           <div id="page-{{ page.title }}" class="flex flex-col gap-[10px]">
-            <div
-              onclick="toggleInfo(`{{ page.title }}`)"
+            <a
+              href="{{ page.url }}"
               class="info-orswo-link cursor-pointer !text-[10px] !font-bold uppercase !text-[#000000b0] !w-fit"
             >
               {{ page.title }}
-            </div>
-            <div
-              id="page-info-{{ page.title }}"
-              class="hidden !text-[#000000b0] backdrop-blur-[10px] !p-[10px] rounded-[5px] !border !border-[#363636] [&>p]:!pb-[10px]"
-            >
-              {{ page.content }}
-            </div>
+            </a>
           </div>
         {%- endfor %}
       </div>
