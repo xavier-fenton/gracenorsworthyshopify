@@ -413,14 +413,23 @@
   .gap-\[100px\] {
     gap: 100px;
   }
+  .overflow-hidden {
+    overflow: hidden;
+  }
   .overflow-x-hidden {
     overflow-x: hidden;
   }
   .\!overflow-y-hidden {
     overflow-y: hidden !important;
   }
+  .\!overflow-y-scroll {
+    overflow-y: scroll !important;
+  }
   .overflow-y-auto {
     overflow-y: auto;
+  }
+  .overflow-y-hidden {
+    overflow-y: hidden;
   }
   .overflow-y-scroll {
     overflow-y: scroll;
@@ -721,6 +730,11 @@
   .md\:h-\[10px\] {
     @media (width >= 48rem) {
       height: 10px;
+    }
+  }
+  .md\:h-full {
+    @media (width >= 48rem) {
+      height: 100%;
     }
   }
   .md\:w-1\/2 {
