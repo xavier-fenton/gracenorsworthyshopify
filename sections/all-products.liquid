@@ -1,96 +1,88 @@
 {% assign full_url = request.path %}
 
-
-<div class="flex flex-col lg:gap-[6.25%] md:flex-col md:gap-[10px] lg:flex-row w-full lg:!pt-[60px]">
- 
-  
-  <div class="flex w-full justify-between">
-
-     
-
-
-    {% comment %} GALLERY AND PRODUCTS {% endcomment %}
-      <div class="relative md:block sm:block lg:block lg:sticky md:relative top-[50px] md:top-[60px] lg:h-[845px] w-full">
-        <div class="flex flex-row justify-between w-full">
-                <div class="md:block md:relative @max-[1440px]:relative lg:flex flex-col gap-[5px] lg:!px-[20px] !p-[10px] z-10">
-                  <label class="hover:cursor-pointer custom-radio !text-[10px] uppercase">
-                    <input type="radio"
-                      {% if full_url == "/collections/all" %}
-                        checked
-                      {% endif %}>
-                    <span class="radio"></span>
-                     <a href="/collections/all">all</a>
-                  </label>
-                    {% for collection in collections %}
-                      <label class="hover:cursor-pointer custom-radio !text-[10px] uppercase">
-                        <input type="radio"
-                          {% if full_url == collection.url %}
-                            checked
-                            {% endif %}>
-                        <span class="radio"></span>
-                         <a href="{{ collection.url }}">{{ collection.title }}</a>
-                      </label>
-                    {% endfor %}
-                    
-                </div>
-                <div class="hidden lg:block all-images">
-
-
-                  {% assign all_images = "" %}
-
-                  {% for product in collection.products %}
-                  {% for image in product.images %}
-                  {% if forloop.first and forloop.index0 > 0 %}
-                  {% assign all_images = all_images | append: ", " %}
-                  {% endif %}
-                  {% assign all_images = all_images | append: image.src %}
-                  {% endfor %}
-                  {% endfor %}
-
-                  <span class="collect-images" data-images="{{ all_images }}"></span>
-
-                  {% comment %} 
-                    TODO: 
-                      Animate image in
-                  {% endcomment %}
-                  <img class="aspect-[1/1.4] h-full w-full lg:!h-[810px] lg:!w-[540px] !object-cover" id="featured-image"
-                    src="{{ collection.products[0].featured_image |  image_url }}" loading="lazy" width="" height="">
-
-
-                </div>
-          </div>
-      </div>
-
-
-  </div>
-
-
-    {% comment %} All products scroll section {% endcomment %}
-    {% if collection.all_products_count > 0 %}
-
-    <div class="grid  lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2  grid-cols-1 gap-2 lg:gap-2 md:gap-2 !pt-[50px] pb-2 lg:flex lg:flex-col lg:flex-start w-full lg:!pt-0 lg:!pb-[80px] !p-[10px]">
-      {% for product in collection.products %}
-
-      {% comment %} This product-card could possibly be turned to a section {% endcomment %}
-      <div class="product-card flex flex-col !gap-[5px] w-fit" data-type="{{ product.type | downcase }}">
-        <a class="" href="{{ product.url }}">
-          <img class="aspect-[1/1.4] h-full w-full lg:h-[810px] lg:w-[540px] object-cover" src="{{ product.featured_image | image_url }}"
-            alt="{{ product.title | escape }}" loading="lazy" width="" height="">
-        </a>
-
-        <div class="flex flex-col lg:flex-row justify-between">
-          <a class="{{ product.url }} uppercase !text-[10px]" href="{{ product.url }}" id="{{ product.url }}">
-            {{ product.title }}
-          </a>
-          <div class="!text-[10px]">{{ product.price | money_with_currency }}</div>
+<div class="w-full flex lg:flex-row flex-col lg:justify-between lg:!pt-[50px] lg:gap-[100px] gap-2">
+  {% comment %} GALLERY AND PRODUCTS {% endcomment %}
+  <div class="lg:sticky relative !top-[50px] w-full h-full">
+    <div class="w-full flex flex-row justify-between lg:!px-[10px] lg:!pt-0 lg:!pb-0 !p-[10px]">
+      <div class="flex lg:flex-col flex-row gap-1 lg:!text-[10px] !text-[12px] uppercase">
+        <div class="flex flex-row gap-1 items-center">
+          {% if full_url == '/collections/all' %}
+            <div class="w-[10px] h-[8px] !border !border-solid relative bg-black"></div>
+          {% else %}
+            <div class="w-[10px] h-[8px] !border !border-solid relative bg-none"></div>
+          {% endif %}
+          <a href="/collections/all">all</a>
         </div>
+        {% for collection in collections %}
+          <div class="hover:cursor-pointer  uppercase">
+            <div class="flex flex-row gap-1 items-center">
+              {% if full_url == collection.url %}
+                <div class="w-[10px] h-[8px] !border !border-solid relative bg-black"></div>
+              {% else %}
+                <div class="w-[10px] h-[8px] !border !border-solid relative bg-none"></div>
+              {% endif %}
+              <a href="{{ collection.url }}">{{ collection.title }}</a>
+            </div>
+          </div>
+        {% endfor %}
       </div>
-      {% endfor %}
+      <div class="items-center hidden lg:block all-images">
+        {% assign all_images = '' %}
+
+        {% for product in collection.products %}
+          {% for image in product.images %}
+            {% if forloop.first and forloop.index0 > 0 %}
+              {% assign all_images = all_images | append: ', ' %}
+            {% endif %}
+            {% assign all_images = all_images | append: image.src %}
+          {% endfor %}
+        {% endfor %}
+
+        <span class="collect-images" data-images="{{ all_images }}"></span>
+
+        {% comment %}
+          TODO:
+            Animate image in
+        {% endcomment %}
+        <img
+          class="aspect-[1/1.4] h-full w-full lg:!h-[810px] lg:!w-[540px] !object-cover"
+          id="featured-image"
+          src="{{ collection.products[0].featured_image |  image_url }}"
+          loading="lazy"
+          width=""
+          height=""
+        >
+      </div>
     </div>
+  </div>
+  {% comment %} All products scroll section {% endcomment %}
+  <div class="grid  lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2  grid-cols-1 gap-2 lg:gap-2 md:gap-2 !pt-[50px] pb-2 lg:flex lg:flex-col lg:flex-start w-full lg:!pt-0 lg:!pb-[80px] !p-[10px]">
+    {% if collection.all_products_count > 0 %}
+      {% for product in collection.products %}
+        {% comment %} This product-card could possibly be turned to a section {% endcomment %}
+        <div class="product-card flex flex-col !gap-[5px] w-fit" data-type="{{ product.type | downcase }}">
+          <a class="" href="{{ product.url }}">
+            <img
+              class="aspect-[1/1.4] h-full w-full lg:h-[810px] lg:w-[540px] object-cover"
+              src="{{ product.featured_image | image_url }}"
+              alt="{{ product.title | escape }}"
+              loading="lazy"
+              width=""
+              height=""
+            >
+          </a>
+
+          <div class="flex flex-col lg:flex-row justify-between">
+            <a class="{{ product.url }} uppercase !text-[10px]" href="{{ product.url }}" id="{{ product.url }}">
+              {{ product.title }}
+            </a>
+            <div class="!text-[10px]">{{ product.price | money_with_currency }}</div>
+          </div>
+        </div>
+      {% endfor %}
 
     {% else %}
-    <p>Sorry, there are no products in this collection</p>
-    {% endif %} 
-</div>
-  {% comment %} <div class="lg:!hidden !p-[10px] !text-8xl !font-extrabold tracking-[-0.15em] !flex !flex-row">ORSWOORSWOORSWOORSWO</div> {% endcomment %}
+      <p>Sorry, there are no products in this collection</p>
+    {% endif %}
+  </div>
 </div>
