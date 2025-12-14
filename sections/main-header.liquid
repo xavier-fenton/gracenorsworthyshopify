@@ -65,21 +65,6 @@
         Cart (<span class="header__cart-quantity" data-ajax-cart-bind="item_count"> {{ cart.item_count }} </span>)
       </div>
     </div>
-    {% if cart.item_count >= 1 %}
-      <div class="flex !p-[10px]">
-        {% form 'cart', cart, id: 'my-ajax-cart-form' %}
-          <button
-            class="bg-black text-white text-[10px] uppercase p-[10px] cursor-pointer"
-            type="submit"
-            name="checkout"
-          >
-            Checkout — {{ cart.total_price | money_with_currency }}
-          </button>
-        {% endform %}
-      </div>
-    {% else %}
-
-    {% endif %}
   </div>
   {% comment %}
     TODO:
@@ -149,6 +134,21 @@
           </div>
         </div>
       {% endfor %}
+      {% if cart.item_count > 0 %}
+        <div class="flex !p-[10px]">
+          {% form 'cart', cart, id: 'my-ajax-cart-form' %}
+            <button
+              class="bg-black text-white text-[10px] uppercase p-[10px] cursor-pointer"
+              type="submit"
+              name="checkout"
+            >
+              Checkout — {{ cart.total_price | money_with_currency }}
+            </button>
+          {% endform %}
+        </div>
+      {% else %}
+        <div class="hidden"></div>
+      {% endif %}
     </div>
   </div>
   <!-- - Pages Navigations - -->
