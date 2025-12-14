@@ -581,6 +581,18 @@
     --tw-font-weight: var(--font-weight-extrabold) !important;
     font-weight: var(--font-weight-extrabold) !important;
   }
+  .\!tracking-\[-0\.05em\] {
+    --tw-tracking: -0.05em !important;
+    letter-spacing: -0.05em !important;
+  }
+  .\!tracking-\[-0\.5em\] {
+    --tw-tracking: -0.5em !important;
+    letter-spacing: -0.5em !important;
+  }
+  .\!tracking-\[-0\.10em\] {
+    --tw-tracking: -0.10em !important;
+    letter-spacing: -0.10em !important;
+  }
   .\!tracking-\[-0\.15em\] {
     --tw-tracking: -0.15em !important;
     letter-spacing: -0.15em !important;

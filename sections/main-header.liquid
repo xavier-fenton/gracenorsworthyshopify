@@ -47,12 +47,12 @@
   class="fixed lg:hidden flex bg-[#ffffff67] backdrop-blur-sm h-[calc(100dvh-50px)] w-full z-50 top-[50px] !px-[10px] flex-col gap-[5px] text-black duration-500 ease-in-out transition-all translate-y-full"
 >
   <!-- - Navigational - -->
-  <div class="!font-bold uppercase !text-2xl !pt-[10px]">Shop</div>
-  <div class="flex flex-col w-fit uppercase !pb-[20px] !gap-[5px] !text-md">
-    {% for link in linklists['sidebar-menu'].links %}
-      {% assign product_catergories = link.title | downcase %}
-      <a class="hover:!underline" href="{{ link.url }}">
-        {{ link.title }}
+  <div class="!text-4xl !tracking-[-0.10em]  !font-extrabold uppercase">Shop</div>
+  <div class="flex flex-col w-fit uppercase !pb-[20px] !gap-[5px] !text-md !tracking-[-0.05em]">
+    <a class="hover:!underline" href="/collections/all"> all </a>
+    {% for collection in collections %}
+      <a class="hover:!underline" href="{{ collection.url }}">
+        {{ collection.title }}
       </a>
     {% endfor %}
   </div>
@@ -60,7 +60,7 @@
   <div class="flex flex-row justify-between items-center">
     <div class="w-fit">
       <div
-        class="!font-bold uppercase !text-2xl items-center"
+        class="!text-4xl !tracking-[-0.10em] uppercase !font-extrabold items-center"
       >
         Cart (<span class="header__cart-quantity" data-ajax-cart-bind="item_count"> {{ cart.item_count }} </span>)
       </div>
@@ -153,9 +153,11 @@
   </div>
   <!-- - Pages Navigations - -->
   <div class="!pb-[20px] ">
-    <div class="!font-extrabold uppercase !text-2xl">Orswo</div>
+    <div class="!text-4xl !tracking-[-0.10em] !font-extrabold uppercase">Orswo</div>
     {% for page in pages %}
-      <div class="uppercase !text-xl hover:underline">{{ page.title | link_to: page.url }}</div>
+      <div class="uppercase !text-2xl !tracking-[-0.10em]  !font-extrabold hover:underline">
+        {{ page.title | link_to: page.url }}
+      </div>
     {%- endfor %}
   </div>
 </div>
