@@ -1,4 +1,4 @@
-<div class="flex flex-col-reverse lg:flex-row-reverse gap-[10px] lg:gap-[6.25%] md:!pt-[60px] lg:!pt-[60px] md:!px-[10px] lg:!px-[10px] w-full">
+<div class="flex flex-col-reverse lg:flex-row-reverse gap-[10px] lg:gap-[6.25%] md:!pt-[60px] lg:!pt-[60px] px-[10px] w-full">
   {% comment %}
     <div class="lg:!hidden !p-[10px] !text-8xl !font-extrabold tracking-[-0.15em] !flex !flex-row">
       ORSWOORSWOORSWOORSWO
@@ -37,11 +37,11 @@
 
   <!-- Swiper for Mobile Only -->
   <div id="swiper-display" class="swiper mySwiper">
-    <div class="swiper-wrapper">
+    <div class="swiper-wrapper !pt-[50px]">
       {% for imageSource in product.images %}
         <div class="swiper-slide">
           <img
-            class="object-cover h-dvh w-full"
+            class="object-cover h-dvh w-full !px-[10px]"
             alt="{{ product.alt }}"
             src="{{ imageSource.src | image_url }}"
             loading="lazy"
@@ -52,7 +52,7 @@
   </div>
 
   <!-- Product Image Layout for Desktop -->
-  <div class="hidden lg:flex items-center lg:items-end md:grid md:grid-cols-2 md:gap-[5px] lg:flex-col gap-[10px] xl:w-1/2">
+  <div class="hidden lg:flex items-center lg:items-end md:grid md:grid-cols-2 md:gap-[5px] lg:flex-col gap-[10px] xl:w-1/2 !px-[10px]">
     {% if product.images.size == 0 %}
       <img class="w-full" alt="{{ product.alt }}" src="{{ product.featured_image.src | image_url }}" loading="lazy">
     {% else %}
