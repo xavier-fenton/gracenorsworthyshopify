@@ -124,6 +124,9 @@ input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+.noscroll::-webkit-scrollbar {
+  display: none !important;
+}
 
 
 #cart::-webkit-scrollbar {
