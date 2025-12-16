@@ -1,29 +1,43 @@
 
+
 function randomIntFromInterval(min, max) { // min and max included 
         return Math.floor(Math.random() * (max - min + 1) + min);
 }
-      
-      
-$(document).ready(() => {
-    // Access the data attribute
-    const imagesString = $('.collect-images').data('images');
-    // Step 1: Split the string at each occurrence of "files/"
-    let imagesArray = imagesString.split("files/");
 
-    // Step 2: Add "files/" back to each element (ignoring the first empty element)
-    imagesArray = imagesArray
-    .filter(Boolean)
-    .map(image => "files/" + image); // Add "files/" prefix back
+document.addEventListener("DOMContentLoaded", function() {
+    const currentURL = window.location.pathname;
 
-
-    function imageSource(images) {
-       return images[randomIntFromInterval(0, images.length - 1)]
+    if (currentURL.startsWith("/collections"))
+    {
+            const imagesString = document.querySelector('#collect-images');
+            
+            
+            if(!imagesString.dataset.images){
+                console.error("Error: Problem setting images");
+                console.trace();                
+            } else {
+                
+                let imagesArray = imagesString.dataset.images.split("files/").filter(Boolean);
+                function imageSource(images) {
+                
+                return images[randomIntFromInterval(0, images.length - 1)]
+            }
+            
+            document.querySelector("#featured-image").setAttribute("src", `/cdn/shop/files/${imageSource(imagesArray)}`);   
+            
+            setInterval(() => {
+                document.querySelector("#featured-image").setAttribute("src", `/cdn/shop/files/${imageSource(imagesArray)}`);
+                
+            }, 3500);
+            setInterval(() => {
+                document.querySelector("#featured-image").classList.remove("blur-xs")
+            }, 1000);
+            }
+            
+            
+    } else {
+        return;
     }
     
-    setInterval(() => {
-        $("#featured-image").attr("src", `/cdn/shop/${imageSource(imagesArray)}`);
-        
-    }, 3500);
-
-
-  });
+    
+});
