@@ -1,6 +1,6 @@
 {% assign full_url = request.path %}
 
-<div class="w-full flex lg:flex-row flex-col lg:justify-between lg:!pt-[50px] lg:gap-[100px] gap-2">
+<div class="animate-appear2 w-full flex lg:flex-row flex-col lg:justify-between lg:!pt-[50px] lg:gap-[100px] gap-2">
   {% comment %} GALLERY AND PRODUCTS {% endcomment %}
   <div class="lg:sticky relative !top-[50px] w-full h-full">
     <div class="w-full flex flex-row justify-between lg:!px-[10px] lg:!pt-0 lg:!pb-0 !p-[10px]">
@@ -38,16 +38,16 @@
           {% endfor %}
         {% endfor %}
 
-        <span class="collect-images" data-images="{{ all_images }}"></span>
+        <span id="collect-images" data-images="{{ all_images }}"></span>
 
         {% comment %}
           TODO:
             Animate image in
         {% endcomment %}
+
         <img
-          class="aspect-[1/1.4] h-full w-full lg:!h-[810px] lg:!w-[540px] !object-cover"
+          class="aspect-[1/1.4] h-full w-full lg:!h-[810px] lg:!w-[540px] !object-cover blur-xs bg-[#dbdbdb56]"
           id="featured-image"
-          src="{{ collection.products[0].featured_image |  image_url }}"
           loading="lazy"
           width=""
           height=""
