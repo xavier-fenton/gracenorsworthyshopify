@@ -5,27 +5,39 @@ function randomIntFromInterval(min, max) { // min and max included
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    
-    const imagesString = document.querySelector('#collect-images');
-    let imagesArray = imagesString.dataset.images.split("files/").filter(Boolean);
-    
-    function imageSource(images) {
-        console.log(images[randomIntFromInterval(0, images.length - 1)]);
-        
-        return images[randomIntFromInterval(0, images.length - 1)]
+    const currentURL = window.location.pathname;
+
+    if (currentURL == "/collections/all")
+    {
+            const imagesString = document.querySelector('#collect-images');
+            
+            
+            if(!imagesString.dataset.images){
+                console.error("Error: Problem setting images");
+                console.trace();                
+            } else {
+                
+                let imagesArray = imagesString.dataset.images.split("files/").filter(Boolean);
+                function imageSource(images) {
+                
+                return images[randomIntFromInterval(0, images.length - 1)]
+            }
+            
+            document.querySelector("#featured-image").setAttribute("src", `/cdn/shop/files/${imageSource(imagesArray)}`);   
+            
+            setInterval(() => {
+                document.querySelector("#featured-image").setAttribute("src", `/cdn/shop/files/${imageSource(imagesArray)}`);
+                
+            }, 3500);
+            setInterval(() => {
+                document.querySelector("#featured-image").classList.remove("blur-xs")
+            }, 1000);
+            }
+            
+            
+    } else {
+        return;
     }
     
-    document.querySelector("#featured-image").setAttribute("src", `/cdn/shop/files/${imageSource(imagesArray)}`);   
-    
-    setInterval(() => {
-         document.querySelector("#featured-image").classList.remove("blur-xs")
-         document.querySelector("#featured-image").setAttribute("src", `/cdn/shop/files/${imageSource(imagesArray)}`);
-         
-     }, 3500);
-     setInterval(() => {
-        document.querySelector("#featured-image").classList.remove("blur-xs")
-
-        
-    }, 1000);
     
 });
