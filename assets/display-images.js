@@ -7,7 +7,7 @@ function randomIntFromInterval(min, max) { // min and max included
 document.addEventListener("DOMContentLoaded", function() {
     const currentURL = window.location.pathname;
 
-    if (currentURL == "/collections/all")
+    if (currentURL.startsWith("/collections"))
     {
             const imagesString = document.querySelector('#collect-images');
             
