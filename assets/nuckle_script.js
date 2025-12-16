@@ -19,6 +19,8 @@ async function init() {
   renderer = new THREE.WebGLRenderer({ antialias: true })
 
   renderer.domElement.style.width = '100% !important'
+  renderer.domElement.classList.add('animate-appear2')
+
   renderer.setPixelRatio(window.devicePixelRatio)
   renderer.setSize(window.innerWidth, window.innerHeight)
 
