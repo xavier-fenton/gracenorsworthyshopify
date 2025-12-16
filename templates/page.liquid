@@ -1,25 +1,23 @@
 {% assign full_url = request.path %}
 {% comment %} {% assign type = request.page_type %}  {% endcomment %}
-{% for  pages in page %}  
- {{ pages }}
+{% for pages in page %}
+  {{ pages }}
 {% endfor %}
 
 <div class="page-wrapper">
+  {% if full_url contains 'privacy-policy' %}
+    {% section 'privacy-page' %}
 
-      {% if full_url contains 'privacy-policy' %}
-        {% section 'privacy-page' %}
-      
-        
-        
-      {% elsif full_url contains 'about' %}
-        
-        {% section 'about-page' %}
+  {% elsif full_url contains 'about' %}
+    {% section 'about-page' %}
+
+  {% elsif full_url contains 'faq' %}
+    {% section 'faq-page' %}
+
+  {% elsif full_url contains 'stockists' %}
+    {% section 'stockists-page' %}
+
+  {% elsif full_url contains 'custom-orders' %}
+    {% section 'custom-orders-page' %}
   {% endif %}
-  </div>
-
-  
-  {% section 'title-seperator' %}
-  {% section 'footer' %}
-
-
-
+</div>

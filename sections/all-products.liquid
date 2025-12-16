@@ -1,47 +1,88 @@
+{% assign full_url = request.path %}
 
-
-  {% if collection.all_products_count > 0 %}
-    <div class="all-products-wrapper">
-      <div class="all-products">
-
-        {% for product in collection.products %}
-
-          {% comment %} This product-card could possibly be turned to a section {% endcomment %}
-          <div class="product-card">
-
-          <a href="{{ product.url }}">
-            
-            <img
-              class="product-img"
-              src="{{ product.featured_image.src | img_url: '500x500', format: 'pjpg' }}"
-              alt="{{ product.title | escape }}"
-              loading="lazy" />
-          </a>
-
-
-
-
-            <div class="product-card-description">
-              <div class="product-card-description-values">
-                <a class="{{ product.url }} product-card-title-link" href="{{ product.url }}" id="{{ product.url }}" >{{ product.title }}</a>
-                <div class="all-products-currency">{{ product.price | money }}</div>
-              </div>
+<div class="animate-appear2 w-full flex lg:flex-row flex-col lg:justify-between lg:!pt-[50px] lg:gap-[100px] gap-2">
+  {% comment %} GALLERY AND PRODUCTS {% endcomment %}
+  <div class="lg:sticky relative !top-[50px] w-full h-full">
+    <div class="w-full flex flex-row justify-between lg:!px-[10px] lg:!pt-0 lg:!pb-0 !p-[10px]">
+      <div class="flex lg:flex-col flex-row gap-1 lg:!text-[10px] !text-[12px] uppercase">
+        <div class="flex flex-row gap-1 items-center">
+          {% if full_url == '/collections/all' %}
+            <div class="w-[10px] h-[8px] !border !border-solid relative bg-black"></div>
+          {% else %}
+            <div class="w-[10px] h-[8px] !border !border-solid relative bg-none"></div>
+          {% endif %}
+          <a href="/collections/all">all</a>
+        </div>
+        {% for collection in collections %}
+          <div class="hover:cursor-pointer  uppercase">
+            <div class="flex flex-row gap-1 items-center">
+              {% if full_url == collection.url %}
+                <div class="w-[10px] h-[8px] !border !border-solid relative bg-black"></div>
+              {% else %}
+                <div class="w-[10px] h-[8px] !border !border-solid relative bg-none"></div>
+              {% endif %}
+              <a href="{{ collection.url }}">{{ collection.title }}</a>
             </div>
-
           </div>
         {% endfor %}
+      </div>
+      <div class="items-center hidden lg:block all-images">
+        {% assign all_images = '' %}
 
+        {% for product in collection.products %}
+          {% for image in product.images %}
+            {% if forloop.first and forloop.index0 > 0 %}
+              {% assign all_images = all_images | append: ', ' %}
+            {% endif %}
+            {% assign all_images = all_images | append: image.src %}
+          {% endfor %}
+        {% endfor %}
 
+        <span id="collect-images" data-images="{{ all_images }}"></span>
+
+        {% comment %}
+          TODO:
+            Animate image in
+        {% endcomment %}
+
+        <img
+          class="aspect-[1/1.4] h-full w-full lg:!h-[810px] lg:!w-[540px] !object-cover blur-xs bg-[#dbdbdb56]"
+          id="featured-image"
+          loading="lazy"
+          width=""
+          height=""
+        >
       </div>
     </div>
+  </div>
+  {% comment %} All products scroll section {% endcomment %}
+  <div class="grid  lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2  grid-cols-1 gap-2 lg:gap-2 md:gap-2 !pt-[50px] pb-2 lg:flex lg:flex-col lg:flex-start w-full lg:!pt-0 lg:!pb-24 !p-[10px]">
+    {% if collection.all_products_count > 0 %}
+      {% for product in collection.products %}
+        {% comment %} This product-card could possibly be turned to a section {% endcomment %}
+        <div class="product-card flex flex-col !gap-[5px] w-fit" data-type="{{ product.type | downcase }}">
+          <a class="" href="{{ product.url }}">
+            <img
+              class="aspect-[1/1.4] h-full w-full lg:h-[810px] lg:w-[540px] object-cover"
+              src="{{ product.featured_image | image_url }}"
+              alt="{{ product.title | escape }}"
+              loading="lazy"
+              width=""
+              height=""
+            >
+          </a>
 
-  {% else %}
-    <p>Sorry, there are no products in this collection</p>
-  {% endif %}
+          <div class="flex flex-col lg:flex-row gap-1 justify-between">
+            <a class="{{ product.url }} uppercase !text-[10px]" href="{{ product.url }}" id="{{ product.url }}">
+              {{ product.title }}
+            </a>
+            <div class="!text-[10px]">{{ product.price | money_with_currency }}</div>
+          </div>
+        </div>
+      {% endfor %}
 
-{% comment %} FOR IMAGE {% endcomment %}
-  {% comment %} <img
-  class="product-img"
-  src="{{ product.featured_image | product_img_url: 'grande' }}"
-  alt="{{ product.title | escape }}"
-  loading="lazy" /> {% endcomment %}
+    {% else %}
+      <p>Sorry, there are no products in this collection</p>
+    {% endif %}
+  </div>
+</div>

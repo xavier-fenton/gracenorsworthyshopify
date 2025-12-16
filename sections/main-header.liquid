@@ -1,103 +1,205 @@
-<div class="nav-links">
-
-  {% assign full_url = request.path %}
-  {% assign type = request.page_type %} 
-
-  {% if full_url == '/' %}
-    {% style %}
-      .nav-links{
-        background-color: transparent !important;
-      }
-      .nav-links a{
-        color: #e1f5ed !important;
-      }
-    {% endstyle %}
-
-    
-  {% endif %}
-  
-
- 
-  <div class="main-links">
-    {% for link in linklists.main-menu.links %}
- 
-
-
-      {% if link.url == full_url %}
-
-        <div>
-          <a  href="{{ link.url }}">*{{ link.title }}</a>
-
-        </div>
-      {% elsif type == 'collection' and link.title == 'Shop' %}
-        <div>
-          <a  href="{{ link.url }}">*{{ link.title }}</a>
-
-        </div>
-
-        {% elsif type == 'product' and link.title == 'Shop' %}
-          <div>
-            <a  href="{{ link.url }}">*{{ link.title }}</a>
-  
+<div class="bg-[#ffffff67] lg:bg-[#fff0] lg:backdrop-blur-none backdrop-blur-sm fixed w-full z-50 !p-[10px] h-[50px]">
+  <div class="flex justify-between w-full h-full items-center">
+    <div class="hidden lg:flex !text-[10px] uppercase">
+      {% for link in linklists['main-menu'].links %}
+        {% if link.title == 'Shop' %}
+          <div class="orswo-link">
+            <a href="{{ link.url }}">{{ link.title }}</a>
           </div>
-  
-      {% else %}
+        {% else %}
 
-        <div>
-          <a href="{{ link.url }}">{{ link.title }}</a>
-          
+        {% endif %}
+      {% endfor %}
+    </div>
 
-        </div>
-      {% endif %}
-
-
-    {% endfor %}
-
-  </div>
-
-
- <div class="catergories-and-cart">
-
-  <div class="sdbar-lnks-wrapper">
-  {% assign full_url = request.path %}  
-
-  {% if type == 'collection' %}
-      {% for link in linklists.sidebar-menu.links %}
-
-
-          
-        
-        {% if link.url == full_url %}
-          
-          <div>
-            <a href="{{ link.url }}"> <span class="astrix">*</span>{{ link.title }}</a>
-            
-            </div>
-            {% else %}
-            <div>
-              <a href="{{ link.url }}">{{ link.title }}</a>
-              
-              
-              </div>
-            {% endif %}
-            
-            
-          {% endfor %}
-        {% endif %}  
-</div>
-
-  <div class="cart-link-btn">
-    <a data-ajax-cart-toggle-class-button="js-my-cart-open" href="{{ routes.cart_url }}">
-      
-        Cart 
-      <span data-ajax-cart-bind-state="cart.item_count">
-
-       {{ cart.item_count }}
-      </span> 
+    <div class="w-[110px] md:w-fit !lg:w-1/2 flex justify-center items-center">
+      <a class="w-full" href="/">
+        <img
+          class="lg:w-fit w-full"
+          src="{{ "orswo_logo.png" | asset_img_url }}"
+          loading="lazy"
+          width=""
+          height=""
+        >
       </a>
+    </div>
+    <div class="hidden lg:flex">
+      <div onclick="toggleCart()" class="orswo-link uppercase !text-[10px] cursor-pointer">
+        <a>
+          Cart
+          <span class="header__cart-quantity" data-ajax-cart-bind="item_count">
+            {{ cart.item_count }}
+          </span>
+        </a>
+      </div>
+    </div>
+    <div onclick="toggleSlideUp()" class="lg:hidden">
+      <a id="menu" class="orswo-link !text-[10px] lg:!text-[24px] !font-extrabold uppercase cursor-pointer"> Menu </a>
+    </div>
   </div>
 </div>
+
+<!-- Mobile Menu -->
+<!-- This will be the pages to navigate to "ready to ship, made to order" -->
+
+<div
+  id="mobile-menu"
+  class="fixed lg:hidden flex bg-[#ffffff67] backdrop-blur-sm h-[calc(100dvh-50px)] w-full z-50 top-[50px] !px-[10px] flex-col gap-[5px] text-black duration-500 ease-in-out transition-all translate-y-full"
+>
+  <!-- - Navigational - -->
+  <div class="!text-4xl !tracking-[-0.10em]  !font-extrabold uppercase">Shop</div>
+  <div class="flex flex-col w-fit uppercase !pb-[20px] !gap-[5px] !text-md !tracking-[-0.05em]">
+    <a class="hover:!underline" href="/collections/all"> all </a>
+    {% for collection in collections %}
+      <a class="hover:!underline" href="{{ collection.url }}">
+        {{ collection.title }}
+      </a>
+    {% endfor %}
   </div>
+  <!-- - Cart - -->
+  <div class="flex flex-row justify-between items-center">
+    <div class="w-fit">
+      <div
+        class="!text-4xl !tracking-[-0.10em] uppercase !font-extrabold items-center"
+      >
+        Cart (<span class="header__cart-quantity" data-ajax-cart-bind="item_count"> {{ cart.item_count }} </span>)
+      </div>
+    </div>
+  </div>
+  {% comment %}
+    TODO:
+      Sort cart height size properly
+  {% endcomment %}
 
+  {% comment %} CART IN MOBILE MENU {% endcomment %}
+  <div class="noscroll flex h-full w-full !overflow-y-scroll">
+    <div id="mobile-cart" class="!overflow-y-scroll relative w-full flex flex-col gap-[5px]" data-ajax-cart-section>
+      <!-- Loop through cart items -->
+      {% for line_item in cart.items %}
+        {% assign line_item_index = forloop.index %}
+        <div class="flex flex-col gap-[5px] h-full">
+          <div class="grid grid-cols-2 gap-[5px]">
+            <img
+              class="!h-[275px] w-full object-cover"
+              alt="{{ line_item.image }}"
+              src="{{ line_item.image | image_url }}"
+              loading="lazy"
+            >
+            <div class="flex flex-col gap-[5px] uppercase !text-[10px] !font-bold">
+              <div class="flex flex-col justify-between h-full">
+                <div class="flex flex-col gap-[5px]">
+                  <a class="!text-[12px]" href="{{ line_item.url }}">{{ line_item.title | escape }}</a>
+                  <div>{{ line_item.final_price | money_with_currency }}</div>
+                  <div class="flex flex-row gap-[5px] items-center">
+                    Quantity:
+                    <ajax-cart-quantity class="flex flex-row gap-[5px] !items-center justify-center">
+                      <!-- "Minus one" button -->
+                      <a
+                        data-ajax-cart-quantity-minus
+                        href="{{ routes.cart_change_url }}?line={{ line_item_index }}&quantity={{ line_item.quantity | minus: 1 }}"
+                      >
+                        -
+                      </a>
 
+                      <!-- Item quantity input -->
+                      <input
+                        class="!w-[20px] flex justify-center items-center text-center"
+                        data-ajax-cart-quantity-input="{{ line_item_index }}"
+                        name="updates[]"
+                        value="{{ line_item.quantity }}"
+                        type="number"
+                        form="my-ajax-cart-form"
+                        aria-hidden=""
+                      >
+
+                      <!-- "Plus one" button -->
+                      <a
+                        data-ajax-cart-quantity-plus
+                        href="{{ routes.cart_change_url }}?line={{ line_item_index }}&quantity={{ line_item.quantity | plus: 1 }}"
+                      >
+                        +
+                      </a>
+                    </ajax-cart-quantity>
+                  </div>
+
+                  <!-- Item error messages -->
+                  <div data-ajax-cart-errors="{{ line_item.key }}" class="!text-orange-500"></div>
+                </div>
+              </div>
+              <!-- "Remove item" button -->
+              <a data-ajax-cart-request-button href="{{ line_item.url_to_remove }}"> Remove </a>
+
+              <hr>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      {% if cart.item_count > 0 %}
+        <div class="flex !p-[10px]">
+          {% form 'cart', cart, id: 'my-ajax-cart-form' %}
+            <button
+              class="bg-black text-white text-[10px] uppercase p-[10px] cursor-pointer"
+              type="submit"
+              name="checkout"
+            >
+              Checkout — {{ cart.total_price | money_with_currency }}
+            </button>
+          {% endform %}
+        </div>
+      {% else %}
+        <div class="hidden"></div>
+      {% endif %}
+    </div>
+  </div>
+  <!-- - Pages Navigations - -->
+  <div class="!pb-[20px] ">
+    <div class="!text-4xl !tracking-[-0.10em] !font-extrabold uppercase">Orswo</div>
+    {% for page in pages %}
+      <div class="uppercase !text-2xl !tracking-[-0.10em]  !font-extrabold hover:underline">
+        {{ page.title | link_to: page.url }}
+      </div>
+    {%- endfor %}
+  </div>
+</div>
+
+<div class="hidden lg:fixed bottom-0 lg:block lg:bottom-0 w-full z-10 !p-[10px]">
+  <div class="flex justify-between w-full p-[10px]">
+    <div class="main-links">
+      <a class="orswo-link" href="https://www.instagram.com/orswo/">@orswo</a>
+    </div>
+    <div class="orswo-link">
+      <div class="cart-link-btn cursor-pointer" onclick="togglePageMenu()">info</div>
+    </div>
+  </div>
+</div>
+
+{% comment %} Desktop Info Tab {% endcomment %}
+<div
+  id="infoTab"
+  class="hidden !bg-[#cccccc42] fixed inset-0 overflow-x-hidden overflow-y-auto !m-auto w-[500px] h-[70dvh] z-10 backdrop-blur-[10px] rounded-[5px] border-solid shadow-2xl ease-in-out duration-300 transition !p-[10px] !border justify-between"
+>
+  <div class="flex flex-col h-full justify-between">
+    {% comment %} Info Rendered here {% endcomment %}
+    <div class="flex flex-col !pb-[10px] gap-[10px]">
+      <div class="sticky top-0 !backdrop-blur-[10px] !border !border-solid w-full !p-[10px] flex rounded-[10px] z-20 justify-between">
+        <div class="!text-[10px] uppercase !font-bold">info</div>
+        <div class="!text-[10px] uppercase !font-bold">orswo</div>
+        <div onclick="togglePageMenu()" class="cursor-pointer !text-[10px] uppercase !font-bold !backdrop-blur-[10px]">
+          exit
+        </div>
+      </div>
+      <div class="flex flex-end flex-col gap-[5px]">
+        {% for page in pages %}
+          <div id="page-{{ page.title }}" class="flex flex-col gap-[10px]">
+            <a
+              href="{{ page.url }}"
+              class="info-orswo-link cursor-pointer !text-[10px] !font-bold uppercase !text-[#000000b0] !w-fit"
+            >
+              {{ page.title }}
+            </a>
+          </div>
+        {%- endfor %}
+      </div>
+    </div>
+  </div>
 </div>
